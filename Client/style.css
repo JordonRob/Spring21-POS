@@ -1,0 +1,43 @@
+.button {
+    background-color: #33b7c9;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .item-description {
+    width:99%;
+    min-width: 99%;
+    height:768px;
+    border-style: ridge;
+    border-color: black;
+  }
+
+  .function-buttons{
+      width:fit-content;
+      height: auto;
+  }
+
+  .main-container{
+      width: 100%;
+      height: 100%;
+      border-style: solid;
+      border-color: black;
+      background-color: rgb(214, 209, 209);
+  }
+
+  .static-container{
+      border:none;
+      width: 60%;
+  }
+  html,body{
+    height:99%;
+     min-height:99%; 
+    }
