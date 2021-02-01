@@ -15,7 +15,7 @@
   .item-description {
     width:99.5%;
     min-width: 99.5%;
-    height:768px;
+    height:90%;
     border-style: ridge;
     border-color: black;
   }
@@ -38,13 +38,14 @@
       border: none;
       width: 100%;
       height: 90%;
+      padding-bottom:1px;
   }
 
   .info-container{
       border-style: solid;
       border-color: rgb(212, 10, 10);
-      width: 100%;
-      height: 10%;
+      width: 99.5%;
+      height: 9.5%;
   }
 
 
