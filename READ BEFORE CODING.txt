@@ -1,0 +1,3 @@
+Note to team
+
+Due to the nature of the POS System, scaling may be an issue in the beginning. Different partitions in the program may scale differently depending on screen size, screen resolution or screen orientation.
