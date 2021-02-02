@@ -13,20 +13,27 @@
 <div class="left-side">
 <div class="static-container"><!-- this container will contain mostly static elements on the applcation-->
 <div class="function-buttons"> <!-- This div is for the function buttons-->
-    <button class="button" id="transaction-function">Transaction Functions</button>
-    <button class="button" id="item-function">Item Functions</button>
-    <button class="button" id="management-function">Management Functions</button>
-    <button class="button" id="lock-button">🔒</button>
+    <button class="button" id="transaction-function" onclick="transaction()">Transaction Functions</button>
+    <button class="button" id="item-function" onclick="item()">Item Functions</button>
+    <button class="button" id="management-function" onclick="management()">Management Functions</button>
+    <button class="button" id="lock-button" onclick="lockscreen()">🔒</button>
 </div>
 
 <div class="item-description"><!--This div is for the item description-->
-</div>
+    <form>
+        <input type="search" id="pic" name="pic" placeholder="Please enter Product Identification Code 'PIDC'">
+
+
+
+    </form>
+    
 
 </div>
 
 <div class="info-container"><!--this container will contain employee and system information-->
 
 
+</div>
 </div>
 </div>
 
@@ -40,7 +47,11 @@
 
     
 </div>
-</div><!--eND OF MAIN-CONTAINER-->
+</div><!--END OF MAIN-CONTAINER-->
+
+
+<script src="script.js"></script>
+
 </body>
 
 </html>
