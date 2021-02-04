@@ -1,15 +1,35 @@
+
+
+
 .button {
     background-color: #33b7c9;
-    border: none;
+    border: solid;
+    border-color: rgb(6, 153, 148);
     border-radius: 12px;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 30px;
+    font-size: 115%;
     margin: 4px 2px;
     cursor: pointer;
+    
+  }
+
+
+  #transaction-function{
+
+  }
+
+  #item-function{
+
+  }
+  #management-function{
+
+  }
+  #lock-button{
+
   }
 
   .item-description {
@@ -22,7 +42,12 @@
 
   .function-buttons{
       width:fit-content;
-      height: auto;
+      height: 10%;
+      display: flex;
+    /*  justify-content: center;*/
+      align-items: center;
+      margin-right: 5%;
+      margin-left: 5%;
   }
 
   .main-container{
@@ -36,6 +61,7 @@
 
   .static-container{
       border: none;
+      
       width: 100%;
       height: 90%;
       padding-bottom:1px;
