@@ -14,9 +14,9 @@
 <div class="left-side">
 <div class="static-container"><!-- this container will contain mostly static elements on the applcation-->
 <div class="function-buttons"> <!-- This div is for the function buttons-->
-    <button class="button" id="transaction-function" onclick="transaction()">Transaction Functions</button>
-    <button class="button" id="item-function" onclick="item()">Item Functions</button>
-    <button class="button" id="management-function" onclick="management()">Management Functions</button>
+    <button class="button" id="transaction-function" onclick="on_transaction()">Transaction Functions</button>
+    <button class="button" id="item-function" onclick="on_item()">Item Functions</button>
+    <button class="button" id="management-function" onclick="on_management()">Management Functions</button>
     <button class="button" id="lock-button" onclick="lockscreen()">🔒</button>
 </div>
 
@@ -35,10 +35,46 @@
 
 
 </div>
-</div>
+</div><!--END OF LEFT-SIDE DIV-->
 
 <!-- this set of code will belong to the right side/dynamic side of the POS-->
 <div class="right-side">
+    <div class="functions">
+        <div id="transaction-overlay" onclick="off_transaction()">
+            <div class="functional-buttons">
+                <button class="button2" id="discount">Employee Discount</button>
+                <button class="button2" id="return">Return</button><br/>
+                <button class="button2" id="Open">Open Register</button>
+                <button class="button2" id="Miscellaneous">Misc.</button>
+            </div>
+        
+        </div>
+        <div id="item-overlay" onclick="off_item()"></div>
+        <div id="management-overlay" onclick="off_management()"></div>
+    </div>
+
+    <div class="keypad">
+        <ul id="numpad">   
+            <li class="letter">1</li>  
+            <li class="letter">2</li>  
+            <li class="letter">3</li>  
+            <li class="letter clearl">4</li>  
+            <li class="letter">5</li>  
+            <li class="letter">6</li> 
+          
+            <li class="letter clearl">7</li>  
+            <li class="letter ">8</li>  
+            <li class="letter">9</li>  
+            <li class="switch">.</li>  
+             <li class="letter">0</li>
+             <li class="delete"><</li>  
+        </ul>  
+
+    </div>
+
+    <div class="checkout">
+        <button class="button" id="checkout-button">Checkout</button>
+    </div>
 
 
 
@@ -46,7 +82,7 @@
 
 
     
-</div>
+</div><!--END OF RIGHT-SIDE DIV-->
 </div><!--END OF MAIN-CONTAINER-->
 
 

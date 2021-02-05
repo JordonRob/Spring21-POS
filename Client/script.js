@@ -1,12 +1,33 @@
-function lockscreen() {
-    alert ("When this button is pressed, User logs out");
+
+
+function on_transaction() {
+    document.getElementById("transaction-overlay").style.display = "block";
+    document.getElementById("item-overlay").style.display = "none";
+    document.getElementById("management-overlay").style.display = "none";
   }
-function management(){
-      alert("When pressed, management-only functions will appear on the right side")
+  function on_item() {
+    document.getElementById("item-overlay").style.display = "block";
+    document.getElementById("transaction-overlay").style.display = "none";
+    document.getElementById("management-overlay").style.display = "none";
+
   }
-function item(){
-    alert("When pressed, item function options will appear on the right side")
-}
-function transaction(){
-    alert("When pressed, transaction functions will appear on the right side")
-}
+  function on_management() {
+    document.getElementById("management-overlay").style.display = "block";
+    document.getElementById("transaction-overlay").style.display = "none";
+    document.getElementById("item-overlay").style.display = "none";
+  }
+
+  function lockscreen(){
+      alert("This logs the user out");
+  }
+
+
+  function off_transaction() {
+    document.getElementById("transaction-overlay").style.display = "none";
+  }
+  function off_item() {
+    document.getElementById("item-overlay").style.display = "none";
+  }
+  function off_management() {
+    document.getElementById("management-overlay").style.display = "none";
+  }
