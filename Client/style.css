@@ -2,7 +2,7 @@
 
 
 .button {
-    background-color: #33b7c9;
+    background-color:#1448a7;
     border: solid;
     border-color: rgb(6, 153, 148);
     border-radius: 12px;
@@ -35,6 +35,23 @@
     height: 4em;
     
   }
+  .button3 {
+    background-color:#1448a7;
+    border: solid;
+    border-color: rgb(6, 153, 148);
+    border-radius: 12px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 115%;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 30%;
+    margin-right: 1%;
+    margin-left: 1%;
+  }
 
     .functional-buttons{
         display: inline-block;
@@ -47,7 +64,7 @@
     }
 
   #transaction-overlay{
-      background-color: rgb(214, 209, 209);
+      background-color: rgb(255, 255, 255);
       display: none;
       z-index: 2;
       width: 100%;
@@ -73,16 +90,19 @@
       cursor: pointer;
 
   }
-  #lock-button{
-
+  #pic{
+color: none;
+background-color: rgb(253, 179, 152);
   }
 
   .item-description {
     width:99.5%;
     min-width: 99.5%;
     height:90%;
-    border-style: ridge;
-    border-color: black;
+    border-style: none;
+    background-color: #1448a7;
+    
+    border-color: none;
   }
 
   .function-buttons{
@@ -98,9 +118,9 @@
   .main-container{
       width: 100%;
       height: 100%;
-      border-style: solid;
-      border-color: black;
-      background-color: rgb(214, 209, 209);
+      border-style: none;
+      border-color: rgb(219, 32, 63);
+      background-color: rgb(255, 255, 255);
       display: flex;
   }
 
@@ -113,22 +133,24 @@
   }
 
   .info-container{
-      border-style: solid;
-      border-color: rgb(212, 10, 10);
+      border-style: none;
+      background-color: #1448a7;
+      border-color: none;
+      margin-top: 5px;
       width: 99.5%;
-      height: 9.5%;
+      height: 8.5%;
   }
 
 
   .right-side{
     flex: 0.4;
-    border-style: solid;
-    border-color:chartreuse;
+    border-style: none;
+    border-color: none;
   }
   .left-side{
     flex: 0.6;
-    border-style: solid;
-    border-color: chocolate;
+    border-style: none;
+    border-color: none;
 
   }
 
@@ -141,19 +163,21 @@
 
 .functions{
     border-style: solid;
-    border-color: mediumvioletred;
+  padding-top: 1px;
+    border-color: #2560cc;
+    background-color: #e6f2ff;
     height: 45%;
-    width: 100%;
+    width: 99%;
 }
 
 .keypad{
-    border-style: solid;
+    border-style: none;
     border-color: navy;
     height: 45%;
     width: 100%;
 }
 .checkout{
-    border-style: solid;
+    border-style: none;
     border-color: olivedrab;
     height: 9%;
     width: 100%;
@@ -161,43 +185,44 @@
 
 
 #numpad {  
-    margin: 0;  
+    display: block;
+    margin-right: 25%; 
+    margin-left: 25%; 
     padding: 0;  
     list-style: none;  
+    background-color: #1448a7;
     
     }  
-        #numpad li {  
+        #numpad li { 
+             
         float: left;  
         margin: 0 5px 5px 0;  
-        width: 60px;  
+        width: 110px;  
         height: 60px;  
-        font-size: 24px;
+        font-size: 30px;
+        color: white;
         line-height: 60px;  
         text-align: center;  
-        background: #fff;  
-        border: 1px solid #f9f9f9;  
-        border-radius: 5px; 
-        border-style: solid;
+        background: #1448a7;  
+        border: 3px solid;  
+        border-radius: none; 
+        border-style: none;
     border-color: rgb(212, 10, 10); 
         }  
             .capslock, .tab, .left-shift, .clearl, .switch {  
             clear: left;  
             }  
+            /*This is the back button*/
                 #numpad .tab, #numpad .delete {  
-                width: 70px;  
+                width: 110px;  
                 }  
-                #numpad .capslock {  
-                width: 80px;  
-                }  
+            /*This is the zero button*/
                 #numpad .return {  
-                width: 90px;  
+                width: 110px;  
                 }  
-                #numpad .left-shift{  
-                width: 70px;  
-                }  
-    
+                /* This is the decimal point*/
                 #numpad .switch {
-                width: 90px;
+                width: 110px;
                 }
                 #numpad .rightright-shift {  
                 width: 200px;  
@@ -230,5 +255,5 @@
   html,body{
     height:99%;
      min-height:99%; 
-     background-color:black;
+     background-color:white;
     }
