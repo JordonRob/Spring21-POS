@@ -1,0 +1,59 @@
+<!-- POS Item Page-->
+<h3><span style="color: #ffffff; padding: 60px;">Add An Item</span></h3>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+tr,td{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+ form{
+  float:right
+  }
+</style>
+
+
+<body style="background-color:navy">
+  <table style="background-color:white">
+  <tr>
+   
+    <td>Name:<input type="text">
+    </td>
+  </tr>
+    <tr>
+      <td>Manufacturer: <input type="text">
+      </td>
+    </tr>
+    <tr>
+      <td >Type: <input type="text">
+      </td>
+    </tr>
+  <tr>
+    <td>Retail Price:<input type="text">
+    </td>
+    </tr>
+    <tr> 
+      <td>Amount In Stock:<input type="text">
+      </td>
+    </tr>
+   <tr>
+    
+    <td>
+    <form>
+     <input type="submit"
+               value="Save">
+     
+    </form>
+    </td>
+    </body>
+  </tr>
+ 
