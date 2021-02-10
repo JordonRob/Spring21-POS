@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SecurePOS</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -46,27 +46,30 @@
             </div>
         
         </div>
-        <div id="item-overlay" onclick="off_item()"></div>
+        <div id="item-overlay" onclick="off_item()"></div> <!--THESE ARE OVERLAYS, THAT WILL SHOW ADDITIONAL FUNCTION BUTTONS-->
         <div id="management-overlay" onclick="off_management()"></div>
     </div>
 
     <div class="keypad">
+        <!-- The following code represents our number pad with button press functionality-->
         <ul id="numpad">   
-            <li class="letter">1</li>  
-            <li class="letter">2</li>  
-            <li class="letter">3</li>
+            <li class="letter" name="1" value="1" id="1" onclick="addNumber(this)">1</li>
+            <li class="letter" name="2" value="2" id="2" onclick="addNumber(this)">2</li>  
+            <li class="letter" name="3" value="3" id="3" onclick="addNumber(this)">3</li>
              
-            <li class="letter clearl">4</li>  
-            <li class="letter">5</li>  
-            <li class="letter">6</li> 
+            <li class="letter clearl" name="4" value="4" id="4" onclick="addNumber(this)">4</li>  
+            <li class="letter" name="5" value="5" id="5" onclick="addNumber(this)">5</li>  
+            <li class="letter" name="6" value="6" id="6" onclick="addNumber(this)">6</li> 
           
-            <li class="letter clearl">7</li>  
-            <li class="letter ">8</li>  
-            <li class="letter">9</li>  
+            <li class="letter clearl" name="7" value="7" id="7" onclick="addNumber(this)">7</li>  
+            <li class="letter " name="8" value="8" id="8" onclick="addNumber(this)">8</li>  
+            <li class="letter" name="9" value="9" id="9" onclick="addNumber(this)">9</li>  
 
-            <li class="switch">.</li>  
-             <li class="letter">0</li>
-             <li class="delete"><</li>  
+            <li class="switch" name="." value="." id="." onclick="addNumber(this)">.</li>  <!--There is a bug with this button needs to be fixed-->
+             <li class="letter" name="0" value="0" id="0" onclick="addNumber(this)">0</li>
+             <li class="delete" onclick="backSpace()"><</li> 
+             
+             <li class="enter">ENTER</li>
         </ul>  
 
     </div>

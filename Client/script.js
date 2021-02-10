@@ -31,3 +31,12 @@ function on_transaction() {
   function off_management() {
     document.getElementById("management-overlay").style.display = "none";
   }
+
+
+  function addNumber(element){
+      document.getElementById('pic').value = document.getElementById('pic').value+element.value;
+  }
+
+  function backSpace(){
+      document.getElementById('pic').value = document.getElementById('pic').value.substring(0, document.getElementById('pic').value.length-1);
+  }

@@ -186,8 +186,9 @@ background-color: rgb(253, 179, 152);
 
 #numpad {  
     display: block;
-    margin-right: 25%; 
-    margin-left: 25%; 
+    margin-right: none; 
+    margin-left: 5%; 
+    
     padding: 0;  
     list-style: none;  
     background-color: #1448a7;
@@ -197,7 +198,7 @@ background-color: rgb(253, 179, 152);
              
         float: left;  
         margin: 0 5px 5px 0;  
-        width: 110px;  
+        width: 31%;  
         height: 60px;  
         font-size: 30px;
         color: white;
@@ -209,23 +210,24 @@ background-color: rgb(253, 179, 152);
         border-style: none;
     border-color: rgb(212, 10, 10); 
         }  
-            .capslock, .tab, .left-shift, .clearl, .switch {  
+             .clearl {  
             clear: left;  
             }  
             /*This is the back button*/
                 #numpad .tab, #numpad .delete {  
-                width: 110px;  
+                width: 31%;  
                 }  
             /*This is the zero button*/
                 #numpad .return {  
-                width: 110px;  
+                width: 31%;  
                 }  
                 /* This is the decimal point*/
                 #numpad .switch {
-                width: 110px;
+                width: 31%;
                 }
-                #numpad .rightright-shift {  
-                width: 200px;  
+                #numpad .enter {  
+                    clear: left;
+                width: 95%;  
                 }  
             .lastitem {  
             margin-right: 0;  
