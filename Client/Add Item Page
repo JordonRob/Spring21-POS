@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<h3><span style="color: #ffffff; padding: 60px;">Add An Item</span></h3>
+<h3><span style="color: #ffffff; padding: 60px;">Add An Item</span></h3> <!-- Title-->
 <style>
 table {
   font-family: arial, sans-serif;
@@ -26,8 +26,8 @@ tr:nth-child(even) {
 
 
 <body style="background-color:navy">
-  <table style="background-color:white">
-  <tr>
+  <table style="background-color:white"> <!-- Table for Adding an Item-->
+  <tr>. <!-- 4 rows for each specification (name,manufacturer,price,stock amount-->
    
     <td>Name:<input type="text">
     </td>
@@ -51,7 +51,7 @@ tr:nth-child(even) {
    <tr>
     
     <td>
-    <form>
+    <form> <!-- Form created to save the inputs of the table-->
      <input type="submit"
                value="Save">
      
