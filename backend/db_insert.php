@@ -1,9 +1,6 @@
 <?php
 
-$link = mysqli_connect("localhost", "root", "", "securepos");
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
+include '../backend/db_connection.php';
 
 //$first_name = mysqli_real_escape_string($link, $_REQUEST['first_name']);
 //$last_name = mysqli_real_escape_string($link, $_REQUEST['last_name']);
