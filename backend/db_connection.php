@@ -22,6 +22,8 @@ function openConn() {
         }
         echo "<div>Database has been created</div>";
         $conn->select_db($dbname);
+        // We assume this is the first install so we'll create an admin user for administration.
+        createAdminUser($conn);
     }
     
     createTables($conn);
@@ -47,5 +49,16 @@ function createTables($conn) {
         echo "<div>Table failed to create</div>";
     }
 }
+
+function createAdminUser($conn) {
+    createTables($conn);
+    $create_admin_user_query = "INSERT INTO `users`(`firstname`, `lastname`, `is_management`) VALUES ('ADMIN', 'USER', TRUE)";
+    if ($conn->query($create_admin_user_query) === TRUE) {
+        echo "<div>Administration user created.</div>";
+    } else {
+        echo "Error: " . $create_admin_user_query . "<br>" . $conn->error;
+    }
+}
+
 
 ?>
