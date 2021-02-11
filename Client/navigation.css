@@ -1,0 +1,79 @@
+.retail-nav{
+    position: relative;
+    background-color: navy;
+    width: 300px;
+    height: 400px;
+    margin: 7em auto;
+    padding: 20px;
+    display: inline-block;
+    margin-top: 150px;
+    margin-bottom: 10px;
+    margin-left: 300px;
+} 
+
+
+.manager-nav{
+    background-color: navy;
+    width: 300px;
+    height: 400px;
+    margin: 7em auto;
+    padding: 20px;
+    display: inline-block;
+    margin-top: 150px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+}
+
+/*.button {
+    background-color: red;
+    border: solid;
+    border-color: navy;
+    border-radius: 0px;
+    color: white;
+    padding: 100px 100px;
+    float: left; 
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+    font-size: 160%;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    cursor: pointer;
+  } */
+
+  .button {
+    width:100%;
+    height:100%;
+    float:left;
+    background-color: rgba(0,0,0,0);
+    border:0px solid black;
+    color: white;
+    font-size: 160%;
+  }
+
+ /* .button2 {
+    width:100%;
+    height:50%;
+    float:left;
+    background-color: red;
+    border:0px solid black;
+  } */
+
+  /*.password {
+    width: 30%;
+    height: 30%
+    color: #3a55de
+    font-size: 50px;
+    font-family: sans-serif;
+    background: white;
+    padding: 25px 20px;
+    border: 5px;
+    box-sizing: border-box;
+    border: 4px solid;
+    text-align: left;
+    margin-top: 0px
+    margin-bottom: 200px;
+    margin-left: 0px;
+    margin-bottom: 40px;
+    } */
