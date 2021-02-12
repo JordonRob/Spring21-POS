@@ -40,3 +40,10 @@ function on_transaction() {
   function backSpace(){
       document.getElementById('pic').value = document.getElementById('pic').value.substring(0, document.getElementById('pic').value.length-1);
   }
+
+  function return_overlay(){
+    document.getElementById('return').style.display="block";
+    document.getElementById('main-container').style.display="none";
+
+
+  }

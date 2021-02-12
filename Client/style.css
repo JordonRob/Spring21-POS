@@ -63,6 +63,21 @@
         
     }
 
+    .overlay{
+      width: 99%;
+      height: 99%;
+      background-color: #e6f2ff;
+      opacity: none;
+      color: black;
+      display: none;
+      z-index: 2;
+      border-style: solid;
+      border-color: coral;
+      margin: auto;
+      
+      
+    }
+
   #transaction-overlay{
       background-color: #e6f2ff;
       display: none;
@@ -122,6 +137,8 @@ background-color: rgb(253, 179, 152);
       border-color: rgb(219, 32, 63);
       background-color: rgb(255, 255, 255);
       display: flex;
+      z-index: 1;
+    
   }
 
   .static-container{
