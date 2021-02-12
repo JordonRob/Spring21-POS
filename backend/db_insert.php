@@ -2,6 +2,7 @@
 
 include '../backend/db_connection.php';
 
+openCon();
 //$first_name = mysqli_real_escape_string($link, $_REQUEST['first_name']);
 //$last_name = mysqli_real_escape_string($link, $_REQUEST['last_name']);
 //$password = mysqli_real_escape_string($link, $_REQUEST['password']);
