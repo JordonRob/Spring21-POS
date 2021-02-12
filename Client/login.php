@@ -121,6 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" class="button" value="Login">
         </div>
     </form>
+    <a href="register.php" style="color:white;">Register Admin Account</a>
         
     
 </div>
