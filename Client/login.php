@@ -10,6 +10,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 // Load our config
 $config = parse_ini_file("../backend/config.ini");
 
+require_once "../backend/db_connection.php";
+
+$mysqli = openConn();
+
 // Define some empty variables
 $username = $password = "";
 $username_error = $password_error = "";
@@ -33,28 +37,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Now we validate
     if(empty($username_error) && empty($password_error)) {
-        $link = openConn();
         //Prepping our SELECT statement
         $sql = "SELECT id, firstname, lastname, password FROM users WHERE id = ?";
 
-        if ($statement = mysqli_prepare($link, $sql)) {
+        if ($statement = $mysqli->prepare($sql)) {
             // Bind parameters
-            mysqli_stmt_bind_param($statement, "s", $param_username);
+            $statement->bind_param("s", $param_username);
 
             // Set those parameters
             $param_username = $username;
 
             // Attempt execution
-            if(mysqli_stmt_execute($statement)) {
+            if($statement->execute()) {
                 // Store our result
-                mysqli_stmt_store_result($statement);
+                $statement->store_result();
 
                 //Check to see if an entry for the given ID even exists, then veryify the password
-                if (mysqli_stmt_num_rows($statement) == 1) {
+                if ($statement->num_rows == 1) {
                     //Bind results
-                    mysqli_stmt_bind_result($statement, $id, $firstname, $lastname, $hashed_password);
+                    $statement->bind_result($id, $firstname, $lastname, $hashed_password);
 
-                    if(mysqli_stmt_fetch($statement)) {
+                    if($statement->fetch()) {
                         if(password_verify($password, $hashed_password)) {
                             //Pass is correct
                             session_start();
@@ -80,10 +83,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Oops! Something went wrong. Please try again later!";
             }
 
-            // Now we close the MySQL connection
-            closeConn($link);
         }
-        closeConn($link);
+        $mysqli->close();
     }
 }
 
@@ -96,8 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SecurePOS</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="login.js"></script>
+<link rel="stylesheet" href="login.css">
 </head>
 
 <body>
@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="form-group">
             <input class = "password" type="text" id = "password"  name="password" placeholder= "ENTER PASSWORD"/>
-            <span class="help-block"><?php echo $password_error; ?></span>
+            <div><span class="help-block"><?php echo $password_error; ?></span></div>
         </div>
         <div class="form-group">
             <input type="submit" class="button" value="Login">
