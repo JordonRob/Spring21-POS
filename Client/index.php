@@ -13,6 +13,11 @@ require_once "../backend/login_check.php"
 </head>
 
 <body>
+<div class="overlay" id="return"><!--This is the overlay screen for returns-->
+        <h1>Returns OverLay Screen</h1>
+    </div>
+
+
 <div class="main-container"><!-- main container to hold all the elements of the SecurePOS-->
 
 <!-- this set of code belongs to the left side/static side of the POS-->
@@ -44,10 +49,10 @@ require_once "../backend/login_check.php"
     <div class="functions">
         <div id="transaction-overlay" onclick="off_transaction()">
             <div class="functional-buttons">
-                <button class="button2" id="discount">Employee Discount</button>
-                <button class="button2" id="return">Return</button><br/>
-                <button class="button2" id="Open">Open Register</button>
-                <button class="button2" id="Miscellaneous">Misc.</button>
+            <button class="button2" id="discount">Employee Discount</button><!--this will not have an overlay screen-->
+                <button class="button2" id="return" onclick="return_overlay()">Returns</button><br/>
+                <button class="button2" id="Open">Open Register</button><!--This will not have an overlay screen-->
+   <button class="button2" id="Miscellaneous">Misc.</button>
             </div>
         
         </div>
