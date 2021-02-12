@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-//Check if already logged in
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: index.html");
+//check if already logged in
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+    header("location: index.php");
     exit;
 }
 
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["lastname"] = $lastname;
 
                             //Finally redirect the user
-                            header("location: index.html");
+                            header("location: index.php");
                         } else {
                             // Password was wrong, notify user
                             $password_error = "The password or ID was not valid.";
