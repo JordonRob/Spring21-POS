@@ -46,8 +46,21 @@
             </div>
         
         </div>
-        <div id="item-overlay" onclick="off_item()"></div> <!--THESE ARE OVERLAYS, THAT WILL SHOW ADDITIONAL FUNCTION BUTTONS-->
-        <div id="management-overlay" onclick="off_management()"></div>
+        <div id="item-overlay" onclick="off_item()">
+            <div class="functional-buttons">
+                <button class="button2" id="price-check">Price Check</button>
+                <button class="button2" id="add-inventory">Add to Inventory</button><br/>
+                <button class="button2" id="receipt">Receipt</button>
+                <button class="button2" id="Miscellaneous">Misc.</button>
+            </div>
+        </div> <!--THESE ARE OVERLAYS, THAT WILL SHOW ADDITIONAL FUNCTION BUTTONS-->
+        <div id="management-overlay" onclick="off_management()">
+            <div class="functional-buttons">
+                <button class="button2" id="void">Void Transaction</button>
+                <button class="button2" id="add-user">Add User</button><br/>
+                <button class="button2" id="z-report">Z-report</button>
+                <button class="button2" id="end-of-day">End of Day Report</button>
+            </div></div>
     </div>
 
     <div class="keypad">

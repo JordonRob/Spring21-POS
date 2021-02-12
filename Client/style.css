@@ -64,7 +64,7 @@
     }
 
   #transaction-overlay{
-      background-color: rgb(255, 255, 255);
+      background-color: #e6f2ff;
       display: none;
       z-index: 2;
       width: 100%;
@@ -73,7 +73,7 @@
   }
 
   #item-overlay{
-    background-color: maroon;
+    background-color: #e6f2ff;
     display: none;
     z-index: 2;
     width: 100%;
@@ -82,7 +82,7 @@
 
   }
   #management-overlay{
-    background-color: gold;
+    background-color: #e6f2ff;
     display: none;
     z-index: 2;
     width: 100%;
