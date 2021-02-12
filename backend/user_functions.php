@@ -13,4 +13,23 @@ function createUser($conn, $firstname, $lastname, $is_management, $password) {
     }
 }
 
+function lookupUserByFirstname($conn, $firstname) {
+    $select_query = "SELECT * FROM users WHERE firstname = '{$firstname}'";
+    $result = $conn->query($select_query);
+
+    if($result) {
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                return $row;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        return $conn->error;
+    }
+
+
+}
+
 ?>

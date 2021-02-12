@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+
+
 //check if already logged in
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     header("location: index.php");
@@ -11,8 +13,16 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 $config = parse_ini_file("../backend/config.ini");
 
 require_once "../backend/db_connection.php";
+require_once "../backend/user_functions.php";
 
 $mysqli = openConn();
+
+$adminUser = lookupUserByFirstname($mysqli, "ADMIN");
+$adminUserExists = true;
+if (!$adminUser) {
+    $adminUserExists = false;
+}
+
 
 // Define some empty variables
 $username = $password = "";
@@ -121,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" class="button" value="Login">
         </div>
     </form>
-    <a href="register.php" style="color:white;">Register Admin Account</a>
+    <a href="register.php" style="color:white;" <?php echo ($adminUserExists) ? 'hidden' : ''?> >Register Admin Account</a>
         
     
 </div>
