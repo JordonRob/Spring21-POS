@@ -54,7 +54,7 @@
 
   .password {    /* Password field for managers */
     width: 14%;
-    color: #3a55de
+    color: #3a55de;
     font-size: 20px;
     font-family: sans-serif;
     background: white;
