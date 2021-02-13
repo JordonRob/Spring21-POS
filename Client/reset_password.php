@@ -83,17 +83,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <title>SecurePOS</title>
 <link rel="stylesheet" href="reset.css">
 </head>
+
 <body>
-
-
 <div class = 'reset-container'>
-
     <div class = 'header'>
         SECUREPOS SYSTEM
     </div>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> 
         <div class="form-group">
-            <input class = "username" type="text" id = "username" name="username" placeholder = "ENTER ID" />
+            <input class = "username" type="text" id = "username" name="username" placeholder = "ENTER ID"/>
             <span class="help-block"><?php echo $username_error; ?></span>
         </div>
         <div class="form-group">
@@ -105,8 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </form>
     <a href="register.php" style="color:white;" <?php echo ($adminUserExists) ? 'hidden' : ''?> >Register Admin Account</a>
-
-
 </div>
 </body>
+
 </html>
