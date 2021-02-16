@@ -72,7 +72,25 @@ require_once "../backend/login_check.php"
                 <button class="button2" id="end-of-day">End of Day Report</button>
             </div></div>
     </div>
-
+<!-- THIS IS THE INVENTORY FORM POPUP-->
+     <div class="inventoryform-popup" id="Inventoryform">
+                <form action="/action_page.php" class-"form-container">
+                    <h1>Add to Inventory</h1>
+                    <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required/>
+                    <br>
+                    <label for="Manufacturer"><b>Manufacturer</b></label>
+                    <input type="text" placeholder="Manufacturer" name="Manufacturer" required>
+                    <br>
+                    <label for="Price"><b>Retail Price $</b></label>
+                    <input type="text" placeholder="$0.00" name="Price" required>
+                    <br>
+                    <label for="Stock Amount"><b>Amount in Stock:</b></label>
+                    <input type="text" placeholder="0" name="Stock Amount" required>
+                    <button type="submit" class="btn">Save</button>
+                    <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
+                </form>
+            </div>
+    
     <div class="keypad">
         <!-- The following code represents our number pad with button press functionality-->
         <ul id="numpad">   
