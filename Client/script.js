@@ -47,3 +47,11 @@ function on_transaction() {
 
 
   }
+
+function Openinventory() {
+	document.getElementById("Inventoryform").style.display = "block";
+}
+
+function Closeinventory() {
+	document.getElementById("Inventoryform").style.display = "none";
+}
