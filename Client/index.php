@@ -40,6 +40,7 @@ require_once "../backend/login_check.php"
 </div>
 <div class="info-container"><!--this container will contain employee and system information-->
 
+<div id="todaysDate"></div>
 
 </div>
 </div><!--END OF LEFT-SIDE DIV-->
@@ -59,7 +60,7 @@ require_once "../backend/login_check.php"
         <div id="item-overlay" onclick="off_item()">
             <div class="functional-buttons">
                 <button class="button2" id="price-check">Price Check</button>
-                <button class="button2" id="add-inventory">Add to Inventory</button><br/>
+                <button class="button2" id="add-inventory">Inventory Management</button><br/>
                 <button class="button2" id="receipt">Receipt</button>
                 <button class="button2" id="Miscellaneous">Misc.</button>
             </div>
@@ -67,14 +68,14 @@ require_once "../backend/login_check.php"
         <div id="management-overlay" onclick="off_management()">
             <div class="functional-buttons">
                 <button class="button2" id="void">Void Transaction</button>
-                <button class="button2" id="add-user">Add User</button><br/>
+                <button class="button2" id="add-user">Manage Users</button><br/>
                 <button class="button2" id="z-report">Z-report</button>
                 <button class="button2" id="end-of-day">End of Day Report</button>
             </div></div>
     </div>
 <!-- THIS IS THE INVENTORY FORM POPUP-->
      <div class="inventoryform-popup" id="Inventoryform">
-                <form action="/action_page.php" class-"form-container">
+                <form action="/action_page.php" class="form-container">
                     <h1>Add to Inventory</h1>
                     <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required/>
                     <br>
@@ -132,7 +133,22 @@ require_once "../backend/login_check.php"
 
 
 <script src="script.js"></script>
+<script>
+function doDate()
+{
+    var str = "";
 
+    var days = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+
+    var now = new Date();
+
+    str += "Today is: " + days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " " + now.getHours() +":" + now.getMinutes() + ":" + now.getSeconds();
+    document.getElementById("todaysDate").innerHTML = str;
+}
+
+setInterval(doDate, 1000);
+</script>
 </body>
 
 </html>
