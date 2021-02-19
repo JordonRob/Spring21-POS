@@ -55,3 +55,6 @@ function Openinventory() {
 function Closeinventory() {
 	document.getElementById("Inventoryform").style.display = "none";
 }
+
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();

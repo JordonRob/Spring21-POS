@@ -39,7 +39,7 @@ require_once "../backend/login_check.php"
 </div>
 </div>
 <div class="info-container"><!--this container will contain employee and system information-->
-
+<p>Date/Time: <span id="datetime"></span></p>
 
 </div>
 </div><!--END OF LEFT-SIDE DIV-->
