@@ -187,6 +187,31 @@ background-color: rgb(253, 179, 152);
     width: 99%;
 }
 
+
+.inventoryform-popup {
+    display: none;
+    position: fixed;
+    bottom: 45%;
+    right: 69%;
+    z-index: 9;
+    background-color:white;
+}
+
+
+.form-container {
+    max-width: 400px;
+    padding: 10px;
+    background-color: white;
+}
+
+.form-container input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
 .keypad{
     border-style: none;
     border-color: navy;
