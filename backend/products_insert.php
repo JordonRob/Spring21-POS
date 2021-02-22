@@ -1,7 +1,6 @@
 <?php
 
 include '../backend/db_connection.php';
-include 'config.ini'
 
 //Opens connection
 openConn();
