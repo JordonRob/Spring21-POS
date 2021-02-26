@@ -1,8 +1,0 @@
-CREATE TABLE Products
-(
-    PIDC INT (6) NOT NULL PRIMARY KEY,
-    Name VARCHAR (30) NOT NULL,
-    Price DOUBLE (7,2) NOT NULL,
-    Quantity INT (8) NOT NULL,
-    Date_Added datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-)
