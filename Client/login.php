@@ -120,15 +120,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> 
         <div class="form-group">
-            <input class = "username" type="text" id = "username" name="username" placeholder = "ENTER ID" />
+            <input class = "username" type="text" id = "username" name="username" placeholder = "ENTER ID" /> <!---Username input field--->
             <span class="help-block"><?php echo $username_error; ?></span>
         </div>
         <div class="form-group">
-            <input class = "password" type="text" id = "password"  name="password" placeholder= "ENTER PASSWORD"/>
+            <input class = "password" type="text" id = "password"  name="password" placeholder= "ENTER PASSWORD"/> <!---Password input field--->
             <div><span class="help-block"><?php echo $password_error; ?></span></div>
         </div>
         <div class="form-group">
-            <input type="submit" class="button" value="Login">
+            <input type="submit" class="button" value="Login"> <!---Login user button, only works when correct username and input are entered--->
         </div>
     </form>
     <a href="register.php" style="color:white;" <?php echo ($adminUserExists) ? 'hidden' : ''?> >Register Admin Account</a>
