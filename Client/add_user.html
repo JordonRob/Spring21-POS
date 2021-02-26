@@ -1,10 +1,11 @@
+<!---This page allows the manager to add a new user with an unused username and password---->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SecurePOS</title>
-<link rel="stylesheet" href="add-user.css">
+<link rel="stylesheet" href="add_user.css">
 </head>
 
 <body>
@@ -16,11 +17,11 @@
     </div>
 
     <form method="new-user"> 
-        <input class = "username" id = "enter" placeholder = "ENTER NEW ID" />
-        <input class = "password" type= "password" id = "enter"  placeholder= "ENTER PASSWORD"/>
+        <input class = "username" id = "enter" placeholder = "ENTER NEW ID" /> <!---New username field---->
+        <input class = "password" type= "password" id = "enter"  placeholder= "ENTER PASSWORD"/> <!---New password field---->
     </form>
         
-        <button class="button" id="add-user-button" onclick="on_login()">Add User</button>
+        <button class="button" id="add-user-button" onclick="on_login()">Add User</button> <!---Add the user to the database---->
     
 </div>
 
