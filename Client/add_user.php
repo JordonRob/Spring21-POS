@@ -4,7 +4,7 @@ require_once "../backend/user_functions.php";
 require_once "../backend/db_connection.php";
 
 // Define empty values
-$firstname = $lastname = $password = "";
+$result = $firstname = $lastname = $password = "";
 $firstname_error = $lastname_error = $password_error = "";
 
 //Process data
