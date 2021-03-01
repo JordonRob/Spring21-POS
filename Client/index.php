@@ -67,10 +67,11 @@ require_once "../backend/login_check.php"
         <div id="management-overlay" onclick="off_management()">
             <div class="functional-buttons">
                 <button class="button2" id="void">Void Transaction</button>
-                <button class="button2" id="add-user">Add User</button><br/>
+                <a href="add_user.php"><button class="button2" id="add-user">Add User</button></a>
                 <button class="button2" id="z-report">Z-report</button>
                 <button class="button2" id="end-of-day">End of Day Report</button>
-            </div></div>
+            </div>
+        </div>
     </div>
 <!-- THIS IS THE INVENTORY FORM POPUP-->
      <div class="inventoryform-popup" id="Inventoryform">
