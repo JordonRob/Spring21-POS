@@ -4,10 +4,12 @@ require_once "../backend/login_check.php"
 
 
 <!DOCTYPE html>
+
+
 <html lang="en">
 
 <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SecurePOS</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
@@ -17,6 +19,22 @@ require_once "../backend/login_check.php"
     <div class="overlay" id="return">
         <!--This is the overlay screen for returns-->
         <h1>Returns OverLay Screen</h1>
+        <form action="" class="form-container">
+                <label for="Product"><b>Product Name:</b></label><input type="text" placeholder="Product Name"name="Product" required/>
+                <br>
+                <label for="Manufacturer"><b>Manufacturer</b></label>
+                <input type="text" placeholder="Manufacturer"
+                name="Manufacturer" required>
+                <br>
+                <label for="Price"><b>Retail Price $</b></label>
+                <input type="text" placeholder="$9.99" name="Price" required>
+                <br>
+                <label for="Quantity"><b>Quantity:</b></label>
+                <input type="text" placeholder="0" name="Quantity" required>
+                <br>
+               <button type="submit" class="btn">Return</button>
+                 <button type="button" class="btn cancel" onclick= "return_overlay()">Close</button>
+               </form>
     </div>
 
 
@@ -83,9 +101,7 @@ require_once "../backend/login_check.php"
                     </div>
                 </div>
             </div>
-            
-            <!--- none of the forms are connected to database (only form structure)---->
-<!--- void transaction form--->
+
 
                 <div class="voidform-popup"
                 id="Voidform">
@@ -98,29 +114,7 @@ require_once "../backend/login_check.php"
                     <button type="button" class="btn cancel" onclick="Closevoid()">Close</button>
                 </form>
             </div>
-<!--- returns form -->
-              <div class="returnsform-popup"
-              id="Returnsform">
-              <form action="" class="form-container">
-                <label for="Product"><b>Product Name:</b></label><input type="text" placeholder="Product Name"name="Product" required/>
-                <br>
-                <label for="Manufacturer"><b>Manufacturer</b></label>
-                <input type="text" placeholder="Manufacturer"
-                name="Manufacturer" required>
-                <br>
-                <label for="Price"><b>Retail Price $</b></label>
-                <input type="text" placeholder="$9.99" name="Price" required>
-                <br>
-                <label for="Quantity"><b>Quantity:</b></label>
-                <input type="text" placeholder="0" name="Quantity" required>
-                <br>
-               <button type="submit" class="btn">Return</button>
-                 <button type="button" class="btn cancel" onclick="Closereturnsform()">Close</button>
-               </form>
-               </div>
 
-            
-            <!--- inventory popup form ---->
             <div class="inventoryform-popup" id="Inventoryform">
                 <form action="/action_page.php" class="form-container">
                     <h1>Add to Inventory</h1>
@@ -134,6 +128,7 @@ require_once "../backend/login_check.php"
                     <br>
                     <label for="Stock Amount"><b>Amount in Stock:</b></label>
                     <input type="text" placeholder="0" name="Stock Amount" required>
+                    <br>
                     <button type="submit" class="btn">Save</button>
                     <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
                 </form>
