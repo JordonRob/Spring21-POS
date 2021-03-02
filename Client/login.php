@@ -133,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
     <a href="register.php" style="color:white;" <?php echo ($adminUserExists) ? 'hidden' : ''?> >Register Admin Account</a>
         
-    
+        
 </div>
 
 </body>

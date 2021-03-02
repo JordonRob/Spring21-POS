@@ -30,8 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn = openConn();
     if (!doesUserExist($conn, $firstname, $lastname)) {
-        $user = createUser($conn, $firstname, $lastname, false, $password);
+        $user = createUser($conn, $firstname, $lastname, 0, $password);
         $result = "Added new user with ID {$user["id"]}";
+        header("location: index.php");
     } else {
         $result = "A user with that first and last name already exists. If you'd like to create another user with that name please add a number to their lastname.";
     }
