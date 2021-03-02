@@ -1,6 +1,6 @@
 <?php
 
-require_once "../backend/product_functions.php";
+require_once "../client/product_functions.php";
 require_once '../backend/db_connection.php';
 
 //Define empty values
