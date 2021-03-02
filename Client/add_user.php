@@ -77,7 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="help-block"><?php echo $result ?></p>
         </form>
 
-
+        <form method = "POST" action = "index.php">
+            <div class="center">
+                <input type = "submit" class = "button" id="returnbtn" value = "Return Home">
+            </div>
+        </form>
+        
     </div>
 
 </body>
