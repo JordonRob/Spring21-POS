@@ -307,6 +307,14 @@ background-color: rgb(253, 179, 152);
             cursor: pointer;  
             }  
 
+table th,table td{
+ text-align:center;
+    border: solid;
+    width:
+}
+
+
+
 
   html,body{
     height:99%;
