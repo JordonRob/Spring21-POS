@@ -77,10 +77,11 @@ require_once "../backend/login_check.php"
         <div id="management-overlay" onclick="off_management()">
             <div class="functional-buttons">
                 <button class="button2" id="void">Void Transaction</button>
-                <button class="button2" id="add-user">Add User</button><br/>
+                <a href="add_user.php"><button class="button2" id="add-user">Add User</button></a>
                 <button class="button2" id="z-report">Z-report</button>
                 <button class="button2" id="end-of-day">End of Day Report</button>
-            </div></div>
+            </div>
+        </div>
     </div>
 <!-- THIS IS THE INVENTORY FORM POPUP-->
      <div class="inventoryform-popup" id="Inventoryform">
@@ -143,8 +144,13 @@ require_once "../backend/login_check.php"
 
 <script src="script.js"></script>
 <script>
+<<<<<<< HEAD
     
     function doDate()
+=======
+
+function doDate()
+>>>>>>> 5dc8244783b11c9dc179f2926fd5e9f9de818ef4
 {
     var str = "";
 
@@ -157,7 +163,12 @@ require_once "../backend/login_check.php"
     document.getElementById("todaysDate").innerHTML = str;
 }
 
+<<<<<<< HEAD
 setInterval(doDate, 1000);</script>
+=======
+setInterval(doDate, 1000);
+</script>
+>>>>>>> 5dc8244783b11c9dc179f2926fd5e9f9de818ef4
 
 </body>
 

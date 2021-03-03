@@ -22,7 +22,7 @@ body {
   font-family: sans-serif;
 }
   
-.new-user-container{
+.new-product-container{
     background-color: navy;
     width: 600px;
     height: 600px;
@@ -30,7 +30,7 @@ body {
     margin: 7em auto;
   }
   
-  .username {
+  .text {
     width: 70%;
     color: #3a55de;
     font-size: 30px;
@@ -47,22 +47,7 @@ body {
     margin-left: 90px;
       
   }
-  
-  .password {
-    width: 70%;
-    color: #3a55de;
-    font-size: 30px;
-    background: white;
-    padding: 25px 20px;
-    border: 5px;
-    box-sizing: border-box;
-    border: 4px solid;
-    text-align: left;
-      
-    margin-left: 90px;
-    margin-bottom: 5px;
-  }
-      
+     
 .button {
     background-color:#3a55de;
     border: solid;
