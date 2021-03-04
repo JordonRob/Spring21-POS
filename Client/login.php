@@ -17,11 +17,8 @@ require_once "../backend/user_functions.php";
 
 $mysqli = openConn();
 
-$adminUser = lookupUserByFirstname($mysqli, "ADMIN");
+$adminUser = doesUserExist($mysqli, "ADMIN", "USER");
 $adminUserExists = true;
-if (!$adminUser) {
-    $adminUserExists = false;
-}
 
 
 // Define some empty variables
@@ -131,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" class="button" value="Login"> <!---Login user button, only works when correct username and input are entered--->
         </div>
     </form>
-    <a href="register.php" style="color:white;" <?php echo ($adminUserExists) ? 'hidden' : ''?> >Register Admin Account</a>
+    <a href="register.php" style="color:blue;" <?php echo ($adminUser) ? 'hidden' : '' ?> >Register Admin Account</a>
         
         
 </div>
