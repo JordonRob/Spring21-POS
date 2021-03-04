@@ -81,6 +81,19 @@
     cursor: pointer;
 }
 
+#cartDisplay{
+background-color: white;
+height: 85%;
+    width: 98%;
+    border-style: solid;
+    border-color: white;
+    margin-left: 0.6%;
+    margin-top: 3%;
+    opacity: 90%;
+    padding-left: 0.5%
+
+}
+
 #item-overlay {
     background-color: #e6f2ff;
     display: none;
@@ -339,6 +352,12 @@
     left: 1px;
     border-color: #b96d6d;
     cursor: pointer;
+}
+
+table th,table td{
+ text-align:center;
+    border: solid;
+    width:
 }
 
 html,
