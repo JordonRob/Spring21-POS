@@ -1,8 +1,5 @@
-
-
-
 .button {
-    background-color:#1448a7;
+    background-color: #1448a7;
     border: solid;
     border-color: rgb(6, 153, 148);
     border-radius: 12px;
@@ -14,12 +11,12 @@
     font-size: 115%;
     margin: 4px 2px;
     cursor: pointer;
-    
-  }
-  .button2 {
+}
+
+.button2 {
     background-color: white;
     border-style: solid;
-    border-color:  #33b7c9;
+    border-color: #33b7c9;
     border-width: 10px;
     border-radius: 50px;
     color: black;
@@ -33,10 +30,10 @@
     width: 8em;
     max-width: 8em;
     height: 4em;
-    
-  }
-  .button3 {
-    background-color:#1448a7;
+}
+
+.button3 {
+    background-color: #1448a7;
     border: solid;
     border-color: rgb(6, 153, 148);
     border-radius: 12px;
@@ -51,41 +48,39 @@
     width: 30%;
     margin-right: 1%;
     margin-left: 1%;
-  }
+}
 
-    .functional-buttons{
-        display: inline-block;
-       display: flexbox;
-       margin-top: 1em;
-       margin-bottom: 1em;
-       margin-left: 5%;
-       margin-right: 5%;
-        
-    }
+.functional-buttons {
+    display: inline-block;
+    display: flexbox;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 5%;
+    margin-right: 5%;
+}
 
-    .overlay{
-      width: 99%;
-      height: 99%;
-      background-color: #e6f2ff;
-      opacity: none;
-      color: black;
-      display: none;
-      z-index: 2;
-      border-style: solid;
-      border-color: coral;
-      margin: auto;
-      
-      
-    }
+.overlay {
+    width: 99%;
+    height: 99%;
+    background-color: #e6f2ff;
+    opacity: none;
+    color: black;
+    display: none;
+    z-index: 2;
+    border-style: solid;
+    border-color: coral;
+    margin: auto;
+}
 
-  #transaction-overlay{
-      background-color: #e6f2ff;
-      display: none;
-      z-index: 2;
-      width: 100%;
-        height: 100%;
-        cursor: pointer;
-  }
+#transaction-overlay {
+    background-color: #e6f2ff;
+    display: none;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
 #cartDisplay{
 background-color: white;
 height: 85%;
@@ -99,100 +94,97 @@ height: 85%;
 
 }
 
-  #item-overlay{
+#item-overlay {
     background-color: #e6f2ff;
     display: none;
     z-index: 2;
     width: 100%;
-      height: 100%;
-      cursor: pointer;
+    height: 100%;
+    cursor: pointer;
+}
 
-  }
-  #management-overlay{
+#management-overlay {
     background-color: #e6f2ff;
     display: none;
     z-index: 2;
     width: 100%;
-      height: 100%;
-      cursor: pointer;
+    height: 100%;
+    cursor: pointer;
+}
 
-  }
-  #pic{
-color: none;
-background-color: rgb(253, 179, 152);
-  }
+#pic {
+    color: none;
+    background-color: rgb(253, 179, 152);
+}
 
-  .item-description {
-    width:99.5%;
+.item-description {
+    width: 99.5%;
     min-width: 99.5%;
-    height:90%;
+    height: 90%;
     border-style: none;
     background-color: #1448a7;
-    
+
     border-color: none;
-  }
+}
 
-  .function-buttons{
-      width:fit-content;
-      height: 10%;
-      display: flex;
+.function-buttons {
+    width: fit-content;
+    height: 10%;
+    display: flex;
     /*  justify-content: center;*/
-      align-items: center;
-      margin-right: 5%;
-      margin-left: 5%;
-  }
+    align-items: center;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.main-container {
+    width: 100%;
+    height: 100%;
+    border-style: none;
+    border-color: rgb(219, 32, 63);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    z-index: 1;
+}
 
-  .main-container{
-      width: 100%;
-      height: 100%;
-      border-style: none;
-      border-color: rgb(219, 32, 63);
-      background-color: rgb(255, 255, 255);
-      display: flex;
-      z-index: 1;
-    
-  }
+.static-container {
+    border: none;
 
-  .static-container{
-      border: none;
-      
-      width: 100%;
-      height: 90%;
-      padding-bottom:1px;
-  }
+    width: 100%;
+    height: 90%;
+    padding-bottom: 1px;
+}
 
-  .info-container{
-      border-style: none;
-      background-color: #1448a7;
-      border-color: none;
-      margin-top: 5px;
-      width: 99.5%;
-      height: 8.5%;
-  }
+.info-container {
+    border-style: none;
+    background-color: #1448a7;
+    border-color: none;
+    margin-top: 5px;
+    width: 99.5%;
+    height: 8.5%;
+}
 
-
-  .right-side{
+.right-side {
     flex: 0.4;
     border-style: none;
     border-color: none;
-  }
-  .left-side{
+}
+
+.left-side {
     flex: 0.6;
     border-style: none;
     border-color: none;
+}
 
-  }
-
-#pic{
+#pic {
     width: 90%;
     margin-top: 1em;
     margin-left: 5%;
     margin-right: 5%;
 }
 
-.functions{
+.functions {
     border-style: solid;
-  padding-top: 1px;
+    padding-top: 1px;
     border-color: #2560cc;
     background-color: #e6f2ff;
     height: 45%;
@@ -200,113 +192,111 @@ background-color: rgb(253, 179, 152);
 }
 
 
+
 .inventoryform-popup {
+   
     display: none;
     position: fixed;
-    bottom: 45%;
+    bottom: 20%;
     right: 69%;
     z-index: 9;
-    background-color:white;
+  
+    background-color: #e6f2ff;
+    border: solid;
+    border-color: rgb(6, 153, 148);
+    border-radius: 1%;
+   
+    
+ 
+ 
 }
+.voidform-popup {
+    display: none;
+    position: fixed;
+    bottom: 50%;
+    right: 69%;
+    z-index: 9;
+  
+    background-color: #e6f2ff;
+    border: solid;
+    border-color: rgb(6, 153, 148);
+    border-radius: 1%;
+   
+    
+ 
+ 
+}
+
+
 
 
 .form-container {
-    max-width: 400px;
-    padding: 10px;
+    display: block;
+    bottom: 30%;
+    right: 59%;
+    z-index: 9;
+  
     background-color: white;
+    border: solid;
+    border-color: rgb(6, 153, 148);
+    border-radius: 1%;
+   
+    
+ 
 }
 
 .form-container input[type="text"] {
-    width: 100%;
+    width: 80%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
     background: #f1f1f1;
 }
 
-.keypad{
+.form-container input[type="text"]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.keypad {
     border-style: none;
     border-color: navy;
     height: 45%;
     width: 100%;
 }
-.checkout{
+
+.checkout {
     border-style: none;
     border-color: olivedrab;
     height: 9%;
     width: 100%;
 }
 
-
-#numpad {  
+#numpad {
     display: block;
-    margin-right: none; 
-    margin-left: 5%; 
-    
-    padding: 0;  
-    list-style: none;  
-    background-color: #1448a7;
-    
-    }  
-        #numpad li { 
-             
-        float: left;  
-        margin: 0 5px 5px 0;  
-        width: 31%;  
-        height: 60px;  
-        font-size: 30px;
-        color: white;
-        line-height: 60px;  
-        text-align: center;  
-        background: #1448a7;  
-        border: 3px solid;  
-        border-radius: none; 
-        border-style: none;
-    border-color: rgb(212, 10, 10); 
-        }  
-             .clearl {  
-            clear: left;  
-            }  
-            /*This is the back button*/
-                #numpad .tab, #numpad .delete {  
-                width: 31%;  
-                }  
-            /*This is the zero button*/
-                #numpad .return {  
-                width: 31%;  
-                }  
-                /* This is the decimal point*/
-                #numpad .switch {
-                width: 31%;
-                }
-                #numpad .enter {  
-                    clear: left;
-                width: 95%;  
-                }  
-            .lastitem {  
-            margin-right: 0;  
-            }  
-            .uppercase {  
-            text-transform: uppercase;  
-            }  
-            #numpad .space {  
-            float: center;
-            width: 556px;  
-            }  
-            #numpad .switch, #numpad .space, #numpad .return{
-            font-size: 16px;
-            }
-            .on {  
-            display: none;  
-            }  
-            #numpad li:hover {  
-            position: relative;  
-            top: 1px;  
-            left: 1px;  
-            border-color: #b96d6d;  
-            cursor: pointer;  
-            }  
+    margin-right: none;
+    margin-left: 5%;
 
+    padding: 0;
+    list-style: none;
+    background-color: #1448a7;
+}
+
+#numpad li {
+    float: left;
+    margin: 0 5px 5px 0;
+    width: 31%;
+    height: 60px;
+    font-size: 30px;
+    color: white;
+    line-height: 60px;
+    text-align: center;
+    background: #1448a7;
+    border: 3px solid;
+    border-radius: none;
+    border-style: none;
+    border-color: rgb(212, 10, 10);
+}
 table th,table td{
  text-align:center;
     border: solid;
@@ -321,3 +311,68 @@ table th,table td{
      min-height:99%; 
      background-color:white;
     }
+
+/*This is the back button*/
+#numpad .tab,
+#numpad .delete {
+    width: 31%;
+}
+
+/*This is the zero button*/
+#numpad .return {
+    width: 31%;
+}
+
+/* This is the decimal point*/
+#numpad .switch {
+    width: 31%;
+}
+
+#numpad .enter {
+    clear: left;
+    width: 95%;
+}
+
+.lastitem {
+    margin-right: 0;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+#numpad .space {
+    float: center;
+    width: 556px;
+}
+
+#numpad .switch,
+#numpad .space,
+#numpad .return {
+    font-size: 16px;
+}
+
+.on {
+    display: none;
+}
+
+#numpad li:hover {
+    position: relative;
+    top: 1px;
+    left: 1px;
+    border-color: #b96d6d;
+    cursor: pointer;
+}
+
+table th,table td{
+ text-align:center;
+    border: solid;
+    width:
+}
+
+html,
+body {
+    height: 99%;
+    min-height: 99%;
+    background-color: white;
+}
