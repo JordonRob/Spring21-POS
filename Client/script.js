@@ -34,14 +34,14 @@ function off_management() {
 }
 
 function addNumber(element) {
-	document.getElementById("pic").value =
-		document.getElementById("pic").value + element.value;
+	document.getElementById("pidc").value =
+		document.getElementById("pidc").value + element.value;
 }
 
 function backSpace() {
-	document.getElementById("pic").value = document
-		.getElementById("pic")
-		.value.substring(0, document.getElementById("pic").value.length - 1);
+	document.getElementById("pidc").value = document
+		.getElementById("pidc")
+		.value.substring(0, document.getElementById("pidc").value.length - 1);
 }
 
 function return_overlay() {

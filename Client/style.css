@@ -112,10 +112,6 @@ height: 85%;
     cursor: pointer;
 }
 
-#pic {
-    color: none;
-    background-color: rgb(253, 179, 152);
-}
 
 .item-description {
     width: 99.5%;
@@ -175,7 +171,9 @@ height: 85%;
     border-color: none;
 }
 
-#pic {
+#pidc {
+    color: none;
+    background-color: rgb(253, 179, 152);
     width: 90%;
     margin-top: 1em;
     margin-left: 5%;
