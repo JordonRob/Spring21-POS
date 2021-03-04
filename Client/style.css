@@ -193,19 +193,12 @@ height: 85%;
 
 .inventoryform-popup {
    
-    display: none;
-    position: fixed;
-    bottom: 20%;
-    right: 69%;
-    z-index: 9;
+    display:none;
+    width: 100%;
+    overflow: auto;
+    z-index: 4;
   
     background-color: #e6f2ff;
-    border: solid;
-    border-color: rgb(6, 153, 148);
-    border-radius: 1%;
-   
-    
- 
  
 }
 .voidform-popup {
@@ -230,21 +223,14 @@ height: 85%;
 
 .form-container {
     display: block;
-    bottom: 30%;
-    right: 59%;
     z-index: 9;
-  
+    
     background-color: white;
     border: solid;
-    border-color: rgb(6, 153, 148);
-    border-radius: 1%;
-   
-    
- 
 }
 
 .form-container input[type="text"] {
-    width: 80%;
+    width: 94%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
@@ -300,7 +286,9 @@ table th,table td{
     border: solid;
 }
 
-
+#todaysDate{
+    color: white;
+}
 
 
   html,body{

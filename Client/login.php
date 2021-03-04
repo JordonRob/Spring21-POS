@@ -121,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <span class="help-block"><?php echo $username_error; ?></span>
         </div>
         <div class="form-group">
-            <input class = "password" type="password" id = "password"  name="password" placeholder= "ENTER PASSWORD"/> <!---Password input field--->
+            <input class = "password" type="password" id = "password"  name="password" placeholder= "PASSWORD"/> <!---Password input field--->
             <div><span class="help-block"><?php echo $password_error; ?></span></div>
         </div>
         <div class="form-group">

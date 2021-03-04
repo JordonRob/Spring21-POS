@@ -1,11 +1,7 @@
 <?php
 require_once "../backend/login_check.php"
 ?>
-
-
 <!DOCTYPE html>
-
-
 <html lang="en">
 
 <head>
@@ -96,7 +92,11 @@ require_once "../backend/login_check.php"
             </div>
             <div class="info-container">
                 <!--this container will contain employee and system information-->
-                <div id="todaysDate"></div> <!-- displays live clock for user-->
+                <div id="todaysDate" ></div> <!-- displays live clock for user-->
+                
+                
+                
+                
 
             </div>
         </div>
@@ -133,6 +133,28 @@ require_once "../backend/login_check.php"
                         <button class="button2" id="end-of-day">End of Day Report</button>
                     </div>
                 </div>
+                
+                <!------ This is the inventory form popup--->
+            <div class="inventoryform-popup" id="Inventoryform">
+                <form action="/action_page.php" class="form-container">
+                  <!--  <h1>Add to Inventory</h1> -->
+                    <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
+                    <br>
+                    <label for="Manufacturer"><b>Manufacturer</b></label>
+                    <input type="text" placeholder="Manufacturer" name="Manufacturer" required>
+                    <br>
+                    <label for="Price"><b>Retail Price $</b></label>
+                    <input type="text" placeholder="$0.00" name="Price" required>
+                    <br>
+                    <label for="Stock Amount"><b>Amount in Stock:</b></label>
+                    <input type="text" placeholder="0" name="Stock Amount" required>
+                    <br>
+                    <button type="submit" class="btn">Save</button>
+                    <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
+                </form>
+            </div>
+                
+                
             </div>
 
             <!---- This is the void popup--->
@@ -196,11 +218,6 @@ require_once "../backend/login_check.php"
                 <button class="button3" id="credit-button">Credit</button>
                 <button class="button3" id="debit-button">Debit</button>
             </div>
-
-
-
-
-
 
         </div>
         <!--END OF RIGHT-SIDE DIV-->

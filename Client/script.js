@@ -56,7 +56,11 @@ function close_returns() {
 }
 
 function Openinventory() {
-	document.getElementById("Inventoryform").style.display = "block";
+	document.getElementById("Inventoryform").style.display = "block"
+    document.getElementById("transaction-overlay").style.display = "none";
+	document.getElementById("item-overlay").style.display = "none";
+    document.getElementById("management-overlay").style.display = "none";
+    document.getElementsByClassName("functions").style.display = "none";
 }
 
 function Closeinventory() {

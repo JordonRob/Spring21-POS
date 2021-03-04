@@ -25,7 +25,7 @@
 .username {
     width: 70%;
     color: #3a55de;
-    font-size: 50px;
+    font-size: 30px;
     font-family: sans-serif;
     background: white;
     padding: 25px 20px;
@@ -44,7 +44,7 @@
 .password {
     width: 70%;
     color: #3a55de;
-    font-size: 50px;
+    font-size: 30px;
     font-family: sans-serif;
     background: white;
     padding: 25px 20px;
