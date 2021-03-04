@@ -228,13 +228,7 @@ if(isset($_SESSION["cart_item"])){
 
 <script src="script.js"></script>
 <script>
-<<<<<<< HEAD
-    
-    function doDate()
-=======
-
 function doDate()
->>>>>>> 5dc8244783b11c9dc179f2926fd5e9f9de818ef4
 {
     var str = "";
 
@@ -247,12 +241,8 @@ function doDate()
     document.getElementById("todaysDate").innerHTML = str;
 }
 
-<<<<<<< HEAD
+
 setInterval(doDate, 1000);</script>
-=======
-setInterval(doDate, 1000);
-</script>
->>>>>>> 5dc8244783b11c9dc179f2926fd5e9f9de818ef4
 
 </body>
 
