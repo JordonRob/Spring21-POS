@@ -57,12 +57,104 @@ require_once "../backend/login_check.php"
                     <!--This div is for the item description-->
                     <form>
                         <input type="search" id="pic" name="pic" placeholder="Please enter Product Identification Code 'PIDC'">
+                        <button>Add</button>
                     </form>
-                </div>
+                    
+    <div class="cartDisplay" id="cartDisplay">
+<?php
+    session_start();
+    require_once "../backend/dbcontroller.php";
+    $db_handle = new DBController();
+    if(!empty($_GET["action"])){
+        switch($_GET["action"]){
+            case "add":
+	   if(!empty($_POST["quantity"])) {
+        $productByCode = $db_handle->runQuery("SELECT * FROM strproducts WHERE PIDC='" . $_GET["PIDC"] . "'");
+           $itemArray = array($productByCode[0]["PIDC"]=>array('name'=>$productByCode[0]["name"], 'PIDC'=>$productByCode[0]["PIDC"], 'price'=>$productByCode[0]["price"]));
+		
+           if(!empty($_SESSION["cart_item"])) {
+               if(in_array($productByCode[0]["PIDC"],array_keys($_SESSION["cart_item"]))) {
+                   foreach($_SESSION["cart_item"] as $k => $v) {
+                       if($productByCode[0]["PIDC"] == $k) {
+                           if(empty($_SESSION["cart_item"][$k]["quantity"])) {
+                               $_SESSION["cart_item"][$k]["quantity"] = 0;
+                           }
+                           $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
+                       }
+                   }
+               } else {
+                   $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+               }
+           } else {
+               $_SESSION["cart_item"] = $itemArray; 
+           }
+       }
+                break;
+        }
+    }
+?>
+ 
+       <div id="shopping-cart">
+<div class="txt-heading">Shopping Cart</div>
+
+<a id="btnEmpty" href="index.php?action=empty">Empty Cart</a>
+<?php
+if(isset($_SESSION["cart_item"])){
+    $total_quantity = 0;
+    $total_price = 0;
+?>	
+<table class="tbl-cart" cellpadding="10" cellspacing="1">
+<tbody>
+<tr>
+<th style="text-align:left;">Name</th>
+<th style="text-align:left;">Code</th>
+<th style="text-align:right;" width="5%">Quantity</th>
+<th style="text-align:right;" width="10%">Unit Price</th>
+<th style="text-align:right;" width="10%">Price</th>
+<th style="text-align:center;" width="5%">Remove</th>
+</tr>	
+<?php		
+    foreach ($_SESSION["cart_item"] as $item){
+        $item_price = $item["quantity"]*$item["price"];
+		?>
+				<tr>
+				<td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+				<td><?php echo $item["code"]; ?></td>
+				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+				<td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
+				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
+				<td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+				</tr>
+				<?php
+				$total_quantity += $item["quantity"];
+				$total_price += ($item["price"]*$item["quantity"]);
+		}
+		?>
+
+<tr>
+<td colspan="2" align="right">Total:</td>
+<td align="right"><?php echo $total_quantity; ?></td>
+<td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>		
+  <?php
+} else {
+?>
+<div class="no-records">Your Cart is Empty</div>
+<?php 
+}
+?>
+</div>
+        
+             
+    </div>
+       </div>
             </div>
             <div class="info-container">
                 <!--this container will contain employee and system information-->
-
+<div id="todaysDate"></div> <!-- displays live clock for user-->
 
             </div>
         </div>
@@ -94,15 +186,14 @@ require_once "../backend/login_check.php"
                 <div id="management-overlay" onclick="off_management()">
                     <div class="functional-buttons">
                         <button class="button2" id="void" onclick="Openvoid()">Void Transaction</button>
-                        <button class="button2" id="add-user"
-                        onclick="OpenAdduser()">Add User</button><br />
+                        <a href="add_user.php"><button class="button2" id="add-user">Add User</button></a>
                         <button class="button2" id="z-report">Z-report</button>
                         <button class="button2" id="end-of-day">End of Day Report</button>
                     </div>
                 </div>
             </div>
 
-
+<!---- This is the void popup--->
                 <div class="voidform-popup"
                 id="Voidform">
                 <form action="" class="form-container">
@@ -114,7 +205,7 @@ require_once "../backend/login_check.php"
                     <button type="button" class="btn cancel" onclick="Closevoid()">Close</button>
                 </form>
             </div>
-
+<!------ This is the inventory form popup--->
             <div class="inventoryform-popup" id="Inventoryform">
                 <form action="/action_page.php" class="form-container">
                     <h1>Add to Inventory</h1>
@@ -137,24 +228,7 @@ require_once "../backend/login_check.php"
 
 
 
-             <!---<div class="Adduser-popup" id="Adduserform">
-                <form action="/action_page.php" class-"form-container">
-                    <h1>Add an User</h1>
-                    <p>User type:</p><input type="radio"  id="Employee" name="User" value="Employee">
-                    <label for= "Employee">Employee</label>
-                    <br>
-                    <input type="radio"
-                    id="Customer" name="User"
-                    value="Customer">
-                    <label for="Customer">Customer</label>
-                    <input type="radio"
-                    id="Management" name="User"
-                    value="Management">
-                    <label for="Management">Management</label>
-                    <button type="submit" class="btn">Save</button>
-                    <button type="button" class="btn cancel" onclick="CloseAdduser()">Close</button>
-                    </form>
-            </div>
+             
 -->
 
 
@@ -206,8 +280,13 @@ require_once "../backend/login_check.php"
     <script src="script.js"></script>
 
 <script>
+<<<<<<< HEAD
+    
+    function doDate()
+=======
 
 function doDate()
+>>>>>>> 5dc8244783b11c9dc179f2926fd5e9f9de818ef4
 {
     var str = "";
 
@@ -220,8 +299,12 @@ function doDate()
     document.getElementById("todaysDate").innerHTML = str;
 }
 
+<<<<<<< HEAD
+setInterval(doDate, 1000);</script>
+=======
 setInterval(doDate, 1000);
 </script>
+>>>>>>> 5dc8244783b11c9dc179f2926fd5e9f9de818ef4
 
 </body>
 
