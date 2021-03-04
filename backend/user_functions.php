@@ -20,13 +20,13 @@ function lookupUserByFirstname($conn, $firstname) {
     $select_query = "SELECT * FROM users WHERE firstname = '{$firstname}'";
     $result = $conn->query($select_query);
 
-    if($result) {
+    if($result) { // If there was a result, will only return false if the query fails
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                return $row;
+                return $row; // Will return the information for a user if the firstname matches
             }
         } else {
-            return false;
+            return false; // If there isn't any user by that firstname it will return false
         }
     } else {
         return $conn->error;
@@ -35,6 +35,7 @@ function lookupUserByFirstname($conn, $firstname) {
 
 }
 
+// Same as above function but searchs first AND lastname
 function lookupUserByFirstnameAndLastname($conn, $firstname, $lastname) {
     $select_query = "SELECT * FROM users WHERE firstname = '{$firstname}' AND lastname = '{$lastname}'";
     $result = $conn->query($select_query);
