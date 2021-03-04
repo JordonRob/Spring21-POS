@@ -32,12 +32,12 @@ require_once "../backend/login_check.php"
             <input type="text" placeholder="0" name="Quantity" required>
             <br>
             <button type="submit" class="btn">Return</button>
-            <button type="button" class="btn cancel" onclick="return_overlay()">Close</button>
+            <button type="button" class="btn cancel" onclick="close_returns()">Close</button>
         </form>
     </div>
 
 
-    <div class="main-container">
+    <div class="main-container" id="main-container">
         <!-- main container to hold all the elements of the SecurePOS-->
 
         <!-- this set of code belongs to the left side/static side of the POS-->

@@ -46,10 +46,13 @@ function backSpace() {
 
 function return_overlay() {
 	document.getElementById("return").style.display = "block"; 
-	document.getElementById("Returnsform").style.display="block";
- 	document.getElementById("Returnsform").style.display="none";
 	document.getElementById("main-container").style.display = "none"; 
   
+}
+
+function close_returns() {
+	document.getElementById("return").style.display = "none";
+	document.getElementById("main-container").style.display = null; 
 }
 
 function Openinventory() {
