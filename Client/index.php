@@ -1,7 +1,9 @@
 <?php
-require_once "../backend/login_check.php"
+require_once "../backend/login_check.php";
+require_once "../backend/add-delete_item.php";
+require_once "../backend/dbcontroller.php";
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -50,53 +52,101 @@ require_once "../backend/login_check.php"
 
                 <div class="item-description">
                     <!--This div is for the item description-->
-                    <form action="index.php" method="post">
-                        <input type="search" id="pidc" name="pidc" placeholder="Please enter Product Identification Code 'PIDC'">
-                        
+                    <form action="index.php" method="post" id="code1">
+                        <input type="search" id="code" name="code" style="background-color: rgb(253, 179, 152);" placeholder="Please enter Product Identification Code 'PIDC'">
+
                     </form>
 
                     <div class="cartDisplay" id="cartDisplay">
-                      
-                        <table width= 100%>
-                            <tr>
-                                <td>PIDC</td>
-                                <td>Item</td>
-                                <td>Price</td>
-                            </tr>
-                        
-                            
+                        <div id="shopping-cart">
+
                             <?php
-    
-    include "../backend/dbConn.php"; // Using database connection file here
-
-    $search = empty($_POST['pidc'])? '': $_POST["pidc"];
-    $query = mysqli_query($db,"SELECT * FROM products WHERE PIDC = $search"); // fetch data from database
-
-    while($data = mysqli_fetch_array($query))
-    {
+                            if(isset($_SESSION["cart_item"])){
+                                $total_quantity = 0;
+                                $total_price = 0;
                             ?>
-                            <tr>
-                                <td><?php echo $data['PIDC']; ?></td>
-                                <td><?php echo $data['name']; ?></td>
-                                <td><?php echo $data['price']; ?></td>
-                            </tr>	
+                            <table class="tbl-cart" cellpadding="10" cellspacing="1">
+                                <tbody>
+                                    <tr>
+                                        <th style="text-align:left;">Name</th>
+                                        <th style="text-align:left;">Code</th>
+                                        <th style="text-align:right;" width="5%">Quantity</th>
+                                        <th style="text-align:right;" width="10%">Unit Price</th>
+                                        <th style="text-align:right;" width="10%">Price</th>
+                                        <th style="text-align:center;" width="5%">Remove</th>
+                                    </tr>
+                                    <?php		
+    foreach ($_SESSION["cart_item"] as $item){
+        $item_price = $item["quantity"]*$item["price"];
+		?>
+                                    <tr>
+                                        <td><?php echo $item["name"]; ?></td>
+                                        <td><?php echo $item["code"]; ?></td>
+                                        <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+                                        <td style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
+                                        <td style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
+                                        <td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction">🗑️</a></td>
+                                    </tr>
+                                    <?php
+				$total_quantity += $item["quantity"];
+				$total_price += ($item["price"]*$item["quantity"]);
+		}
+		?>
+
+                                    <tr>
+                                        <td colspan="2" align="right">Total:</td>
+                                        <td align="right"><?php echo $total_quantity; ?></td>
+                                        <td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <?php
-    }
-                            ?>
-                        </table>
+} else {
+?>
+                            <div class="no-records">Your Cart is Empty</div>
+                            <?php 
+}
+?>
+                        </div>
 
-                        <?php mysqli_close($db); // Close connection ?>
-                
+                        <div id="product-grid">
+                            <div class="txt-heading">Products</div>
+                            <?php
+	$search = empty($_POST['code'])? '': $_POST["code"];
+
+
+	$product_array = $db_handle->runQuery("SELECT * FROM products WHERE code= $search");
+	if (!empty($product_array)) { 
+		foreach($product_array as $key=>$value){
+	?>
+                            <div class="product-item">
+                                <form method="post" action="index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+
+                                    <div class="product-tile-footer">
+                                        <div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
+                                        <div class="product-price"><?php echo "$".$product_array[$key]["price"]; ?></div>
+                                        <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <?php
+		}
+	}
+	?>
+                        </div>
+
                     </div>
+                    <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a>
                 </div>
             </div>
             <div class="info-container">
                 <!--this container will contain employee and system information-->
-                <div id="todaysDate" ></div> <!-- displays live clock for user-->
-                
-                
-                
-                
+                <div id="todaysDate"></div> <!-- displays live clock for user-->
+
+
+
+
 
             </div>
         </div>
@@ -121,7 +171,7 @@ require_once "../backend/login_check.php"
                         <button class="button2" id="price-check">Price Check</button>
                         <button class="button2" id="add-inventory" onclick="Openinventory()">Add to Inventory</button><br />
                         <button class="button2" id="receipt">Receipt</button>
-                        <button class="button2" id="Miscellaneous">Misc.</button>
+                        <button class="button2" id="coupons">Coupons</button>
                     </div>
                 </div>
                 <!--THESE ARE OVERLAYS, THAT WILL SHOW ADDITIONAL FUNCTION BUTTONS-->
@@ -133,28 +183,28 @@ require_once "../backend/login_check.php"
                         <button class="button2" id="end-of-day">End of Day Report</button>
                     </div>
                 </div>
-                
+
                 <!------ This is the inventory form popup--->
-            <div class="inventoryform-popup" id="Inventoryform">
-                <form action="/action_page.php" class="form-container">
-                  <!--  <h1>Add to Inventory</h1> -->
-                    <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
-                    <br>
-                    <label for="Manufacturer"><b>Manufacturer</b></label>
-                    <input type="text" placeholder="Manufacturer" name="Manufacturer" required>
-                    <br>
-                    <label for="Price"><b>Retail Price $</b></label>
-                    <input type="text" placeholder="$0.00" name="Price" required>
-                    <br>
-                    <label for="Stock Amount"><b>Amount in Stock:</b></label>
-                    <input type="text" placeholder="0" name="Stock Amount" required>
-                    <br>
-                    <button type="submit" class="btn">Save</button>
-                    <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
-                </form>
-            </div>
-                
-                
+                <div class="inventoryform-popup" id="Inventoryform">
+                    <form action="/action_page.php" class="form-container">
+                        <!--  <h1>Add to Inventory</h1> -->
+                        <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
+                        <br>
+                        <label for="Manufacturer"><b>Manufacturer</b></label>
+                        <input type="text" placeholder="Manufacturer" name="Manufacturer" required>
+                        <br>
+                        <label for="Price"><b>Retail Price $</b></label>
+                        <input type="text" placeholder="$0.00" name="Price" required>
+                        <br>
+                        <label for="Stock Amount"><b>Amount in Stock:</b></label>
+                        <input type="text" placeholder="0" name="Stock Amount" required>
+                        <br>
+                        <button type="submit" class="btn">Save</button>
+                        <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
+                    </form>
+                </div>
+
+
             </div>
 
             <!---- This is the void popup--->
@@ -206,7 +256,8 @@ require_once "../backend/login_check.php"
                     <li class="switch" name="." value="." id="." onclick="addNumber(this)">.</li>
                     <!--There is a bug with this button needs to be fixed-->
                     <li class="letter" name="0" value="0" id="0" onclick="addNumber(this)">0</li>
-                    <li class="delete" onclick="backSpace()"> < </li>
+                    <li class="delete" onclick="backSpace()">
+                        < </li>
 
                     <li class="enter">ENTER</li>
                 </ul>

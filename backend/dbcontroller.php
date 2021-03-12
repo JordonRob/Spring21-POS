@@ -7,6 +7,7 @@ private $password = "theultimate50";
 private $database = "securepos";
 private $conn;
     
+    
     function __construct(){
         $this->conn = $this->connectDB();
     }
