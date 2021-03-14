@@ -104,14 +104,14 @@ require_once "../backend/dbcontroller.php";
                             <?php
 } else {
 ?>
-                            <div class="no-records">Your Cart is Empty</div>
+                      <!--  <div class="no-records">Your Cart is Empty</div> -->
                             <?php 
 }
 ?>
                         </div>
 
                         <div id="product-grid">
-                            <div class="txt-heading">Products</div>
+                       <!--     <div class="txt-heading">Products</div> -->
                             <?php
 	$search = empty($_POST['code'])? '': $_POST["code"];
 
@@ -143,7 +143,7 @@ require_once "../backend/dbcontroller.php";
             <div class="info-container">
                 <!--this container will contain employee and system information-->
                 <div id="todaysDate"></div> <!-- displays live clock for user-->
-
+                <a> USER:<?php echo $_SESSION['firstname'];?>  <?php echo $_SESSION['lastname']; ?> </a>
 
 
 
@@ -256,8 +256,7 @@ require_once "../backend/dbcontroller.php";
                     <li class="switch" name="." value="." id="." onclick="addNumber(this)">.</li>
                     <!--There is a bug with this button needs to be fixed-->
                     <li class="letter" name="0" value="0" id="0" onclick="addNumber(this)">0</li>
-                    <li class="delete" onclick="backSpace()">
-                        < </li>
+                    <li class="delete" onclick="backSpace()"> back </li>
 
                     <li class="enter">ENTER</li>
                 </ul>

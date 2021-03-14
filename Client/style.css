@@ -189,7 +189,10 @@ height: 85%;
     width: 99%;
 }
 
-
+a{
+   font-size: 20px;
+    color: white;
+}
 
 .inventoryform-popup {
    
@@ -211,15 +214,8 @@ height: 85%;
     background-color: #e6f2ff;
     border: solid;
     border-color: rgb(6, 153, 148);
-    border-radius: 1%;
-   
-    
- 
- 
+    border-radius: 1%; 
 }
-
-
-
 
 .form-container {
     display: block;

@@ -1,3 +1,5 @@
+/*eslint-env browser*/
+
 
 function on_transaction() {
 	document.getElementById("transaction-overlay").style.display = "block";
@@ -15,6 +17,7 @@ function on_management() {
 	document.getElementById("management-overlay").style.display = "block";
 	document.getElementById("transaction-overlay").style.display = "none";
 	document.getElementById("item-overlay").style.display = "none";
+    
 }
 
 function lockscreen() {
@@ -34,14 +37,15 @@ function off_management() {
 }
 
 function addNumber(element) {
-	document.getElementById("pidc").value =
-		document.getElementById("pidc").value + element.value;
+	document.getElementById("code").value =
+		document.getElementById("code").value + element.value;
+    alert("button was pressed");
 }
 
 function backSpace() {
-	document.getElementById("pidc").value = document
-		.getElementById("pidc")
-		.value.substring(0, document.getElementById("pidc").value.length - 1);
+	document.getElementById("code").value = document
+		.getElementById("code")
+		.value.substring(0, document.getElementById("code").value.length - 1);
 }
 
 function return_overlay() {
