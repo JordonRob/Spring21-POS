@@ -39,7 +39,7 @@ function off_management() {
 function addNumber(element) {
 	document.getElementById("code").value =
 		document.getElementById("code").value + element.value;
-    alert("button was pressed");
+    
 }
 
 function backSpace() {

@@ -64,6 +64,8 @@ require_once "../backend/dbcontroller.php";
                             if(isset($_SESSION["cart_item"])){
                                 $total_quantity = 0;
                                 $total_price = 0;
+                                $tax = 0;
+                                $final_total =0;
                             ?>
                             <table class="tbl-cart" cellpadding="10" cellspacing="1">
                                 <tbody>
@@ -90,15 +92,17 @@ require_once "../backend/dbcontroller.php";
                                     <?php
 				$total_quantity += $item["quantity"];
 				$total_price += ($item["price"]*$item["quantity"]);
+                $tax += ($total_price*0.08);
+                $final_total += ($total_price+$tax);
 		}
 		?>
 
-                                    <tr>
+                           <!--         <tr>
                                         <td colspan="2" align="right">Total:</td>
                                         <td align="right"><?php echo $total_quantity; ?></td>
                                         <td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
                                         <td></td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                             <?php
@@ -116,7 +120,7 @@ require_once "../backend/dbcontroller.php";
 	$search = empty($_POST['code'])? '': $_POST["code"];
 
 
-	$product_array = $db_handle->runQuery("SELECT * FROM products WHERE code= $search");
+	$product_array = $db_handle->runQuery("SELECT * FROM products WHERE code= '$search'");
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
@@ -137,8 +141,28 @@ require_once "../backend/dbcontroller.php";
                         </div>
 
                     </div>
-                    <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a>
+                    <div id="final_checkout_details">
+                    <table id="c_table">
+                                    <tr>
+                                        <!-- This displays the Subtotal of the Transactions -->
+                                        <td colspan="2" align="right">Subtotal:</td>
+                                        <td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+                                        <!-- This displays the tax of the Transactions -->
+                                        <td colspan="2" align="right">Tax:</td>
+                                        <td align="right"><?php echo "$".number_format($tax, 2); ?></td>
+                                        <!-- This displays the final total of the Transactions -->
+                                        <td colspan="2" align="right">TOTAL:</td>
+                                        <td align="right"><?php echo "$".number_format($final_total, 2); ?></td>
+                                        <td><a id="btnEmpty" href="index.php?action=empty">Empty Cart</a></td>
+                                        
+                                        
+                                        
+                                        <td></td>
+                                    </tr>
+                        </table>
+                    
                 </div>
+                    </div>
             </div>
             <div class="info-container">
                 <!--this container will contain employee and system information-->
