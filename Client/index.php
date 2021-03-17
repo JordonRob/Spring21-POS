@@ -5,14 +5,13 @@ require_once "../backend/dbcontroller.php";
 ?>
 
 <html lang="en">
-
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SecurePOS</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
 </head>
-
 <body>
     <div class="overlay" id="return">
         <!--This is the overlay screen for returns-->
@@ -314,11 +313,9 @@ require_once "../backend/dbcontroller.php";
             str += "Today is: " + days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
             document.getElementById("todaysDate").innerHTML = str;
         }
-
-        setInterval(doDate, 1000);
+       
     </script>
 
 
 </body>
-
 </html>

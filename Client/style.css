@@ -381,7 +381,7 @@ body {
     padding-left:1em;
     width: 5%; 
     color: white; 
-    font-size 2em;
+    font-size: 2em;
 }
 #c_table td:nth-child(7){
     width: 20%; 
