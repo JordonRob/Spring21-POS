@@ -230,9 +230,9 @@ require_once "../backend/dbcontroller.php";
                 
                 <!------ This is the coupon form popup--->
                 <div class = "couponform-popup" id = "Couponform">
-                    <form action = "/add_coupon.php" class = "form-container">
+                    <form action = "/add_coupon.php" method="POST" class = "form-container">
                         <h1>Create Coupon</h1>
-                        <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
+                        <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Name" required />
                         <br>
                         <label for="Code"><b>Code:</b></label>
                         <input type="text" placeholder="Enter Coupon Code" name="Code" required>

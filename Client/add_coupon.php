@@ -1,10 +1,11 @@
 <?php
-require_once "../client/coupon_functions.php";
-require_once "../backend/db_connection.php";
+require_once "../backend/coupon_functions.php";
+require_once "../backend/conn.php";
 
 //Define empty variables
-$Name = $Code = $Price = "";
+$result = $Name = $Code = $Price = "";
 $Name_Error = $Code_Error = $Price_Error = "";
+$Date_Created = date('Y-m-d H:i:s');
 
 //Process data
 // Check if request is a post
@@ -28,15 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Price = trim($_POST["Price"]);
     }
 
-    $conn = openConn();
-    if (!doesCouponExist($conn, $Name, $Code)) {
-        $coupon = createCoupon($conn, $Name, $Code, $Price);
-        $result = "Added new coupon";
-        header("location: index.php");
-    } else {
-        $result = "That coupon already exists";
-    }
-    $conn->close();
+    header("location: index.php");
+
 }
 
 ?>

@@ -5,14 +5,14 @@ CREATE TABLE `Coupons` (
   `Name` varchar(255) NOT NULL,
   `Code` varchar(255) NOT NULL,
   `Price` double(10,2) NOT NULL,
-  `Date Created` DATETIME DEFAULT CURRENT_TIMESTAMP
+  `Date_Created` DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Coupons`
 --
 
-INSERT INTO `Coupons` (`Name`, `Code`, `Price`, `Date Created`) VALUES
+INSERT INTO `Coupons` (`Name`, `Code`, `Price`, `Date_Created`) VALUES
 ('Apple', '234521', .50, CURRENT_TIMESTAMP);
 
 --
