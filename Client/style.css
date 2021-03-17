@@ -342,17 +342,12 @@ a{
     cursor: pointer;
 }
 
-
-
 html,
 body {
     height: 99%;
     min-height: 99%;
     background-color: white;
 }
-
-
-
 
 #final_checkout_details{
     
@@ -383,6 +378,7 @@ body {
     font-size: 2em;
 }
 #c_table td:nth-child(6){
+    padding-left:1em;
     width: 5%; 
     color: white; 
     font-size 2em;
@@ -391,9 +387,6 @@ body {
     width: 20%; 
     color: white; 
 }
-
-
-
 
 #product-grid {
 	margin: 40px;

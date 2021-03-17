@@ -20,6 +20,11 @@ function on_management() {
     
 }
 
+function open_register(){
+alert("Please close register to continue!");
+
+}
+
 function lockscreen() {
 	alert("This logs the user out");
 }
