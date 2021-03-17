@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = "Added new coupon";
         header("location: index.php");
     } else {
-        $result = "A user with that first and last name already exists. If you'd like to create another user with that name please add a number to their lastname.";
+        $result = "That coupon already exists";
     }
     $conn->close();
 }
