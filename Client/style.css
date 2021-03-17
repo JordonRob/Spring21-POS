@@ -205,7 +205,8 @@ a{
  
 }
 
-.couponform_popup {
+.couponform-popup {
+
     display:none;
     width: 100%;
     overflow: auto;

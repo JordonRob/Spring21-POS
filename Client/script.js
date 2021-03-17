@@ -74,11 +74,6 @@ function Openinventory() {
 
 function Opencoupon() {
 	document.getElementById("Couponform").style.display = "block";
-	document.getElementById("Inventoryform").style.display = "none";
-    document.getElementById("transaction-overlay").style.display = "none";
-	document.getElementById("item-overlay").style.display = "none";
-    document.getElementById("management-overlay").style.display = "none";
-    document.getElementsByClassName("functions").style.display = "none";
 }
 
 function Closeinventory() {

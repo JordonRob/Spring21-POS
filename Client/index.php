@@ -195,7 +195,7 @@ require_once "../backend/dbcontroller.php";
                         <button class="button2" id="price-check">Price Check</button>
                         <button class="button2" id="add-inventory" onclick="Openinventory()">Add to Inventory</button><br />
                         <button class="button2" id="receipt">Receipt</button>
-                        <button class="button2" id="coupons" onclick="Opencoupon()">Coupons</button>
+                        <button class="button2" id="add-coupons" onclick="Opencoupon()">Coupons</button><br />
                     </div>
                 </div>
                 <!--THESE ARE OVERLAYS, THAT WILL SHOW ADDITIONAL FUNCTION BUTTONS-->
