@@ -204,6 +204,16 @@ a{
     background-color: #e6f2ff;
  
 }
+
+.couponform_popup {
+    display:none;
+    width: 100%;
+    overflow: auto;
+    z-index: 4;
+   
+    background-color: #e6f2ff;
+}
+
 .voidform-popup {
     display: none;
     position: fixed;

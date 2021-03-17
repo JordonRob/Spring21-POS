@@ -72,10 +72,22 @@ function Openinventory() {
     document.getElementsByClassName("functions").style.display = "none";
 }
 
+function Opencoupon() {
+	document.getElementById("Couponform").style.display = "block";
+	document.getElementById("Inventoryform").style.display = "none";
+    document.getElementById("transaction-overlay").style.display = "none";
+	document.getElementById("item-overlay").style.display = "none";
+    document.getElementById("management-overlay").style.display = "none";
+    document.getElementsByClassName("functions").style.display = "none";
+}
+
 function Closeinventory() {
 	document.getElementById("Inventoryform").style.display = "none";
 }
 
+function Closecoupon() {
+	document.getElementById("Couponform").style.display = "none";
+}
 
 function Openvoid() {
 	document.getElementById("Voidform").style.display = "block";

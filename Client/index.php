@@ -195,7 +195,7 @@ require_once "../backend/dbcontroller.php";
                         <button class="button2" id="price-check">Price Check</button>
                         <button class="button2" id="add-inventory" onclick="Openinventory()">Add to Inventory</button><br />
                         <button class="button2" id="receipt">Receipt</button>
-                        <button class="button2" id="coupons">Coupons</button>
+                        <button class="button2" id="coupons" onclick="Opencoupon()">Coupons</button>
                     </div>
                 </div>
                 <!--THESE ARE OVERLAYS, THAT WILL SHOW ADDITIONAL FUNCTION BUTTONS-->
@@ -227,7 +227,23 @@ require_once "../backend/dbcontroller.php";
                         <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
                     </form>
                 </div>
-
+                
+                <!------ This is the coupon form popup--->
+                <div class = "couponform-popup" id = "Couponform">
+                    <form action = "/add_coupon.php" class = "form-container">
+                        <h1>Create Coupon</h1>
+                        <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
+                        <br>
+                        <label for="Code"><b>Code:</b></label>
+                        <input type="text" placeholder="Enter Coupon Code" name="Code" required>
+                        <br>
+                        <label for="Price"><b>Discount Price:</b></label>
+                        <input type="text" placeholder="Enter Coupon Price" name="Price" required>
+                        <br>
+                        <button type="submit" class="btn">Save</button>
+                        <button type="button" class="btn cancel" onclick="Closecoupon()">Close</button>
+                    </form>
+                </div>
 
             </div>
 

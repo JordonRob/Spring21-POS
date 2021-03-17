@@ -1,6 +1,5 @@
 <?php
-
-
+require_once "../client/coupon_functions.php";
 require_once "../backend/db_connection.php";
 
 //Define empty variables
@@ -28,6 +27,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $Price = trim($_POST["Price"]);
     }
+
+    $conn = openConn();
+    if (!doesCouponExist($conn, $Name, $Code)) {
+        $coupon = createCoupon($conn, $Name, $Code, $Price);
+        $result = "Added new coupon";
+        header("location: index.php");
+    } else {
+        $result = "A user with that first and last name already exists. If you'd like to create another user with that name please add a number to their lastname.";
+    }
+    $conn->close();
 }
 
 ?>
