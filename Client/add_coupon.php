@@ -1,5 +1,5 @@
 <?php
-require_once "../backend/coupon_functions.php";
+
 require_once "../backend/conn.php";
 
 //Define empty variables
