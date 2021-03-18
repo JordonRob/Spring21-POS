@@ -192,7 +192,7 @@ require_once "../backend/dbcontroller.php";
                 </div>
                 <div id="item-overlay" onclick="off_item()">
                     <div class="functional-buttons">
-                        <button class="button2" id="price-check">Price Check</button>
+                        <button class="button2" id="price-check" onclick = "OpenPriceCheck()">Price Check</button>
                         <button class="button2" id="add-inventory" onclick="Openinventory()">Add to Inventory</button><br />
                         <button class="button2" id="receipt">Receipt</button>
                         <button class="button2" id="add-coupons" onclick="Opencoupon()">Coupons</button><br />
@@ -227,6 +227,18 @@ require_once "../backend/dbcontroller.php";
                         <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
                     </form>
                 </div>
+
+            <!------ This is the price check form popup--->
+            <div class="pricecheckform-popup" id="PriceCheckform">
+                    <form action="/price_check.php" class="form-container">
+                        <h3> Price Check </h3>
+                        <label for="Product"><b>Product Name: </b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
+                        <br>
+                        <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
+                    </form>
+                </div>
+                
+
                 
                 <!------ This is the coupon form popup--->
                 <div class = "couponform-popup" id = "Couponform">
@@ -258,6 +270,7 @@ require_once "../backend/dbcontroller.php";
                     <button type="button" class="btn cancel" onclick="Closevoid()">Close</button>
                 </form>
             </div>
+            
             <!------ This is the inventory form popup--->
             <div class="inventoryform-popup" id="Inventoryform">
                 <form action="/action_page.php" class="form-container">
