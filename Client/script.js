@@ -73,8 +73,7 @@ function Openinventory() {
 }
 
 function OpenPriceCheck() {
-	document.getElementById("PriceCheckform").style.display = "block"
-    document.getElementsByClassName("functions").style.display = "none";
+	document.getElementById("PriceCheckform").style.display = "block";
 }
 
 
