@@ -328,7 +328,9 @@ require_once "../backend/dbcontroller.php";
 
             str += "Today is: " + days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
             document.getElementById("todaysDate").innerHTML = str;
+        
         }
+        setInterval(doDate,1000);
        
     </script>
 
