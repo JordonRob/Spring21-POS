@@ -187,7 +187,7 @@ require_once "../backend/dbcontroller.php";
                         <button class="button2" id="return" onclick="return_overlay()">Returns</button><br />
                         <button class="button2" id="Open" onclick="open_register()">Open Register</button>
                         <!--This will not have an overlay screen-->
-                        <button class="button2" id="Coupon" style="font-size: 32px;">Coupon</button>
+                        <button class="button2" id="Micellaneous">Misc.</button>
                     </div>
 
                 </div>
