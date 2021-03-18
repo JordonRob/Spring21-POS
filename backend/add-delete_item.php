@@ -40,6 +40,15 @@ switch($_GET["action"]) {
 	case "empty":
 		unset($_SESSION["cart_item"]);
 	break;	
+	case "discount":
+		$total_price = 0;
+		foreach ($_SESSION["cart_item"] as $item) {
+			$total_price += ($item["quantity"] * $item["price"]);
+		}
+		$discountPrice = ($total_price * 0.10) * -1;
+		$itemArray = array(0=>array('name'=>'Employee Discount', 'code'=>0, 'quantity'=>1, 'price'=>number_format($discountPrice, 2)));
+		$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+    break;
 }
 }
 ?>
