@@ -72,12 +72,22 @@ function Openinventory() {
     document.getElementsByClassName("functions").style.display = "none";
 }
 
+function OpenPriceCheck() {
+	document.getElementById("PriceCheckform").style.display = "block"
+    document.getElementsByClassName("functions").style.display = "none";
+}
+
+
 function Opencoupon() {
 	document.getElementById("Couponform").style.display = "block";
 }
 
 function Closeinventory() {
 	document.getElementById("Inventoryform").style.display = "none";
+}
+
+function Closepricecheck() {
+	document.getElementById("PriceCheckform").style.display = "none";
 }
 
 function Closecoupon() {
