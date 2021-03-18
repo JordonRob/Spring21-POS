@@ -231,13 +231,12 @@ require_once "../backend/dbcontroller.php";
 
                 <!------ This is the price check form popup--->
                 <div class="pricecheckform-popup" id="PriceCheckform">
-                    <form action="/price_check.php" class="form-container">
-
-                        <label for="Product"><b>Product Name: </b></label> <input type="text" placeholder="Enter PIDC" name="Product" required />
+                   <form action = "/price_check.php" class="form-container">
+                        <label for="Product"><b>Code: </b></label> <input type="text" placeholder="Enter PIDC" name="Code" required />
                         <br>
                         <label for="Price"><b>Price: </b></label> <input type="hidden" />
                         <br>
-                        <button type="button" class="btn">Find Price</button>
+                        <button type="submit" class="btn">Find Price</button>
                         <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button>
                     </form>
                 </div>
