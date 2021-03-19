@@ -209,26 +209,7 @@ require_once "../backend/dbcontroller.php";
                     </div>
                 </div>
 
-                <!------ This is the inventory form popup--->
-                <div class="inventoryform-popup" id="Inventoryform">
-                    <form action="/action_page.php" class="form-container">
-                        <!--  <h1>Add to Inventory</h1> -->
-                        <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
-                        <br>
-                        <label for="Manufacturer"><b>Manufacturer</b></label>
-                        <input type="text" placeholder="Manufacturer" name="Manufacturer" required>
-                        <br>
-                        <label for="Price"><b>Retail Price $</b></label>
-                        <input type="text" placeholder="$0.00" name="Price" required>
-                        <br>
-                        <label for="Stock Amount"><b>Amount in Stock:</b></label>
-                        <input type="text" placeholder="0" name="Stock Amount" required>
-                        <br>
-                        <button type="submit" class="btn">Save</button>
-                        <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
-                    </form>
-                </div>
-
+             
                 <!------ This is the price check form popup--->
                 <div class="pricecheckform-popup" id="PriceCheckform">
                    <form action = "/price_check.php" class="form-container">
@@ -236,16 +217,13 @@ require_once "../backend/dbcontroller.php";
                         <br>
                         <label for="Price"><b>Price: </b></label> <input type="hidden" />
                         <br>
-                        <button type="submit" class="btn">Find Price</button>
                         <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button>
+                        <button type="submit" class="btn">Find Price</button>
                     </form>
                 </div>
 
-
-
                 <!------ This is the coupon form popup--->
                 <div class="couponform-popup" id="Couponform">
-                    <form action="/add_coup.php" method="POST" class="form-container">
                         <h1>Create Coupon</h1>
                         <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Name" required />
                         <br>
@@ -254,12 +232,11 @@ require_once "../backend/dbcontroller.php";
                         <br>
                         <label for="Price"><b>Discount Price:</b></label>
                         <input type="text" placeholder="Enter Coupon Price" name="Price" required>
-                        <br>
                         <button type="submit" class="btn">Save</button>
+                        <br>
                         <button type="button" class="btn cancel" onclick="Closecoupon()">Close</button>
                     </form>
                 </div>
-
             </div>
 
             <!---- This is the void popup--->
@@ -276,20 +253,20 @@ require_once "../backend/dbcontroller.php";
 
             <!------ This is the inventory form popup--->
             <div class="inventoryform-popup" id="Inventoryform">
-                <form action="/action_page.php" class="form-container">
+                <form action="inventory.php" method="post" class="form-container">
                     <h1>Add to Inventory</h1>
-                    <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
+                    <label><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="name" required />
                     <br>
-                    <label for="Manufacturer"><b>Manufacturer</b></label>
-                    <input type="text" placeholder="Manufacturer" name="Manufacturer" required>
+                    <label><b>PIDC:</b></label>
+                    <input type="text" placeholder="PIDC" name="PIDC" required>
                     <br>
-                    <label for="Price"><b>Retail Price $</b></label>
-                    <input type="text" placeholder="$0.00" name="Price" required>
+                    <label><b>Retail Price $</b></label>
+                    <input type="text" placeholder="$0.00" name="price" required>
                     <br>
-                    <label for="Stock Amount"><b>Amount in Stock:</b></label>
-                    <input type="text" placeholder="0" name="Stock Amount" required>
+                    <label><b>Amount in Stock:</b></label>
+                    <input type="text" placeholder="0" name="quantity" required>
                     <br>
-                    <button type="submit" class="btn">Save</button>
+                    <button type="submit" name="save" class="btn">Save</button>
                     <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
                 </form>
             </div>
