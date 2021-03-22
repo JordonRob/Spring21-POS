@@ -247,23 +247,24 @@ require_once "../backend/dbcontroller.php";
 
                 <!------ This is the inventory form popup--->
                 <div class="inventoryform-popup" id="Inventoryform">
-                    <form action="/action_page.php" class="form-container">
-                        <!--  <h1>Add to Inventory</h1> -->
-                        <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
-                        <br>
-                        <label for="Manufacturer"><b>Manufacturer</b></label>
-                        <input type="text" placeholder="Manufacturer" name="Manufacturer" required>
-                        <br>
-                        <label for="Price"><b>Retail Price $</b></label>
-                        <input type="text" placeholder="$0.00" name="Price" required>
-                        <br>
-                        <label for="Stock Amount"><b>Amount in Stock:</b></label>
-                        <input type="text" placeholder="0" name="Stock Amount" required>
-                        <br>
-                        <button type="submit" class="btn">Save</button>
-                        <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
-                    </form>
-                </div>
+                <form action="inventory.php" method="post" class="form-container">
+                    <h1>Add to Inventory</h1>
+                    <label><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="name" required />
+                    <br>
+                    <label><b>Code:</b></label>
+                    <input type="text" placeholder="Code" name="Code" required>
+                    <br>
+                    <label><b>Retail Price $</b></label>
+                    <input type="text" placeholder="$0.00" name="price" required>
+                    <br>
+                    <label><b>Amount in Stock:</b></label>
+                    <input type="text" placeholder="0" name="quantity" required>
+                    <br>
+                    <button type="submit" name="save" class="btn">Save</button>
+                    <button type="submit" name="remove" class="btn">Remove</button>
+                    <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
+                </form>
+            </div>
 
                 <!------ This is the price check form popup--->
                 <div class="pricecheckform-popup" id="PriceCheckform">
@@ -310,25 +311,7 @@ require_once "../backend/dbcontroller.php";
                 </form>
             </div>
 
-            <!------ This is the inventory form popup--->
-            <div class="inventoryform-popup" id="Inventoryform">
-                <form action="/action_page.php" class="form-container">
-                    <h1>Add to Inventory</h1>
-                    <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
-                    <br>
-                    <label for="Manufacturer"><b>Manufacturer</b></label>
-                    <input type="text" placeholder="Manufacturer" name="Manufacturer" required>
-                    <br>
-                    <label for="Price"><b>Retail Price $</b></label>
-                    <input type="text" placeholder="$0.00" name="Price" required>
-                    <br>
-                    <label for="Stock Amount"><b>Amount in Stock:</b></label>
-                    <input type="text" placeholder="0" name="Stock Amount" required>
-                    <br>
-                    <button type="submit" class="btn">Save</button>
-                    <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
-                </form>
-            </div>
+            
 
             <div class="keypad">
                 <!-- The following code represents our number pad with button press functionality-->
