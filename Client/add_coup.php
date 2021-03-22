@@ -38,6 +38,8 @@
                         $Price = trim($_POST["Price"]);
                     }
 
+                    header("location: index.php");
+
                 }
 
             $sql = "INSERT INTO Coupons (Name, Code, Price, Date_Created) values ('$Name','$Code','$Price','$Date_Created')";
@@ -72,6 +74,6 @@
                     }
                 }
                 $conn->close();
+        
         }
-
 ?>

@@ -5,6 +5,7 @@ require_once "../backend/dbcontroller.php";
 ?>
 
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +13,7 @@ require_once "../backend/dbcontroller.php";
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
 </head>
+
 <body>
     <div class="overlay" id="return">
         <!--This is the overlay screen for returns-->
@@ -60,12 +62,13 @@ require_once "../backend/dbcontroller.php";
                         <div id="shopping-cart">
 
                             <?php
-                            if(isset($_SESSION["cart_item"])){
+                            if (isset($_SESSION["cart_item"])) {
                                 $total_quantity = 0;
                                 $total_price = 0;
                                 $tax = 0;
-                                $final_total= 0;
+                                $final_total = 0;
                             ?>
+<<<<<<< HEAD
                             <table class="tbl-cart" cellpadding="10" cellspacing="1">
                                 <tbody>
                                     <tr>
@@ -99,69 +102,109 @@ require_once "../backend/dbcontroller.php";
 
                                 </tbody>
                             </table>
+=======
+                                <table class="tbl-cart" cellpadding="10" cellspacing="1">
+                                    <tbody>
+                                        <tr>
+                                            <th style="text-align:left;">Name</th>
+                                            <th style="text-align:left;">Code</th>
+                                            <th style="text-align:right;" width="5%">Quantity</th>
+                                            <th style="text-align:right;" width="10%">Unit Price</th>
+                                            <th style="text-align:right;" width="10%">Price</th>
+                                            <th style="text-align:center;" width="5%">Remove</th>
+                                        </tr>
+                                        <?php
+                                        foreach ($_SESSION["cart_item"] as $item) {
+                                            $item_price = $item["quantity"] * $item["price"];
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $item["name"]; ?></td>
+                                                <td><?php echo $item["code"]; ?></td>
+                                                <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+                                                <td style="text-align:right;"><?php echo "$ " . $item["price"]; ?></td>
+                                                <td style="text-align:right;"><?php echo "$ " . number_format($item_price, 2); ?></td>
+                                                <td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction">🗑️</a></td>
+                                            </tr>
+                                        <?php
+                                            $total_quantity += $item["quantity"];
+                                            $total_price += ($item["price"] * $item["quantity"]);
+                                            $tax += ($total_price * 0.08);
+                                            $final_total += ($total_price + $tax);
+                                        }
+                                        ?>
+
+                                        <!--         <tr>
+                                        <td colspan="2" align="right">Total:</td>
+                                        <td align="right"><?php echo $total_quantity; ?></td>
+                                        <td align="right" colspan="2"><strong><?php echo "$ " . number_format($total_price, 2); ?></strong></td>
+                                        <td></td>
+                                    </tr> -->
+                                    </tbody>
+                                </table>
+>>>>>>> bd925f031f823b7e450d9f9d6c85b1ed5cc6a4f6
                             <?php
-} else {
-?>
-                      <!--  <div class="no-records">Your Cart is Empty</div> -->
-                            <?php 
-}
-?>
+                            } else {
+                            ?>
+                                <!--  <div class="no-records">Your Cart is Empty</div> -->
+                            <?php
+                            }
+                            ?>
                         </div>
 
                         <div id="product-grid">
-                       <!--     <div class="txt-heading">Products</div> -->
+                            <!--     <div class="txt-heading">Products</div> -->
                             <?php
-	$search = empty($_POST['code'])? '': $_POST["code"];
+                            $search = empty($_POST['code']) ? '' : $_POST["code"];
 
 
-	$product_array = $db_handle->runQuery("SELECT * FROM products WHERE code= '$search'");
-	if (!empty($product_array)) { 
-		foreach($product_array as $key=>$value){
-	?>
-                            <div class="product-item">
-                                <form method="post" action="index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+                            $product_array = $db_handle->runQuery("SELECT * FROM products WHERE code= '$search'");
+                            if (!empty($product_array)) {
+                                foreach ($product_array as $key => $value) {
+                            ?>
+                                    <div class="product-item">
+                                        <form method="post" action="index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
 
-                                    <div class="product-tile-footer">
-                                        <div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
-                                        <div class="product-price"><?php echo "$".$product_array[$key]["price"]; ?></div>
-                                        <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
+                                            <div class="product-tile-footer">
+                                                <div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
+                                                <div class="product-price"><?php echo "$" . $product_array[$key]["price"]; ?></div>
+                                                <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
-                            </div>
                             <?php
-		}
-	}
-	?>
+                                }
+                            }
+                            ?>
                         </div>
 
                     </div>
                     <div id="final_checkout_details">
-                    <table id="c_table">
-                                    <tr>
-                                        <!-- This displays the Subtotal of the Transactions -->
-                                        <td colspan="2" align="right">Subtotal:</td>
-                                        <td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
-                                        <!-- This displays the tax of the Transactions -->
-                                        <td colspan="2" align="right">Tax:</td>
-                                        <td align="right"><?php echo "$".number_format($tax, 2); ?></td>
-                                        <!-- This displays the final total of the Transactions -->
-                                        <td colspan="2" align="right">TOTAL:</td>
-                                        <td align="right"><?php echo "$".number_format($final_total, 2); ?></td>
-                                        <td><a id="btnEmpty" href="index.php?action=empty">Empty Cart</a></td>
-                                        
-                                        
-                                        
-                                        <td></td>
-                                    </tr>
+                        <table id="c_table">
+                            <tr>
+                                <!-- This displays the Subtotal of the Transactions -->
+                                <td colspan="2" align="right">Subtotal:</td>
+                                <td align="right" colspan="2"><strong><?php echo "$ " . number_format($total_price, 2); ?></strong></td>
+                                <!-- This displays the tax of the Transactions -->
+                                <td colspan="2" align="right">Tax:</td>
+                                <td align="right"><?php echo "$" . number_format($tax, 2); ?></td>
+                                <!-- This displays the final total of the Transactions -->
+                                <td colspan="2" align="right">TOTAL:</td>
+                                <td align="right"><?php echo "$" . number_format($final_total, 2); ?></td>
+                                <td><a id="btnEmpty" href="index.php?action=empty">Empty Cart</a></td>
+
+
+
+                                <td></td>
+                            </tr>
                         </table>
-                    
-                </div>
+
                     </div>
+                </div>
             </div>
             <div class="info-container">
                 <!--this container will contain employee and system information-->
                 <div id="todaysDate"></div> <!-- displays live clock for user-->
-                <a> USER:<?php echo $_SESSION['firstname'];?>  <?php echo $_SESSION['lastname']; ?> </a>
+                <a> USER:<?php echo $_SESSION['firstname']; ?> <?php echo $_SESSION['lastname']; ?> </a>
 
 
 
@@ -175,21 +218,21 @@ require_once "../backend/dbcontroller.php";
             <div class="functions">
                 <div id="transaction-overlay" onclick="off_transaction()">
                     <div class="functional-buttons">
-                        <button class="button2" id="discount">Employee Discount</button>
+                        <a href="index.php?action=discount"><button class="button2" id="discount" style="font-size: 32px;">Employee Discount</button></a>
                         <!--this will not have an overlay screen-->
                         <button class="button2" id="return" onclick="return_overlay()">Returns</button><br />
                         <button class="button2" id="Open" onclick="open_register()">Open Register</button>
                         <!--This will not have an overlay screen-->
-                        <button class="button2" id="Miscellaneous">Misc.</button>
+                        <button class="button2" id="Micellaneous">Misc.</button>
                     </div>
 
                 </div>
                 <div id="item-overlay" onclick="off_item()">
                     <div class="functional-buttons">
-                        <button class="button2" id="price-check" onclick = "OpenPriceCheck()">Price Check</button>
+                        <button class="button2" id="price-check" onclick="OpenPriceCheck()">Price Check</button>
                         <button class="button2" id="add-inventory" onclick="Openinventory()">Add to Inventory</button><br />
                         <button class="button2" id="receipt">Receipt</button>
-                        <button class="button2" id="add-coupons" onclick="Opencoupon()">Coupons</button><br />
+                        <button class="button2" id="add-coupons" onclick="Opencoupon()">Create Coupons</button><br />
                     </div>
                 </div>
                 <!--THESE ARE OVERLAYS, THAT WILL SHOW ADDITIONAL FUNCTION BUTTONS-->
@@ -222,21 +265,23 @@ require_once "../backend/dbcontroller.php";
                     </form>
                 </div>
 
-            <!------ This is the price check form popup--->
-            <div class="pricecheckform-popup" id="PriceCheckform">
-                    <form action="/price_check.php" class="form-container">
-                        <h3> Price Check </h3>
-                        <label for="Product"><b>Product Name: </b></label> <input type="text" placeholder="Enter Product Name" name="Product" required />
+                <!------ This is the price check form popup--->
+                <div class="pricecheckform-popup" id="PriceCheckform">
+                   <form action = "/price_check.php" class="form-container">
+                        <label for="Product"><b>Code: </b></label> <input type="text" placeholder="Enter PIDC" name="Code" required />
                         <br>
-                        <button type="button" class="btn cancel" onclick="Closeinventory()">Close</button>
+                        <label for="Price"><b>Price: </b></label> <input type="hidden" />
+                        <br>
+                        <button type="submit" class="btn">Find Price</button>
+                        <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button>
                     </form>
                 </div>
-                
 
-                
+
+
                 <!------ This is the coupon form popup--->
-                <div class = "couponform-popup" id = "Couponform">
-                    <form action = "/add_coupon.php" method="POST" class = "form-container">
+                <div class="couponform-popup" id="Couponform">
+                    <form action="/add_coup.php" method="POST" class="form-container">
                         <h1>Create Coupon</h1>
                         <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Name" required />
                         <br>
@@ -264,7 +309,7 @@ require_once "../backend/dbcontroller.php";
                     <button type="button" class="btn cancel" onclick="Closevoid()">Close</button>
                 </form>
             </div>
-            
+
             <!------ This is the inventory form popup--->
             <div class="inventoryform-popup" id="Inventoryform">
                 <form action="/action_page.php" class="form-container">
@@ -335,12 +380,12 @@ require_once "../backend/dbcontroller.php";
 
             str += "Today is: " + days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
             document.getElementById("todaysDate").innerHTML = str;
-        
+
         }
-        setInterval(doDate,1000);
-       
+        setInterval(doDate, 1000);
     </script>
 
 
 </body>
+
 </html>
