@@ -68,41 +68,6 @@ require_once "../backend/dbcontroller.php";
                                 $tax = 0;
                                 $final_total = 0;
                             ?>
-<<<<<<< HEAD
-                            <table class="tbl-cart" cellpadding="10" cellspacing="1">
-                                <tbody>
-                                    <tr>
-                                        <th style="text-align:left;">Name</th>
-                                        <th style="text-align:left;">Code</th>
-                                        <th style="text-align:right;" width="5%">Quantity</th>
-                                        <th style="text-align:right;" width="10%">Unit Price</th>
-                                        <th style="text-align:right;" width="10%">Price</th>
-                                        <th style="text-align:center;" width="5%">Remove</th>
-                                    </tr>
-                                    <?php		
-    foreach ($_SESSION["cart_item"] as $item){
-        $item_price = $item["quantity"]*$item["price"];
-		?>
-                                    <tr>
-                                        <td><?php echo $item["name"]; ?></td>
-                                        <td><?php echo $item["code"]; ?></td>
-                                        <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
-                                        <td style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
-                                        <td style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-                                        <td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction">🗑️</a></td>
-                                    </tr>
-                                    <?php
-				$total_quantity += $item["quantity"];
-				$total_price += ($item["price"]*$item["quantity"]);
-                $tax += ($total_price*0.08);
-                $final_total += ($total_price+$tax);
-        
-		}
-		?>
-
-                                </tbody>
-                            </table>
-=======
                                 <table class="tbl-cart" cellpadding="10" cellspacing="1">
                                     <tbody>
                                         <tr>
@@ -141,7 +106,6 @@ require_once "../backend/dbcontroller.php";
                                     </tr> -->
                                     </tbody>
                                 </table>
->>>>>>> bd925f031f823b7e450d9f9d6c85b1ed5cc6a4f6
                             <?php
                             } else {
                             ?>
@@ -171,6 +135,26 @@ require_once "../backend/dbcontroller.php";
                                             </div>
                                         </form>
                                     </div>
+                            <?php
+                                }
+                            }
+                            ?>
+                            <!-- Coupon Search In Product Grid -->
+                            <?php
+                                $coupon_array = $db_handle->runQuery("SELECT * FROM Coupons WHERE code= '$search'");
+                                if (!empty($coupon_array)) {
+                                    foreach ($coupon_array as $key => $value) {
+                            ?>
+                                <div class="product-item">
+                                    <form method="post" action="index.php?action=add&code=<?php echo $coupon_array[$key]["code"]; ?>">
+
+                                        <div class="product-tile-footer">
+                                        <div class="product-title"><?php echo $coupon_array[$key]["Name"]; ?></div>
+                                        <div class="product-price"><?php echo "$" . $coupon_array[$key]["Price"]; ?></div>
+                                        <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Apply Discount" class="btnAddAction" /></div>
+                                        </div>
+                                    </form>
+                                </div>
                             <?php
                                 }
                             }
