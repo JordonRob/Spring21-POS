@@ -1,24 +1,37 @@
 <?php
 
-$servername = "localhost";
-$username = "username";
-$password = "password";
+$host = "localhost";
+$dbusername = "root";
+$dbpassword = "";
 $dbname = "securepos";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-require_once '../backend/db_connection.php';
-require_once "../backend/conn.php";
-
-
 //Define the empty values
-$result = $PIDC = $Price = "";
+$result = $Code = $Price = "";
 
+$sql = "SELECT PIDC, price FROM strproducts";
+
+
+if (mysqli_connect_error()){
+    die('Connect Error ('. mysqli_connect_errno() .') '. mysqli_connect_error());
+}
+else{ 
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty(trim($_POST["Code"]))) {
+            $Code_Error = "Please enter PIDC code.";
+        } else {
+        $Code = trim($_POST["Code"]);
+        echo $Price;
+    }
+}
+    // collect value of input field
+    /*$Code = $_POST['Code'];
+    if (empty($Code)) {
+      echo "PIDC is empty";
+    } else {
+      echo $Price;
+    }
+  } 
+} */
 
 ?>
 
@@ -35,22 +48,6 @@ $result = $PIDC = $Price = "";
 <body>
     <div class="price-check-container">
 
-<?php
-
-$sql = "SELECT PIDC, price FROM strproducts";
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // collect value of input field
-    $PIDC = $_POST['PIDC'];
-    if (empty($PIDC)) {
-      echo "PIDC is empty";
-    } else {
-      echo $Price;
-    }
-  }
-        ?>
-
         <div class = "header">
                 Price Check
         </div>
@@ -59,13 +56,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p class="help-block">
             </div> --->
 
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-                pidc: <input type="text" name="PIDC">
+            <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                PIDC: <input type="text" name="Code">
                 <input type="submit">
             </form>
 
             <div class = "pricebox">   
-                <input type="double" name="Price" id="Price"> <?php echo "$ ".$item["price"]; ?>
+                <input type="double" name="Price" id="Price"> 
                 <p class="help-block">
             </div>
     
