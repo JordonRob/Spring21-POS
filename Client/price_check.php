@@ -14,7 +14,7 @@ $sql = "SELECT PIDC, price FROM strproducts";
 if (mysqli_connect_error()){
     die('Connect Error ('. mysqli_connect_errno() .') '. mysqli_connect_error());
 }
-else{ 
+else { 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty(trim($_POST["Code"]))) {
             $Code_Error = "Please enter PIDC code.";
@@ -22,6 +22,7 @@ else{
         $Code = trim($_POST["Code"]);
         echo $Price;
     }
+}
 }
     // collect value of input field
     /*$Code = $_POST['Code'];
