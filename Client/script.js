@@ -72,6 +72,22 @@ function Openinventory() {
     document.getElementsByClassName("functions").style.display = "none";
 }
 
+function disable(){
+    
+     $(document).on('click', ':button', function (e) {
+
+            var btn = $(e.target);
+            btn.attr("disabled", "disabled"); // disable button
+
+        });
+
+}
+
+
+
+
+
+
 function OpenPriceCheck() {
 	document.getElementById("PriceCheckform").style.display = "block";
 }
