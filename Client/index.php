@@ -65,6 +65,7 @@ require_once "../backend/dbcontroller.php";
                             if (isset($_SESSION["cart_item"])) {
                                 $total_quantity = 0;
                                 $total_price = 0;
+                                $coupon_amt = 0;
                                 $tax = 0;
                                 $final_total = 0;
                             ?>
@@ -92,7 +93,7 @@ require_once "../backend/dbcontroller.php";
                                             </tr>
                                         <?php
                                             $total_quantity += $item["quantity"];
-                                            $total_price += ($item["price"] * $item["quantity"]);
+                                            $total_price += ($item["price"] * $item["quantity"]) - $coupon_amt;
                                             $tax += ($total_price * 0.08);
                                             $final_total += ($total_price + $tax);
                                         }
@@ -144,6 +145,7 @@ require_once "../backend/dbcontroller.php";
                                 $coupon_array = $db_handle->runQuery("SELECT * FROM Coupons WHERE code= '$search'");
                                 if (!empty($coupon_array)) {
                                     foreach ($coupon_array as $key => $value) {
+                                        $coupon_amt = $coupon_array[$key]["Price"];
                             ?>
                                 <div class="product-item">
                                     <form method="post" action="index.php?action=add&code=<?php echo $coupon_array[$key]["code"]; ?>">
