@@ -1,34 +1,3 @@
-<?php
-require_once "../backend/database.php";
-
-//Define the empty values
-$result = $PIDC = $Price = "";
-
-$db = mysql_connect("localhost","root","") or die("Database Error");
-mysql_select_db("securepos",$db);
-
-$PIDC = isset($_GET['PIDC']) ? (int)$_GET['PIDC'] : 0;
-
-if($PIDC > 0)
-{
-    $resource = mysql_query("SELECT price FROM strproducts WHERE price = " . $price);
-    if($resource === false)
-    {
-        die("Database Error");
-    }
-
-    if(mysql_num_rows($resource) == 0)
-    {
-        die("No Item Exists");
-    }
-    
-    $Price = mysql_fetch_assoc($resource);
-    echo "Price" . $Price['price'];
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">   
 
@@ -44,25 +13,34 @@ if($PIDC > 0)
         <div class = "header">
                 Price Check
         </div>
-           <div class = "PIDCbox">
-                <input class="text" name="PIDC" id="PIDC" placeholder = "ENTER PIDC">  
-                <p class="help-block">
-            </div>
+        <div>
+           <form action = " " method = "POST" >
+                <input type = "text" name = "PIDC" class = "btn" placeholder = "ENTER PIDC">
+                <input type="submit" name = "search" class = "btn" value = "Find Price"> 
+            </form> 
 
-           <!--- <form method="POST" action="<
-?php echo $_SERVER['PHP_SELF'];?>">
-                PIDC: <input type="text" name="PIDC">
-                <input type="submit">
-            </form> --->
+        <?php
+        $connection = mysqli_connect("localhost", "root", "");
+        $db = mysqli_select_db($connection, 'securepos');
 
-            <div class = "pricebox">   
-                <input type="double" name="Price" id="Price"> 
-                <p class="help-block">
-            </div>
-    
-            <input type="find" class = "button" value="FindPrice">  
-        </form>
-    </div>
+        if(isset($_POST['search']))
+        {
+            $PIDC = $_POST['PIDC'];
+
+            $query = "SELECT price FROM 'strproducts' where PIDC = '$PIDC'";
+            $query_run = mysqli_query($connection, $query);
+
+            while($row = mysqli_fetch_array($query_run))
+            {
+                ?>
+
+                <h1> <?php echo $row['price'] ?> </h1>
+
+                <?php
+            }
+        }
+        ?>
+        </div>
 
 
     <form method = "POST" action = "index.php">
