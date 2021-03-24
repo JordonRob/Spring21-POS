@@ -93,7 +93,7 @@ require_once "../backend/dbcontroller.php";
                                             </tr>
                                         <?php
                                             $total_quantity += $item["quantity"];
-                                            $total_price += ($item["price"] * $item["quantity"]) - $coupon_amt;
+                                            $total_price += ($item["price"] * $item["quantity"]);
                                             $tax += ($total_price * 0.08);
                                             $final_total += ($total_price + $tax);
                                         }
@@ -146,10 +146,15 @@ require_once "../backend/dbcontroller.php";
                                 if (!empty($coupon_array)) {
                                     foreach ($coupon_array as $key => $value) {
                                         $coupon_amt = $coupon_array[$key]["Price"];
+                                        $total_price = 0;
+                                        foreach ($_SESSION["cart_item"] as $item) {
+                                            $total_price = ($item["quantity"] * $item["price"]);
+                                            $coupon_price =  (($total_price) - $coupon_amt); //$c_amt = ($total_price - $coupon_amt);
+                                        $iArray = array(0=>array('name'=>$coupon_array[$key]["Name"], 'code'=>$search, 'quantity'=>1, 'price'=>$coupon_amt));
+                                        $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$iArray);
                             ?>
-                                <div class="product-item">
-                                    <form method="post" action="index.php?action=add&code=<?php echo $coupon_array[$key]["code"]; ?>">
-
+                                <div class="product-item" action = "index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+                                    <form>
                                         <div class="product-tile-footer">
                                         <div class="product-title"><?php echo $coupon_array[$key]["Name"]; ?></div>
                                         <div class="product-price"><?php echo "$" . $coupon_array[$key]["Price"]; ?></div>
@@ -158,6 +163,7 @@ require_once "../backend/dbcontroller.php";
                                     </form>
                                 </div>
                             <?php
+                                     }  
                                 }
                             }
                             ?>
