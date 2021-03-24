@@ -44,15 +44,15 @@ if($PIDC > 0)
         <div class = "header">
                 Price Check
         </div>
-           <!-- <div class = "PIDCbox">
+           <div class = "PIDCbox">
                 <input class="text" name="PIDC" id="PIDC" placeholder = "ENTER PIDC">  
                 <p class="help-block">
-            </div> --->
+            </div>
 
-            <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+           <!--- <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
                 PIDC: <input type="text" name="PIDC">
                 <input type="submit">
-            </form>
+            </form> --->
 
             <div class = "pricebox">   
                 <input type="double" name="Price" id="Price"> 
