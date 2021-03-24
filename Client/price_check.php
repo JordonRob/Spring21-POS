@@ -1,38 +1,30 @@
 <?php
-
-$host = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "securepos";
+require_once "../backend/database.php";
 
 //Define the empty values
-$result = $Code = $Price = "";
+$result = $PIDC = $Price = "";
 
-$sql = "SELECT PIDC, price FROM strproducts";
+$db = mysql_connect("localhost","root","") or die("Database Error");
+mysql_select_db("securepos",$db);
 
+$PIDC = isset($_GET['PIDC']) ? (int)$_GET['PIDC'] : 0;
 
-if (mysqli_connect_error()){
-    die('Connect Error ('. mysqli_connect_errno() .') '. mysqli_connect_error());
-}
-else { 
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (empty(trim($_POST["Code"]))) {
-            $Code_Error = "Please enter PIDC code.";
-        } else {
-        $Code = trim($_POST["Code"]);
-        echo $Price;
+if($PIDC > 0)
+{
+    $resource = mysql_query("SELECT price FROM strproducts WHERE price = " . $price);
+    if($resource === false)
+    {
+        die("Database Error");
     }
-}
-}
-    // collect value of input field
-    /*$Code = $_POST['Code'];
-    if (empty($Code)) {
-      echo "PIDC is empty";
-    } else {
-      echo $Price;
+
+    if(mysql_num_rows($resource) == 0)
+    {
+        die("No Item Exists");
     }
-  } 
-} */
+    
+    $Price = mysql_fetch_assoc($resource);
+    echo "Price" . $Price['price'];
+}
 
 ?>
 
@@ -58,7 +50,7 @@ else {
             </div> --->
 
             <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
-                PIDC: <input type="text" name="Code">
+                PIDC: <input type="text" name="PIDC">
                 <input type="submit">
             </form>
 
