@@ -95,7 +95,7 @@ require_once "../backend/dbcontroller.php";
                                             $total_quantity += $item["quantity"];
                                             $total_price += ($item["price"] * $item["quantity"]);
                                             $tax += ($total_price * 0.08);
-                                            $final_total += ($total_price + $tax);
+                                            $final_total = ($total_price + $tax);
                                         }
                                         ?>
 
