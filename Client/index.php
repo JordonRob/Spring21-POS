@@ -95,7 +95,7 @@ require_once "../backend/dbcontroller.php";
                                             $total_quantity += $item["quantity"];
                                             $total_price += ($item["price"] * $item["quantity"]);
                                             $tax += ($total_price * 0.08);
-                                            $final_total += ($total_price + $tax);
+                                            $final_total = ($total_price + $tax);
                                         }
                                         ?>
 
@@ -146,11 +146,8 @@ require_once "../backend/dbcontroller.php";
                                 if (!empty($coupon_array)) {
                                     foreach ($coupon_array as $key => $value) {
                                         $coupon_amt = $coupon_array[$key]["Price"];
-                                        $total_price = 0;
                                         foreach ($_SESSION["cart_item"] as $item) {
-                                            $total_price = ($item["quantity"] * $item["price"]);
-                                            $coupon_price =  (($total_price) - $coupon_amt); //$c_amt = ($total_price - $coupon_amt);
-                                        $iArray = array(0=>array('name'=>$coupon_array[$key]["Name"], 'code'=>$search, 'quantity'=>1, 'price'=>$coupon_amt));
+                                        $iArray = array(0=>array('name'=>$coupon_array[$key]["Name"], 'code'=>$search, 'quantity'=>1, 'price'=>(0-$coupon_amt)));
                                         $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$iArray);
                             ?>
                                 <div class="product-item" action = "index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">

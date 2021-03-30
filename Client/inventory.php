@@ -15,6 +15,7 @@ if(isset($_POST['save'])){  //checks to see if the form was submitted
   //checks to see if
     if ((mysqli_query($conn, $query))){ //&& (products(name,Code)== VALUES('$name', '$Code')))) {
             echo "New record created successfully !";
+            header("location: index.php");
          } else {
             echo "Error: " . $query . "
     " . mysqli_error($conn);
