@@ -240,9 +240,6 @@ require_once "../backend/dbcontroller.php";
                     <h1>Add to Inventory</h1>
                     <label><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="name" required />
                     <br>
-                    <label><b>Code:</b></label>
-                    <input type="text" placeholder="Code" name="Code" required>
-                    <br>
                     <label><b>Retail Price $</b></label>
                     <input type="text" placeholder="$0.00" name="price" required>
                     <br>
