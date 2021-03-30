@@ -255,33 +255,39 @@ require_once "../backend/dbcontroller.php";
                 </form>
             </div>
 
-                <!------ This is the price check form popup--->
-                <div class="pricecheckform-popup" id="PriceCheckform">
-                   <form method ="POST" class="form-container">
-                      <label for="Product"><b>Code: </b></label> <input type="text" placeholder="Enter PIDC" name="Code" required />
-                        <br>
-                        <label for="Price"><b>Price: </b></label> <input type="text" />
-                        <br>
-                        <button type="submit" class="btn" name= "search"> Find Price</button>
-                            <?php
-                                if(isset($_POST['search']))
-                                {
-                                    $Code = $_POST['Code'];
-                        
-                                    $query = "SELECT price FROM products WHERE code = '{$Code}'";
-                                    $query_run = mysqli_query($query);
-                        
-                                    while($row = mysqli_fetch_array($query_run))
-                                        {
-                                        ?>
+                <!------ This is the price check form popup --->
+                <?php
 
-                                        <h1> <?php echo "Price: " . $row['price'] ?> </h1>
+                if($_SERVER["REQUEST_METHOD"] == "POST")
+                    {
 
-                                        <?php
-                                        }
-                                }
-                            ?>
-                        <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button>      
+	                $connection = mysqli_connect("localhost", "user", "", "securepos");
+	                if($connection){
+		                    echo "";
+	                }
+	                else {
+		                die("Connection failed. Reason: ". mysqli_connect_error());
+	                }
+
+	                $Code = $_POST["Code"];
+
+	                $sql = "SELECT price FROM products WHERE Code='". $Code ."'";
+
+	                $results = mysqli_query($connection, $sql);
+
+	                if(mysqli_num_rows($results)>0) {
+		                while($row = mysqli_fetch_array($results)) {
+                            echo "Price: " . $row[0]; 
+                        }
+                    }
+                }
+            ?>
+                <div class ="pricecheckform-popup" id = "PriceCheckform">
+                    <form method = "POST" class = "form-container">
+                    <form method = "post">
+                        Code: <input type = "text" name = "Code"> <br>
+	                    <input type = "submit" name = "submit" value = "Submit">
+                        <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button> 
                     </form>
                 </div>
 
