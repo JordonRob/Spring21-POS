@@ -260,12 +260,30 @@ require_once "../backend/dbcontroller.php";
 
                 <!------ This is the price check form popup--->
                 <div class="pricecheckform-popup" id="PriceCheckform">
-                   <form action = "price_check.php"  method ="GET" class="form-container">
+                   <form method ="POST" class="form-container">
                       <label for="Product"><b>Code: </b></label> <input type="text" placeholder="Enter PIDC" name="Code" required />
                         <br>
-                        <label for="Price"><b>Price: </b></label> <input type="hidden" />
+                        <label for="Price"><b>Price: </b></label> <input type="text" />
                         <br>
-                        <button type="submit" class="btn">Find Price</button>
+                        <button type="submit" class="btn" name= "search"> Find Price</button>
+                            <?php
+                                if(isset($_POST['search']))
+                                {
+                                    $Code = $_POST['Code'];
+                        
+                                    $query = "SELECT price FROM products WHERE code = '{$Code}'";
+                                    $query_run = mysqli_query($query);
+                        
+                                    while($row = mysqli_fetch_array($query_run))
+                                        {
+                                        ?>
+
+                                        <h1> <?php echo "Price: " . $row['price'] ?> </h1>
+
+                                        <?php
+                                        }
+                                }
+                            ?>
                         <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button>      
                     </form>
                 </div>
