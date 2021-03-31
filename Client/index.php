@@ -240,9 +240,6 @@ require_once "../backend/dbcontroller.php";
                     <h1>Add to Inventory</h1>
                     <label><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="name" required />
                     <br>
-                    <label><b>Code:</b></label>
-                    <input type="text" placeholder="Code" name="Code" required>
-                    <br>
                     <label><b>Retail Price $</b></label>
                     <input type="text" placeholder="$0.00" name="price" required>
                     <br>
@@ -255,19 +252,42 @@ require_once "../backend/dbcontroller.php";
                 </form>
             </div>
 
-                <!------ This is the price check form popup--->
-                <div class="pricecheckform-popup" id="PriceCheckform">
-                   <form action = "price_check.php"  method ="GET" class="form-container">
-                      <label for="Product"><b>Code: </b></label> <input type="text" placeholder="Enter PIDC" name="Code" required />
-                        <br>
-                        <label for="Price"><b>Price: </b></label> <input type="hidden" />
-                        <br>
-                        <button type="submit" class="btn">Find Price</button>
-                        <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button>      
+                <!------ This is the price check form popup --->
+                <?php
+
+                if($_SERVER["REQUEST_METHOD"] == "POST")
+                    {
+
+	                $connection = mysqli_connect("localhost", "user", "", "securepos");
+	                if($connection){
+		                    echo "";
+	                }
+	                else {
+		                die("Connection failed. Reason: ". mysqli_connect_error());
+	                }
+
+	                $Code = $_POST["Code"];
+
+	                $sql = "SELECT price FROM products WHERE Code='". $Code ."'";
+
+	                $results = mysqli_query($connection, $sql);
+
+	                if(mysqli_num_rows($results)>0) {
+		                while($row = mysqli_fetch_array($results)) {
+                            echo "Price: " . $row[0]; 
+                        }
+                    }
+                }
+            ?>
+                <div class ="pricecheckform-popup" id = "PriceCheckform">
+                    <form method = "POST" class = "form-container">
+                    <form method = "post">
+                        Code: <input type = "text" name = "Code"> <br>
+	                    <input type = "submit" name = "submit" value = "Submit">
+                        <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button> 
+                        <input name="reset" type="reset" class="reset_button" />
                     </form>
                 </div>
-
-
 
                 <!------ This is the coupon form popup--->
                 <div class="couponform-popup" id="Couponform">
