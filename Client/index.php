@@ -288,10 +288,9 @@ require_once "../backend/dbcontroller.php";
                         Code: <input type = "text" name = "Code"> <br>
 	                    <input type = "submit" name = "submit" value = "Submit">
                         <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button> 
+                        <input name="reset" type="reset" class="reset_button" />
                     </form>
                 </div>
-
-
 
                 <!------ This is the coupon form popup--->
                 <div class="couponform-popup" id="Couponform">
