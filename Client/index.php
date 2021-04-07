@@ -254,7 +254,7 @@ require_once "../backend/dbcontroller.php";
 
                 <!------ This is the price check form popup --->
                 <?php
-
+                $Code = "";
                 if($_SERVER["REQUEST_METHOD"] == "POST")
                     {
 
