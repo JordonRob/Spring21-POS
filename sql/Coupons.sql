@@ -1,35 +1,24 @@
 --
--- Table structure for table `Coupons`
+-- Table structure for table `coupons`
 --
-CREATE TABLE `Coupons` (
-  `Name` varchar(255) NOT NULL,
-  `Code` varchar(255) NOT NULL,
-  `Price` double(10,2) NOT NULL,
-  `Date_Created` DATETIME DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `coupons` (
+    `COID` int(11) NOT NULL,
+    `PID` int(11) NOT NULL,
+    `VID` int(11) NOT NULL,
+    `cname` text NOT NULL,
+    `coupon_sku` varchar(20) NOT NULL,
+    `amount_deducted` double NOT NULL,
+    `date_created` DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
 --
--- Dumping data for table `Coupons`
+-- Indexes for table `coupons`
 --
+ALTER TABLE `coupons`
+  ADD PRIMARY KEY (`COID`),
+  ADD FOREIGN KEY (`PID`) REFERENCES products(`PID`),
+  ADD FOREIGN KEY (`VID`) REFERENCES vendors(`VID`);
 
-INSERT INTO `Coupons` (`Name`, `Code`, `Price`, `Date_Created`) VALUES
-('Apple', '234521', .50, CURRENT_TIMESTAMP);
-
---
--- Indexes for table `Coupons`
---
-ALTER TABLE `Coupons`
-  ADD PRIMARY KEY (`Code`),
-  ADD UNIQUE KEY `Code` (`Code`);
-
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `Coupons`
---
-ALTER TABLE `Coupons`
-  MODIFY `Code` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `coupons`
+  MODIFY `COID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
