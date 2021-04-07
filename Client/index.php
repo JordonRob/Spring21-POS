@@ -221,7 +221,7 @@ require_once "../backend/dbcontroller.php";
                 </div>
                 <div id="item-overlay" onclick="off_item()">
                     <div class="functional-buttons">
-                        <button class="button2" id="price-check" onclick="OpenPriceCheck()">Price Check</button>
+                        <button class="button2" id="Priceheckform" onclick="OpenPriceCheck()">Price Check</button>
                         <button class="button2" id="add-inventory" onclick="Openinventory()">Add to Inventory</button><br />
                         <button class="button2" id="receipt">Receipt</button>
                         <button class="button2" id="add-coupons" onclick="Opencoupon()">Create Coupons</button><br />
@@ -268,10 +268,10 @@ require_once "../backend/dbcontroller.php";
 	                else {
 		                die("Connection failed. Reason: ". mysqli_connect_error());
 	                }
-
+                
 	                $Code = $_POST["Code"];
 
-	                $sql = "SELECT price FROM products WHERE Code='". $Code ."'";
+	                $sql = "SELECT price FROM products WHERE Code ='". $Code ."'";
 
 	                $results = mysqli_query($connection, $sql);
 
@@ -280,13 +280,14 @@ require_once "../backend/dbcontroller.php";
                             echo "Price: " . $row[0]; 
                         }
                     }
-                }
+                 }
             ?>
                 <div class ="pricecheckform-popup" id = "PriceCheckform">
-                    <form method = "POST" class = "form-container">
+                    <form action="" method= "POST" class= "form-container">
                     <form method = "post">
                         Code: <input type = "text" name = "Code"> <br>
-	                    <input type = "submit" name = "submit" value = "Submit">
+                        Price: <br>
+	                    <input type = "submit" class = "btn" value = "Submit">
                         <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button> 
                         <input name="reset" type="reset" class="reset_button" />
                     </form>

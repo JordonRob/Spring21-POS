@@ -206,12 +206,16 @@ a{
 }
 
 .pricecheckform-popup{
-    display:none;
-    width: 100%;
-    overflow: auto;
-    z-index: 4;
+    display: none;
+    position: fixed;
+    bottom: 50%;
+    right: 69%;
+    z-index: 9;
   
     background-color: #e6f2ff;
+    border: solid;
+    border-color: rgb(6, 153, 148);
+    border-radius: 1%; 
 }
 
 .couponform-popup {

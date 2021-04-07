@@ -86,12 +86,9 @@ function disable(){
 
 
 
-
-
 function OpenPriceCheck() {
 	document.getElementById("PriceCheckform").style.display = "block";
 }
-
 
 function Opencoupon() {
 	document.getElementById("Couponform").style.display = "block";
