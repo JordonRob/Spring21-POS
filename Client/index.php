@@ -169,6 +169,7 @@ require_once "../backend/dbcontroller.php";
                     </div>
                     <div id="final_checkout_details">
                         <table id="c_table">
+                            
                             <tr>
                                 <!-- This displays the Subtotal of the Transactions -->
                                 <td colspan="2" align="right">Subtotal:</td>
@@ -185,10 +186,12 @@ require_once "../backend/dbcontroller.php";
 
                                 <td></td>
                             </tr>
+                
                         </table>
 
                     </div>
                 </div>
+               
             </div>
             <div class="info-container">
                 <!--this container will contain employee and system information-->
@@ -258,7 +261,7 @@ require_once "../backend/dbcontroller.php";
                 if($_SERVER["REQUEST_METHOD"] == "POST")
                     {
 
-	                $connection = mysqli_connect("localhost", "user", "", "securepos");
+	                $connection = mysqli_connect("localhost", "root", "theultimate50", "securepos");
 	                if($connection){
 		                    echo "";
 	                }
