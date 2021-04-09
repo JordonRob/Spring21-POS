@@ -233,7 +233,7 @@ require_once "../backend/dbcontroller.php";
                         <button class="button2" id="void" onclick="Openvoid()">Void Transaction</button>
                         <a href="add_user.php"><button class="button2" id="add-user">Add User</button></a>
                         <button class="button2" id="z-report">Z-report</button>
-                        <button class="button2" id="end-of-day">End of Day Report</button>
+                        <a href="header.php"><button class="button2" id="header">About</button></a>
                     </div>
                 </div>
 
@@ -323,8 +323,6 @@ require_once "../backend/dbcontroller.php";
                     <button type="button" class="btn cancel" onclick="Closevoid()">Close</button>
                 </form>
             </div>
-
-            
 
             <div class="keypad">
                 <!-- The following code represents our number pad with button press functionality-->
