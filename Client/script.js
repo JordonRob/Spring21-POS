@@ -5,18 +5,27 @@ function on_transaction() {
 	document.getElementById("transaction-overlay").style.display = "block";
 	document.getElementById("item-overlay").style.display = "none";
 	document.getElementById("management-overlay").style.display = "none";
+    document.getElementById("cash-payment-overlay").style.display = "none";
 }
 
 function on_item() {
 	document.getElementById("item-overlay").style.display = "block";
 	document.getElementById("transaction-overlay").style.display = "none";
 	document.getElementById("management-overlay").style.display = "none";
+    document.getElementById("cash-payment-overlay").style.display = "none";
 }
 
 function on_management() {
 	document.getElementById("management-overlay").style.display = "block";
 	document.getElementById("transaction-overlay").style.display = "none";
 	document.getElementById("item-overlay").style.display = "none";
+    document.getElementById("cash-payment-overlay").style.display = "none";
+}
+function on_cashpayment() {
+	document.getElementById("management-overlay").style.display = "none";
+	document.getElementById("transaction-overlay").style.display = "none";
+	document.getElementById("item-overlay").style.display = "none";
+    document.getElementById("cash-payment-overlay").style.display = "block";
     
 }
 
@@ -41,10 +50,18 @@ function off_management() {
 	document.getElementById("management-overlay").style.display = "none";
 }
 
+function off_cashpayment(){
+    document.getElementById("cash-payment-overlay").style.display = "none";
+}
+
 function addNumber(element) {
 	document.getElementById("code").value =
 		document.getElementById("code").value + element.value;
     
+}
+
+function enter(){
+   
 }
 
 function backSpace() {

@@ -230,6 +230,23 @@ require_once "../backend/dbcontroller.php";
                         <a href="header.php"><button class="button2" id="header">About</button></a>
                     </div>
                 </div>
+                
+            
+                
+               <div id="cash-payment-overlay" style="display:none" >
+                   <h2> Please Enter Amount given in cash or select a denomination</h2>
+                   <form>
+                   <input type="text" placeholder="Enter cash given" name="cash_given" />
+                   </form>
+                    <div class="functional-buttons">
+                        <button class="button2" id="5" value="5">$5</button>
+                        <button class="button2" id="10" value="10">$10</button><br />
+                        <button class="button2" id="20" value="20">$20</button>
+                        <button class="button2" id="50" value="50">$50</button><br />
+                    </div>
+                </div>
+                
+ 
 
                 <!------ This is the inventory form popup--->
                 <div class="inventoryform-popup" id="Inventoryform">
@@ -263,7 +280,8 @@ require_once "../backend/dbcontroller.php";
 		                die("Connection failed. Reason: ". mysqli_connect_error());
 	                }
                 
-	                $Code = $_POST["Code"];
+	                
+                    $Code = isset($_POST['Code']) ? $_POST['Code'] : '';
 
 	                $sql = "SELECT price FROM products_new WHERE Code ='". $Code ."'";
 
@@ -278,7 +296,6 @@ require_once "../backend/dbcontroller.php";
             ?>
                 <div class ="pricecheckform-popup" id = "PriceCheckform">
                     <form action="" method= "POST" class= "form-container">
-                    <form method = "post">
                         Code: <input type = "text" name = "Code"> <br>
                         Price: <br>
 	                    <input type = "submit" class = "btn" value = "Submit">
@@ -338,16 +355,21 @@ require_once "../backend/dbcontroller.php";
                     <li class="letter" name="0" value="0" id="0" onclick="addNumber(this)">0</li>
                     <li class="delete" onclick="backSpace()"> back </li>
 
-                    <li class="enter">ENTER</li>
+                    <li class="enter" id="enter">ENTER</li>
                 </ul>
 
             </div>
 
             <div class="checkout">
-                <button class="button3" id="cash-button">Cash</button>
+                <button class="button3" id="cash-button" onclick="on_cashpayment()">Cash</button>
                 <button class="button3" id="credit-button">Credit</button>
                 <button class="button3" id="debit-button">Debit</button>
             </div>
+                
+                <?php
+                print_r($_SESSION[cart_item]);
+                echo serialize($_SESSION[cart_item]);
+                ?>
 
         </div>
         <!--END OF RIGHT-SIDE DIV-->
