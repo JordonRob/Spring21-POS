@@ -99,12 +99,6 @@ require_once "../backend/dbcontroller.php";
                                         }
                                         ?>
 
-                                        <!--         <tr>
-                                        <td colspan="2" align="right">Total:</td>
-                                        <td align="right"><?php echo $total_quantity; ?></td>
-                                        <td align="right" colspan="2"><strong><?php echo "$ " . number_format($total_price, 2); ?></strong></td>
-                                        <td></td>
-                                    </tr> -->
                                     </tbody>
                                 </table>
                             <?php
@@ -122,7 +116,7 @@ require_once "../backend/dbcontroller.php";
                             $search = empty($_POST['code']) ? '' : $_POST["code"];
 
 
-                            $product_array = $db_handle->runQuery("SELECT * FROM products WHERE code= '$search'");
+                            $product_array = $db_handle->runQuery("SELECT * FROM products_new WHERE code= '$search'");
                             if (!empty($product_array)) {
                                 foreach ($product_array as $key => $value) {
                             ?>
@@ -271,7 +265,7 @@ require_once "../backend/dbcontroller.php";
                 
 	                $Code = $_POST["Code"];
 
-	                $sql = "SELECT price FROM products WHERE Code ='". $Code ."'";
+	                $sql = "SELECT price FROM products_new WHERE Code ='". $Code ."'";
 
 	                $results = mysqli_query($connection, $sql);
 
