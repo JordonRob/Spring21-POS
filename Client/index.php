@@ -40,7 +40,7 @@ require_once "../backend/dbcontroller.php";
         <!-- main container to hold all the elements of the SecurePOS-->
 
         <!-- this set of code belongs to the left side/static side of the POS-->
-        <div class="left-side">
+        <div class="left-side" id="left-side">
             <div class="static-container">
                 <!-- this container will contain mostly static elements on the applcation-->
                 <div class="function-buttons">
@@ -104,18 +104,14 @@ require_once "../backend/dbcontroller.php";
                             <?php
                             } else {
                             ?>
-                                <!--  <div class="no-records">Your Cart is Empty</div> -->
                             <?php
                             }
                             ?>
                         </div>
 
                         <div id="product-grid">
-                            <!--     <div class="txt-heading">Products</div> -->
                             <?php
                             $search = empty($_POST['code']) ? '' : $_POST["code"];
-
-
                             $product_array = $db_handle->runQuery("SELECT * FROM products_new WHERE code= '$search'");
                             if (!empty($product_array)) {
                                 foreach ($product_array as $key => $value) {
@@ -231,20 +227,79 @@ require_once "../backend/dbcontroller.php";
                     </div>
                 </div>
                 
-            
+   <!-- *********************************************************************************************************************************** -->         
                 
                <div id="cash-payment-overlay" style="display:none" >
                    <h2> Please Enter Amount given in cash or select a denomination</h2>
-                   <form>
-                   <input type="text" placeholder="Enter cash given" name="cash_given" />
+                   <form action="index.php" method="post">
+                   <input type="number" placeholder="Enter cash given" id="cash_given" step="any" name="cash_given" />
+                    <button>enter</button>
+                       
+                       
+                       <?php  
+                       
+                       $cashgiven = empty($_POST['cash_given']) ? '' : $_POST["cash_given"]; 
+                       $amt_due = ($final_total - $cashgiven);
+                       
+                       
+                       echo "Amount Due:".number_format($final_total, 2)."Paid: ". number_format($cashgiven, 2)."Amount due:". number_format($amt_due, 2); ;
+                       
+                    
+                       ?>
+                       
+                       
+                      
                    </form>
-                    <div class="functional-buttons">
-                        <button class="button2" id="5" value="5">$5</button>
-                        <button class="button2" id="10" value="10">$10</button><br />
-                        <button class="button2" id="20" value="20">$20</button>
-                        <button class="button2" id="50" value="50">$50</button><br />
-                    </div>
+                    
                 </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
  
 
