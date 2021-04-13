@@ -89,6 +89,16 @@ function Openinventory() {
     document.getElementsByClassName("functions").style.display = "none";
 }
 
+function OpenVendors() {
+	document.getElementById("Vendorsform").style.display = "block";
+}
+
+function CloseVendors() {
+	document.getElementById("Vendorsform").style.display = "none";
+}
+
+
+
 function disable(){
     
      $(document).on('click', ':button', function (e) {
