@@ -5,8 +5,8 @@ require_once '../backend/db_connection.php';
 include("upload_image.php");
 
 $servername = "localhost";
-$username = "username";
-$password = "";
+$username = "root";
+$password = "theultimate50";
 $db = "securepos";
 
 // Create connection

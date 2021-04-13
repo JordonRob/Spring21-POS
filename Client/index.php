@@ -40,7 +40,7 @@ require_once "../backend/dbcontroller.php";
         <!-- main container to hold all the elements of the SecurePOS-->
 
         <!-- this set of code belongs to the left side/static side of the POS-->
-        <div class="left-side">
+        <div class="left-side" id="left-side">
             <div class="static-container">
                 <!-- this container will contain mostly static elements on the applcation-->
                 <div class="function-buttons">
@@ -104,18 +104,14 @@ require_once "../backend/dbcontroller.php";
                             <?php
                             } else {
                             ?>
-                                <!--  <div class="no-records">Your Cart is Empty</div> -->
                             <?php
                             }
                             ?>
                         </div>
 
                         <div id="product-grid">
-                            <!--     <div class="txt-heading">Products</div> -->
                             <?php
                             $search = empty($_POST['code']) ? '' : $_POST["code"];
-
-
                             $product_array = $db_handle->runQuery("SELECT * FROM products_new WHERE code= '$search'");
                             if (!empty($product_array)) {
                                 foreach ($product_array as $key => $value) {
@@ -209,7 +205,7 @@ require_once "../backend/dbcontroller.php";
                         <button class="button2" id="return" onclick="return_overlay()">Returns</button><br />
                         <button class="button2" id="Open" onclick="open_register()">Open Register</button>
                         <!--This will not have an overlay screen-->
-                        <button class="button2" id="Micellaneous">Misc.</button>
+                        <button class="button2" id="Vendors" onclick="OpenVendors()">Vendors.</button>
                     </div>
 
                 </div>
@@ -230,6 +226,82 @@ require_once "../backend/dbcontroller.php";
                         <a href="header.php"><button class="button2" id="header">About</button></a>
                     </div>
                 </div>
+                
+   <!-- *********************************************************************************************************************************** -->         
+                
+               <div id="cash-payment-overlay" style="display:none" >
+                   <h2> Please Enter Amount given in cash or select a denomination</h2>
+                   <form action="index.php" method="post">
+                   <input type="number" placeholder="Enter cash given" id="cash_given" step="any" name="cash_given" />
+                    <button>enter</button>
+                       
+                       
+                       <?php  
+                       
+                       $cashgiven = empty($_POST['cash_given']) ? '' : $_POST["cash_given"]; 
+                       $amt_due = ($final_total - $cashgiven);
+                       
+                       
+                       echo "Amount Due:".number_format($final_total, 2)."Paid: ". number_format($cashgiven, 2)."Amount due:". number_format($amt_due, 2); ;
+                       
+                    
+                       ?>
+                       
+                       
+                      
+                   </form>
+                    
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+ 
 
                 <!------ This is the inventory form popup--->
                 <div class="inventoryform-popup" id="Inventoryform">
@@ -263,7 +335,8 @@ require_once "../backend/dbcontroller.php";
 		                die("Connection failed. Reason: ". mysqli_connect_error());
 	                }
                 
-	                $Code = $_POST["Code"];
+	                
+                    $Code = isset($_POST['Code']) ? $_POST['Code'] : '';
 
 	                $sql = "SELECT price FROM products_new WHERE Code ='". $Code ."'";
 
@@ -278,7 +351,6 @@ require_once "../backend/dbcontroller.php";
             ?>
                 <div class ="pricecheckform-popup" id = "PriceCheckform">
                     <form action="" method= "POST" class= "form-container">
-                    <form method = "post">
                         Code: <input type = "text" name = "Code"> <br>
                         Price: <br>
 	                    <input type = "submit" class = "btn" value = "Submit">
@@ -318,7 +390,52 @@ require_once "../backend/dbcontroller.php";
                 </form>
             </div>
 
-            <div class="keypad">
+		<!---- This is the vendors form--->
+		<div class="vendorsform-popup" id="Vendorsform">
+			<form action="Vendors.php" method="post" class="form-container">
+   			 <h1>Vendors</h1>
+    		<label><b>Company Name</b></label> <input type="text" placeholder="Enter Company Name" name="company" required />
+    			<br>
+    		<label><b>EIN</b></label>
+   		 <input type="text" placeholder="EIN" name="EIN" required>
+   			 <br>
+   		 <label><b>Street 1</b></label>
+    		<input type="text" placeholder="Street" name="Street1" required>
+    			<br>
+  		  <label><b>Street 2</b></label>
+   		 <input type="text" placeholder="Street" name="Street2">
+   			 <br>
+   		 <label><b>City</b></label>
+   		 <input type="text" placeholder="City" name="City" required>
+   			 <br>
+    		<label><b>State</b></label>
+    		<input type="text" placeholder="State" name="State" required>
+    			<br>
+    		<label><b>Zipcode</b></label>
+    		<input type="text" placeholder="Zipcode" name="Zip">
+   			 <br>
+    		<label><b>Phone</b></label>
+    		<input type="text" placeholder="Phone" name="Phone" required>
+   			 <br>
+   		 <label><b>Fax</b></label>
+    		<input type="text" placeholder="Fax" name="Fax" >
+   			 <br>
+   		 <label><b>Contact</b></label>
+   		 <input type="text" placeholder="Contact" name="Contact">
+   		 <br>
+    		<label><b>Email</b></label>
+   		 <input type="text" placeholder="Email" name="Email" required>
+   			 <br>
+   		 <label><b>Website</b></label>
+   		 <input type="text" placeholder="Website" name="Website">
+   			 <br>
+  		  <button type="submit" name="save" class="btn">Save</button>
+   		 <button type="submit" name="remove" class="btn">Remove</button>
+    		<button type="button" class="btn cancel" onclick="CloseVendors()">Close</button>
+	</form>
+	</div>      
+		
+		<div class="keypad">
                 <!-- The following code represents our number pad with button press functionality-->
                 <ul id="numpad">
                     <li class="letter" name="1" value="1" id="1" onclick="addNumber(this)">1</li>
@@ -338,16 +455,21 @@ require_once "../backend/dbcontroller.php";
                     <li class="letter" name="0" value="0" id="0" onclick="addNumber(this)">0</li>
                     <li class="delete" onclick="backSpace()"> back </li>
 
-                    <li class="enter">ENTER</li>
+                    <li class="enter" id="enter">ENTER</li>
                 </ul>
 
             </div>
 
             <div class="checkout">
-                <button class="button3" id="cash-button">Cash</button>
+                <button class="button3" id="cash-button" onclick="on_cashpayment()">Cash</button>
                 <button class="button3" id="credit-button">Credit</button>
                 <button class="button3" id="debit-button">Debit</button>
             </div>
+                
+                <?php
+                print_r($_SESSION[cart_item]);
+                echo serialize($_SESSION[cart_item]);
+                ?>
 
         </div>
         <!--END OF RIGHT-SIDE DIV-->
