@@ -248,6 +248,18 @@ a{
     border-color: rgb(6, 153, 148);
     border-radius: 1%; 
 }
+.vendorsform-popup {
+    display: none;
+    position: fixed;
+    bottom: 10%;
+    right: 69%;
+    z-index: 9;
+  
+    background-color: #e6f2ff;
+    border: solid;
+    border-color: rgb(6, 153, 148);
+    border-radius: 1%; 
+}
 
 .form-container {
     display: block;
