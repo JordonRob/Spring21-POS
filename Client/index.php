@@ -453,7 +453,7 @@ require_once "../backend/dbcontroller.php";
                     <li class="switch" name="." value="." id="." onclick="addNumber(this)">.</li>
                     <!--There is a bug with this button needs to be fixed-->
                     <li class="letter" name="0" value="0" id="0" onclick="addNumber(this)">0</li>
-                    <li class="delete" onclick="backSpace()"> back </li>
+                    <li class="delete" onclick="backSpace()">🠔</li>
 
                     <li class="enter" id="enter">ENTER</li>
                 </ul>
@@ -467,8 +467,8 @@ require_once "../backend/dbcontroller.php";
             </div>
                 
                 <?php
-                print_r($_SESSION[cart_item]);
-                echo serialize($_SESSION[cart_item]);
+                //print_r($_SESSION["cart_item"]);
+                //echo serialize($_SESSION["cart_item"]);
                 ?>
 
         </div>

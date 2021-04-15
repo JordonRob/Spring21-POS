@@ -22,7 +22,7 @@ private $conn;
     
     function runQuery($query) {
         $result = mysqli_query($this->conn,$query);
-        while($row=mysqli_fetch_assoc($result)){
+        while($row=@mysqli_fetch_assoc($result)){
             $resultset[] =$row;
         }
         if(!empty($resultset))
