@@ -16,7 +16,7 @@ CREATE TABLE `coupons` (
 --
 ALTER TABLE `coupons`
   ADD PRIMARY KEY (`COID`),
-  ADD FOREIGN KEY (`PID`) REFERENCES products(`PID`),
+  ADD FOREIGN KEY (`PID`) REFERENCES products_new(`PID`),
   ADD FOREIGN KEY (`VID`) REFERENCES vendors(`VID`);
 
 ALTER TABLE `coupons`

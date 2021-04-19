@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `products_new` (
-  `PID` int(6) NOT NULL,
+  `PID` int(11) NOT NULL,
   `name` text NOT NULL,
   `upc` int(12) NOT NULL,
   `VID` int(11) NOT NULL,
@@ -57,7 +57,7 @@ ALTER TABLE `products_new`
 -- AUTO_INCREMENT for table `products_new`
 --
 ALTER TABLE `products_new`
-  MODIFY `PID` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
