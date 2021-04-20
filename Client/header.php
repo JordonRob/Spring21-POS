@@ -6,7 +6,7 @@ include("upload_image.php");
 
 $servername = "localhost";
 $username = "root";
-$password = "theultimate50";
+$password = "";
 $db = "securepos";
 
 // Create connection
@@ -38,7 +38,7 @@ $address_Error = $manager_Error = $phone_Error = $tagline_Error = $image_Error =
 //Check request
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["address"]))) {
-        $address_Error = "Please enter a address #.";
+        $address_Error = "Please enter an address.";
     } else {
         $address = trim($_POST["address"]);
     }
@@ -111,20 +111,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input class="tagline" name="tagline" id="tagline" placeholder="Enter Tagline" />
                 <p class="help-block"><?php echo $tagline_Error; ?></p>
             </div>
+    
 
-      <!--  <div class= "image">
-            <form action="upload_image.php" method="POST" enctype="multipart/form-data">
-                <h3> Select Image File to Upload: </h3>
-                <input type="file" name="file">
-                <input type="submit" name="submit" value="Upload">
-            </form>
-        </div> -->
+
+        <div class= "image">
+            <form action="upload_image.php" method="post" enctype="multipart/form-data">
+                
+                <input type="file" name="image">
+             <input type="submit" name="upload" value="Upload Image">
+            </form>     
+        </div>
 
 
         <input type="submit" class="button1" value="Edit Information" />
-            <p class="help-block"> <?php echo $result ?> </p>
+           <p class="help-block"> <?php echo $result ?> </p>
         </form>
-            
+        
+        <a href="current_header.php"><input type = "submit" class = "button2" id="editbtn" value = "Back">
+        
 
         <form method = "POST" action = "index.php">
             <div class="center">

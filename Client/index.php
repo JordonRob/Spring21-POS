@@ -223,7 +223,7 @@ require_once "../backend/dbcontroller.php";
                         <button class="button2" id="void" onclick="Openvoid()">Void Transaction</button>
                         <a href="add_user.php"><button class="button2" id="add-user">Add User</button></a>
                         <button class="button2" id="z-report">Z-report</button>
-                        <a href="header.php"><button class="button2" id="header">About</button></a>
+                        <a href="current_header.php"><button class="button2" id="header">About</button></a>
                     </div>
                 </div>
                 

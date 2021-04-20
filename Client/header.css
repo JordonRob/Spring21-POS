@@ -1,17 +1,17 @@
 .header {
-    padding: 70px;
-    width: 80%;
-    display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    margin-right: 50px;
-    margin-left: 50px;
-  
-    text-align: center;
-    color:white;
-    background: #3a55de;
-    font-size: 20px;
-  }
+  padding: 20px;
+  width: 70%;
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 60px;
+  margin-left: 70px;
+
+  text-align: center;
+  color:white;
+  background: #3a55de;
+  font-size: 20px;
+}
 
 .center {
   margin: auto;
@@ -24,10 +24,10 @@ body {
   
 .header-form{
     background-color: navy;
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
     
-    margin: 7em auto;
+    margin: 10em auto;
   }
   
   .address {
@@ -94,19 +94,7 @@ body {
   }
 
   .image {
-    width: 70%;
-    color: white;
     
-    font-family:verdana; 
-    background: white;
-    padding: 25px 20px;
-    border: 5px;
-    box-sizing: border-box;
-    border: 4px solid;
-    text-align: left;
-      
-    margin-left: 90px;
-    margin-bottom: 5px;
   }
       
 .button1 {
@@ -119,8 +107,8 @@ body {
     text-align: center;
     display: inline-block;
     font-size: 115%;
-    margin-top: 160px;
-    margin-left: 200px;
+    margin-top: 100px;
+    margin-left: 100px;
   }
 
   .button2 {

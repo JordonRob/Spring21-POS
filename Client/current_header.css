@@ -1,0 +1,40 @@
+header{
+    padding: 15px;
+    text-align: center;
+    background: rgb(6, 16, 153);
+    color: white;
+    font-size: 30px;
+}
+
+table{
+  margin-left:auto; 
+  margin-right:auto;
+  margin-top: 30px;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: rgb(6, 16, 153);
+  color: white;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+.button {
+    background-color:#3a55de;
+    border: solid;
+    border-color: rgb(6, 16, 153);
+    border-radius: 12px;
+    color: white;
+    padding: 25px 55px;
+    text-align: center;
+    display: inline-block;
+    font-size: 115%;
+    margin-top: 160px;
+    margin-left: 300px;
+    
+  }
