@@ -46,7 +46,7 @@
         echo "</table>";
     }
     else {
-        echo "Nothing";
+        echo "";
     }
     $conn-> close();
     ?>
