@@ -205,7 +205,7 @@ require_once "../backend/dbcontroller.php";
                         <button class="button2" id="return" onclick="return_overlay()">Returns</button><br />
                         <button class="button2" id="Open" onclick="open_register()">Open Register</button>
                         <!--This will not have an overlay screen-->
-                        <button class="button2" id="Vendors" onclick="OpenVendors()">Vendors.</button>
+                       <a href="Vendors.php"><button class="button2" id="Vendors">Vendors</button>
                     </div>
 
                 </div>
@@ -389,51 +389,6 @@ require_once "../backend/dbcontroller.php";
                     <button type="button" class="btn cancel" onclick="Closevoid()">Close</button>
                 </form>
             </div>
-
-		<!---- This is the vendors form--->
-		<div class="vendorsform-popup" id="Vendorsform">
-			<form action="Vendors.php" method="post" class="form-container">
-   			 <h1>Vendors</h1>
-    		<label><b>Company Name</b></label> <input type="text" placeholder="Enter Company Name" name="company" required />
-    			<br>
-    		<label><b>EIN</b></label>
-   		 <input type="text" placeholder="EIN" name="EIN" required>
-   			 <br>
-   		 <label><b>Street 1</b></label>
-    		<input type="text" placeholder="Street" name="Street1" required>
-    			<br>
-  		  <label><b>Street 2</b></label>
-   		 <input type="text" placeholder="Street" name="Street2">
-   			 <br>
-   		 <label><b>City</b></label>
-   		 <input type="text" placeholder="City" name="City" required>
-   			 <br>
-    		<label><b>State</b></label>
-    		<input type="text" placeholder="State" name="State" required>
-    			<br>
-    		<label><b>Zipcode</b></label>
-    		<input type="text" placeholder="Zipcode" name="Zip">
-   			 <br>
-    		<label><b>Phone</b></label>
-    		<input type="text" placeholder="Phone" name="Phone" required>
-   			 <br>
-   		 <label><b>Fax</b></label>
-    		<input type="text" placeholder="Fax" name="Fax" >
-   			 <br>
-   		 <label><b>Contact</b></label>
-   		 <input type="text" placeholder="Contact" name="Contact">
-   		 <br>
-    		<label><b>Email</b></label>
-   		 <input type="text" placeholder="Email" name="Email" required>
-   			 <br>
-   		 <label><b>Website</b></label>
-   		 <input type="text" placeholder="Website" name="Website">
-   			 <br>
-  		  <button type="submit" name="save" class="btn">Save</button>
-   		 <button type="submit" name="remove" class="btn">Remove</button>
-    		<button type="button" class="btn cancel" onclick="CloseVendors()">Close</button>
-	</form>
-	</div>      
 		
 		<div class="keypad">
                 <!-- The following code represents our number pad with button press functionality-->
