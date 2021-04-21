@@ -205,7 +205,7 @@ require_once "../backend/dbcontroller.php";
                         <button class="button2" id="return" onclick="return_overlay()">Returns</button><br />
                         <button class="button2" id="Open" onclick="open_register()">Open Register</button>
                         <!--This will not have an overlay screen-->
-                       <a href="Vendors.php"><button class="button2" id="Vendors">Vendors</button>
+                       <a href="Vendors.php"><button class="button2" id="Vendors">Vendors</button></a>
                     </div>
 
                 </div>

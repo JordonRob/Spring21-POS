@@ -95,9 +95,8 @@ function OpenVendors() {
 
 function CloseVendors() {
 	document.getElementById("Vendorsform").style.display = "none";
+
 }
-
-
 
 function disable(){
     
@@ -109,8 +108,6 @@ function disable(){
         });
 
 }
-
-
 
 
 function OpenPriceCheck() {

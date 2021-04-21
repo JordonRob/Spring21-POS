@@ -97,7 +97,9 @@
             <button type="button" id="Close" class="btn_cancel" onclick="CloseVendors()">Close</button>
         </form>
         </div>
- 
+        <form method = "POST" action = "index.php">
+            <input type = "submit" class = "button" id="returnbtn" value = "Return Home">   
+        </form>
         
     </div>
 
