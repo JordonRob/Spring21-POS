@@ -23,12 +23,11 @@
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    flex-wrap: wrap;
-    display: flex;
+    display: inline-block;
     font-size: 200%;
     margin: 4px 2px;
     cursor: pointer;
-    
+    width: 8em;
     max-width: 8em;
     height: 8em;
 }
@@ -53,7 +52,7 @@
 
 .functional-buttons {
     display: inline-block;
-    display: flexbox;
+    display: flex;
     width: 100%;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -198,6 +197,7 @@ height: 85%;
     width: 99%;
 }
 a{
+    font-size: 20px;
     color: white;
 }
 
