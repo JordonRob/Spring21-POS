@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2021 at 05:04 AM
+-- Generation Time: Apr 22, 2021 at 04:00 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.14
 
@@ -51,7 +51,8 @@ CREATE TABLE `vendors` (
 -- Indexes for table `vendors`
 --
 ALTER TABLE `vendors`
-  ADD PRIMARY KEY (`VID`);
+  ADD PRIMARY KEY (`VID`),
+  ADD UNIQUE KEY `company` (`company`) USING HASH;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -61,9 +62,10 @@ ALTER TABLE `vendors`
 -- AUTO_INCREMENT for table `vendors`
 --
 ALTER TABLE `vendors`
-  MODIFY `VID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `VID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
