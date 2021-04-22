@@ -1,0 +1,115 @@
+.header {
+    padding: 3%;
+    width: 70%;
+    display: inline-block;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-right: 60px;
+    margin-left: 70px;
+  
+    text-align: center;
+    color:white;
+    background: #3a55de;
+    font-size: 35px;
+  }
+
+.center {
+  margin: auto;
+  width: 100%;
+}
+
+body {
+  font-family: sans-serif;
+}
+  table{
+    width:100%;
+    border: 10px solid black;
+  }
+  th{
+    width:100%;
+    border: 5px solid black;
+  }
+  td{
+    width:100%;
+    border: 5px solid black;
+  }
+  .wide{
+    width:50%;
+  }
+.new-vendor-container{
+    background-color: navy;
+    width: 100%;
+    height: 100%;
+    
+    margin: 7em auto;
+  }
+  
+  
+  
+      
+.Vendorsform {
+    background-color:#3a55de;
+    border: solid;
+    border-color: rgb(6, 16, 153);
+    border-radius: 12px;
+    color: white;
+    padding: 25px 55px;
+    text-align: center;
+    display: inline-block;
+    font-size: 130px;
+    margin-top: 15px;
+    margin-left: 210px;
+    right:30%
+  }
+.vendorsform-container {
+    display: block;
+    position:relative;
+    z-index: 9;
+    font-size: 30px;
+    width:20%;
+    left:80%;
+    background-color: white;
+    border: solid;
+}
+.vendorsform-container input[type="text"] {
+    width: 80%;
+    color:black;
+    font-size:30px;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.btn_cancel {
+  background-color:navy; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+}
+.btn {
+  background-color:navy; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+}
+.openButton{
+  background-color:navy; /* Green */
+  color:white;
+  border: none;
+padding:0.3em 1.2em;
+
+  text-decoration: none;
+  display: inline-block;
+  font-size: 36px;
+margin:0 0.3em 0.3em 0;
+}
+
