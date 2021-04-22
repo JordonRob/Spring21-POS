@@ -113,6 +113,7 @@ require_once "../backend/dbcontroller.php";
                             <?php
                             $search = empty($_POST['code']) ? '' : $_POST["code"];
                             $product_array = $db_handle->runQuery("SELECT * FROM products_new WHERE code= '$search'");
+                            $coupon_array = $db_handle->runQuery("SELECT * FROM coupons WHERE coupon_sku = '$search'");
                             if (!empty($product_array)) {
                                 foreach ($product_array as $key => $value) {
                             ?>
@@ -132,19 +133,18 @@ require_once "../backend/dbcontroller.php";
                             ?>
                             <!-- Coupon Search In Product Grid -->
                             <?php
-                                $coupon_array = $db_handle->runQuery("SELECT * FROM coupons WHERE coupon_sku = '$search'");
                                 if (!empty($coupon_array)) {
                                     foreach ($coupon_array as $key => $value) {
-                                        $coupon_amt = $coupon_array[$key]["price_deducted"];
+                                        $coupon_amt = $coupon_array[$key]["amount_deducted"];
                                         foreach ($_SESSION["cart_item"] as $item) {
-                                        $iArray = array(0=>array('name'=>$coupon_array[$key]["cname"], 'coupon_sku'=>$search, 'quantity'=>1, 'price_deducted'=>(0-$coupon_amt)));
+                                        $iArray = array(0=>array('name'=>$coupon_array[$key]["cname"], 'coupon_sku'=>$search, 'quantity'=>1, 'amount_deducted'=>(0-$coupon_amt)));
                                         $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$iArray);
                             ?>
                                 <div class="product-item" action = "index.php?action=add&code=<?php echo $product_array[$key]["coupon_sku"]; ?>">
                                     <form>
                                         <div class="product-tile-footer">
                                         <div class="product-title"><?php echo $coupon_array[$key]["cname"]; ?></div>
-                                        <div class="product-price"><?php echo "$" . $coupon_array[$key]["price_deducted"]; ?></div>
+                                        <div class="product-price"><?php echo "$" . $coupon_array[$key]["amount_deducted"]; ?></div>
                                         <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Apply Discount" class="btnAddAction" /></div>
                                         </div>
                                     </form>
