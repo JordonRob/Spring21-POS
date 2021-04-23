@@ -93,6 +93,7 @@
             <input type="text" placeholder="Website" name="Website">
             <br>
             <button type="submit" name="save" class="btn">Save</button>
+            <button type="submit" name="update" class="btn">Update</button>           
             <button type="submit" name="remove" class="btn">Remove</button>
             <button type="button" id="Close" class="btn_cancel" onclick="CloseVendors()">Close</button>
         </form>
@@ -148,7 +149,40 @@ if(isset($_POST['save'])){  //checks to see if the form was submitted
          mysqli_close($conn);
     }
 
+    
+    //for Updating Vendors
+if(isset($_POST['update'])){  //checks to see if the form was submitted
+//variables for each section of form
+    $Company = $_POST['company'];
+    $EIN = $_POST['EIN'];
+    $Street1 = $_POST['Street1'];
+     $Street2 = $_POST['Street2'];
+    $City = $_POST['City'];
+    $State = $_POST['State'];
+    $Zip = $_POST['Zip'];
+    $Phone = $_POST['Phone'];
+    $Fax = $_POST['Fax'];
+     $Contact = $_POST['Contact'];
+    $Email = $_POST['Email'];
+    $Website = $_POST['Website'];
 
+
+//insertion into database
+   
+       $query = "REPLACE INTO vendors(company, EIN, Street1, Street2, City, State, Zip, Phone, Fax, Contact, Email, Website) VALUES('$Company','$EIN', '$Street1','$Street2', '$City','$State', '$Zip','$Phone', '$Fax','$Contact', '$Email', '$Website')";
+   
+       
+  //checks to see if any errors
+    if ((mysqli_query($conn, $query))){
+            echo "New record created successfully !";
+         }
+    else {
+            echo "Error: " . $query . "
+    " . mysqli_error($conn);
+         }
+         mysqli_close($conn);
+    }
+    
     // REMOVE Function
 if(isset($_POST['remove'])){
 
