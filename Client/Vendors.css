@@ -82,7 +82,7 @@ body {
 }
 
 .btn_cancel {
-  background-color:navy; /* Green */
+  background-color:navy; 
   border: none;
   color: white;
   padding: 15px 32px;
@@ -92,7 +92,7 @@ body {
   font-size: 26px;
 }
 .btn {
-  background-color:navy; /* Green */
+  background-color:navy; 
   border: none;
   color: white;
   padding: 15px 32px;
@@ -102,7 +102,7 @@ body {
   font-size: 26px;
 }
 .openButton{
-  background-color:navy; /* Green */
+  background-color:navy; 
   color:white;
   border: none;
 padding:0.3em 1.2em;
