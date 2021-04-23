@@ -3,7 +3,7 @@
 class DBController{
 private $host="localhost";
 private $user= "root";
-private $password = "theultimate50";
+private $password = "";
 private $database = "securepos";
 private $conn;
     
@@ -79,4 +79,3 @@ private $conn;
     
     
     
-}
