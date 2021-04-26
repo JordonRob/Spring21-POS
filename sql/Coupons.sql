@@ -3,11 +3,9 @@
 --
 CREATE TABLE `coupons` (
     `COID` int(11) NOT NULL,
-    `PID` int(11) NOT NULL,
-    `VID` int(11) NOT NULL,
-    `cname` text NOT NULL,
+    `cname` varchar(255) NOT NULL,
     `coupon_sku` varchar(20) NOT NULL,
-    `amount_deducted` double NOT NULL,
+    `amount_deducted` double(10,2) NOT NULL,
     `date_created` DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -15,10 +13,8 @@ CREATE TABLE `coupons` (
 -- Indexes for table `coupons`
 --
 ALTER TABLE `coupons`
-  ADD PRIMARY KEY (`COID`),
-  ADD FOREIGN KEY (`PID`) REFERENCES products_new(`PID`),
-  ADD FOREIGN KEY (`VID`) REFERENCES vendors(`VID`);
+  ADD PRIMARY KEY (`COID`);
 
 ALTER TABLE `coupons`
-  MODIFY `COID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `COID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 COMMIT;

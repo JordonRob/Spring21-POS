@@ -205,7 +205,7 @@ require_once "../backend/dbcontroller.php";
                         <button class="button2" id="return" onclick="return_overlay()">Returns</button><br />
                         <button class="button2" id="Open" onclick="open_register()">Open Register</button>
                         <!--This will not have an overlay screen-->
-                       <a href="Vendors.php"><button class="button2" id="Vendors">Vendors</button></a>
+                       <a href="Vendors.php"><button class="button2" id="Vendors" style="font-size: 32px;">Vendors</button></a>
                     </div>
 
                 </div>
@@ -221,9 +221,9 @@ require_once "../backend/dbcontroller.php";
                 <div id="management-overlay" onclick="off_management()">
                     <div class="functional-buttons">
                         <button class="button2" id="void" onclick="Openvoid()">Void Transaction</button>
-                        <a href="add_user.php"><button class="button2" id="add-user">Add User</button></a>
+                        <a href="add_user.php"><button class="button2" id="add-user" style="font-size: 32px;">Add User</button></a>
                         <button class="button2" id="z-report">Z-report</button>
-                        <a href="current_header.php"><button class="button2" id="header">About</button></a>
+                        <a href="current_header.php"><button class="button2" id="header" style="font-size: 32px;">About</button></a>
                     </div>
                 </div>
                 
@@ -363,13 +363,13 @@ require_once "../backend/dbcontroller.php";
                 <div class="couponform-popup" id="Couponform">
                     <form action="/add_coup.php" method="POST" class="form-container">
                         <h1>Create Coupon</h1>
-                        <label for="Product"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="Name" required />
+                        <label for="cname"><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="cname" required />
                         <br>
-                        <label for="Code"><b>Code:</b></label>
-                        <input type="text" placeholder="Enter Coupon Code" name="Code" required>
+                        <label for="coupon_sku"><b>Code:</b></label>
+                        <input type="text" placeholder="Enter Coupon Code" name="coupon_sku" required>
                         <br>
-                        <label for="Price"><b>Discount Price:</b></label>
-                        <input type="text" placeholder="Enter Coupon Price" name="Price" required>
+                        <label for="amount_deducted"><b>Amount Deducted:</b></label>
+                        <input type="text" placeholder="Enter Coupon Price" name="amount_deducted" required>
                         <br>
                         <button type="submit" class="btn">Save</button>
                         <button type="button" class="btn cancel" onclick="Closecoupon()">Close</button>
