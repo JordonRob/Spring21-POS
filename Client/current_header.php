@@ -12,7 +12,7 @@
             <th> Manager </th>
             <th> Phone Number </th>
             <th> Tagline </th>
-            <th> Image </th>
+            <!--<th> Image </th>-->
             <?php
             $conn = mysqli_connect("localhost", "root", "", "securepos");
             if($conn -> connect_error){
@@ -23,7 +23,7 @@
 
             if($result -> num_rows > 0){
                 while($row = $result -> fetch_assoc()){
-                    echo "<tr><td>" . $row["address"] ."</td><td>" . $row["manager"] ."</td><td>" . $row["phone"] ."</td><td>" . $row["tagline"] ."</td><td>" . $row["image"] . "</td></tr>";
+                    echo "<tr><td>" . $row["address"] ."</td><td>" . $row["manager"] ."</td><td>" . $row["phone"] ."</td><td>" . $row["tagline"] ."</td><td>" . "</td></tr>";
                 }
                 echo "</table>";
             }

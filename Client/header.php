@@ -2,7 +2,7 @@
 
 require_once "../backend/user_functions.php";
 require_once '../backend/db_connection.php';
-include("upload_image.php");
+//include("upload_image.php");
 
 $servername = "localhost";
 $username = "root";
@@ -31,8 +31,8 @@ if ($conn->query($sql) === TRUE) {
 
 
 //Define empty variables
-$result = $address = $manager = $phone = $tagline = $image = "";
-$address_Error = $manager_Error = $phone_Error = $tagline_Error = $image_Error ="";
+$result = $address = $manager = $phone = $tagline = "";
+$address_Error = $manager_Error = $phone_Error = $tagline_Error = "";
 
 
 //Check request
@@ -57,13 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $tagline = trim($_POST["tagline"]);
     }
-    if (empty(trim($_POST["image"]))) {
-        $image_Error = "Please enter the logo.";
-    } else {
-        $image = trim($_POST["image"]);
-    } 
 
-    $sql = "INSERT INTO header (address, manager, phone, tagline, image) values ('$address','$manager','$phone','$tagline','$image')";
+
+    $sql = "INSERT INTO header (address, manager, phone, tagline, image) values ('$address','$manager','$phone','$tagline')";
 
     if ($conn->query($sql) == TRUE){
         echo "";
@@ -114,13 +110,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
 
-        <div class= "image">
+       <!-- <div class= "image">
             <form action="upload_image.php" method="post" enctype="multipart/form-data">
                 
                 <input type="file" name="image">
              <input type="submit" name="upload" value="Upload Image">
             </form>     
-        </div>
+        </div> --->
 
 
         <input type="submit" class="button1" value="Edit Information" />
