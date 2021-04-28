@@ -53,7 +53,7 @@
 </table>
 </div>
 <body>
-//vendors form
+<!--vendors form-->
      <div class="vendorsform-popup" id="Vendorsform">
         <form action="Vendors.php" method="post" class="vendorsform-container">
             <h1>Vendors</h1>
