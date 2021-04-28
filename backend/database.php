@@ -1,5 +1,5 @@
 
-//used for inventory table
+<!--used for inventory table>
 <?php
 $servername='localhost';
 $username='root';

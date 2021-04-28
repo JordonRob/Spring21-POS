@@ -60,53 +60,64 @@
             <label><b>Company Name</b></label> <input type="text" placeholder="Enter Company Name" name="company" required />
             <br>
             <label><b>EIN</b></label>
+            <br>
             <input type="text" placeholder="EIN" name="EIN" required>
             <br>
             <label><b>Street 1</b></label>
+            <br>
             <input type="text" placeholder="Street" name="Street1" required>
             <br>
             <label><b>Street 2</b></label>
+            <br>
             <input type="text" placeholder="Street" name="Street2">
             <br>
             <label><b>City</b></label>
+            <br>
             <input type="text" placeholder="City" name="City" required>
             <br>
             <label><b>State</b></label>
+            <br>
             <input type="text" placeholder="State" name="State" required>
             <br>
             <label><b>Zipcode</b></label>
+            <br>
             <input type="text" placeholder="Zipcode" name="Zip">
             <br>
             <label><b>Phone</b></label>
+            <br>
             <input type="text" placeholder="Phone" name="Phone" required>
             <br>
             <label><b>Fax</b></label>
+            <br>
             <input type="text" placeholder="Fax" name="Fax" >
             <br>
             <label><b>Contact</b></label>
+            <br>
             <input type="text" placeholder="Contact" name="Contact">
             <br>
             <label><b>Email</b></label>
+            <br>
             <input type="text" placeholder="Email" name="Email" required>
             <br>
             <label><b>Website</b></label>
+            <br>
             <input type="text" placeholder="Website" name="Website">
             <br>
-            <button type="submit" name="save" class="btn">Save</button>
-            <button type="submit" name="update" class="btn">Update</button>           
-            <button type="submit" name="remove" class="btn">Remove</button>
-            <button type="button" id="Close" class="btn_cancel" onclick="CloseVendors()">Close</button>
+            <button type="submit" name="save" class="btn" style = margin:5px>Save</button>
+            <button type="submit" name="update" class="btn" style = margin:5px>Update</button>  
+            <button type="submit" name="remove" class="btn" style = margin:5px>Remove</button>
+            <button type="button" id="Close" class="btn_cancel" onclick="CloseVendors()" style = margin:5px>Close</button>
         </form>
         </div>
-        <form method = "POST" action = "index.php">
-            <input type = "submit" class = "button" id="returnbtn" value = "Return Home">   
-        </form>
         
     </div>
 
 </body>
 <div>
 <button class="openButton" id="Open" onclick="OpenVendors()">Vendorsform</button>
+<form method = "POST" action = "index.php">
+            <input type = "submit" class = "btn" id="returnbtn" value = "Return Home">   
+</form>
 </div>
 </html>
 
