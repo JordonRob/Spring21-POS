@@ -17,24 +17,30 @@ require_once "../backend/dbcontroller.php";
 <body>
     <div class="overlay" id="return">
         <!--This is the overlay screen for returns-->
-        <h1>Returns OverLay Screen</h1>
-        <form action="" class="form-container">
-            <label for="Product"><b>Product Name:</b></label><input type="text" placeholder="Product Name" name="Product" required />
+               <h1>Returns OverLay Screen</h1>
+        <form action="returns.php" method="POST" class="form-container">
+          
+            <label for="PID">PID</b></label> 
+            <input type="text" placeholder="PID" name="PID" required>
             <br>
-            <label for="Manufacturer"><b>Manufacturer</b></label>
-            <input type="text" placeholder="Manufacturer" name="Manufacturer" required>
+            <label for="TID"><b>TID</b></label>
+            <input type="text" placeholder="TID" name="TID" required>
             <br>
-            <label for="Price"><b>Retail Price $</b></label>
-            <input type="text" placeholder="$9.99" name="Price" required>
+            <label for="timestamp"><b>Timestamp</b></label>
+            <input type="text" placeholder="0" name="timestamp" >
             <br>
-            <label for="Quantity"><b>Quantity:</b></label>
-            <input type="text" placeholder="0" name="Quantity" required>
+            <label for="EID"><b>EID</b></label>
+            <input type="text" placeholder="0" name="EID" required>
             <br>
-            <button type="submit" class="btn">Return</button>
+            <label for="reason"><b>Reason</b></label>
+            <input type="text" placeholder="" name="reason" >
+                <br>
+<button type="submit" name="Return" class="btn">Return</button>
             <button type="button" class="btn cancel" onclick="close_returns()">Close</button>
         </form>
     </div>
 
+    
 
     <div class="main-container" id="main-container">
         <!-- main container to hold all the elements of the SecurePOS-->
