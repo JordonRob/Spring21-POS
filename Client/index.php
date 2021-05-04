@@ -20,7 +20,7 @@ require_once "../backend/dbcontroller.php";
                <h1>Returns OverLay Screen</h1>
         <form action="returns.php" method="POST" class="form-container">
           
-            <label for="PID">PID</b></label> 
+            <label for="PID"><b>PID</b></label> 
             <input type="text" placeholder="PID" name="PID" required>
             <br>
             <label for="TID"><b>TID</b></label>
