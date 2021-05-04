@@ -262,64 +262,31 @@ require_once "../backend/dbcontroller.php";
                 
                 
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
- 
 
                 <!------ This is the inventory form popup--->
                 <div class="inventoryform-popup" id="Inventoryform">
                 <form action="inventory.php" method="post" class="form-container">
                     <h1>Add to Inventory</h1>
-                    <label><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="name" required />
+                    <label><b>Product Name:</b></label> <input type="text" placeholder="Enter Product Name" name="pname" required />
                     <br>
-                    <label><b>Retail Price $</b></label>
-                    <input type="text" placeholder="$0.00" name="price" required>
+                    <label><b>Sku:</b></label> <input type="text" placeholder="Enter Sku" name="sku" required />
+                    <br>
+                    <label><b>Vendor ID</b></label> <input type="text" placeholder="Enter Vendor ID" name="VID"  />
                     <br>
                     <label><b>Amount in Stock:</b></label>
                     <input type="text" placeholder="0" name="quantity" required>
+                    <br>
+                    <label><b>Wholesale Cost:$</b></label>
+                    <input type="text" placeholder="$0" name="ws_cost" required>
+                    <br>
+                    <label><b>Retail Price $</b></label>
+                    <input type="text" placeholder="$0.00" name="rt_cost" required>
+                    <br>
+                    <label><b>Taxable?</b></label>
+                    <input type="text" placeholder="0" name="is_taxable" required>
+                    <br>
+                    <label><b>Perishable</b></label>
+                    <input type="text" placeholder="" name="is_perishable" required>
                     <br>
                     <button type="submit" name="save" class="btn">Save</button>
                     <button type="submit" name="remove" class="btn">Remove</button>
