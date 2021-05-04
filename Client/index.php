@@ -348,7 +348,7 @@ require_once "../backend/dbcontroller.php";
 
 	                $results = mysqli_query($connection, $sql);
 
-	                if(mysqli_num_rows($results)>0) {
+	                if(@mysqli_num_rows($results)>0) {
 		                while($row = mysqli_fetch_array($results)) {
                             echo "<p id='pricecheck_message'> Price:  . $row[0] </p>"; 
                         }
