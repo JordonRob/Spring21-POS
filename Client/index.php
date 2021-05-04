@@ -53,7 +53,7 @@ require_once "../backend/dbcontroller.php";
 
                 <div class="item-description">
                     <!--This div is for the item description-->
-                    <form action="index.php" method="post" id="code1">
+                    <form action="index.php" method="post" id="code1" autocomplete="off">
                         <input type="search" id="code" name="code" style="background-color: rgb(253, 179, 152);" placeholder="Please enter Product Identification Code 'PIDC'">
 
                     </form>
@@ -163,13 +163,13 @@ require_once "../backend/dbcontroller.php";
                             <tr>
                                 <!-- This displays the Subtotal of the Transactions -->
                                 <td colspan="2" align="right">Subtotal:</td>
-                                <td align="right" colspan="2"><strong><?php echo "$ " . number_format($total_price, 2); ?></strong></td>
+                                <td align="right" colspan="2"><strong><?php echo "$ " . number_format(@$total_price, 2); ?></strong></td>
                                 <!-- This displays the tax of the Transactions -->
                                 <td colspan="2" align="right">Tax:</td>
-                                <td align="right"><?php echo "$" . number_format($tax, 2); ?></td>
+                                <td align="right"><?php echo "$" . number_format(@$tax, 2); ?></td>
                                 <!-- This displays the final total of the Transactions -->
                                 <td colspan="2" align="right">TOTAL:</td>
-                                <td align="right"><?php echo "$" . number_format($final_total, 2); ?></td>
+                                <td align="right"><?php echo "$" . number_format(@$final_total, 2); ?></td>
                                 <td><a id="btnEmpty" href="index.php?action=empty">Empty Cart</a></td>
 
 
@@ -213,7 +213,7 @@ require_once "../backend/dbcontroller.php";
                     <div class="functional-buttons">
                         <button class="button2" id="Priceheckform" onclick="OpenPriceCheck()">Price Check</button>
                         <button class="button2" id="add-inventory" onclick="Openinventory()">Add to Inventory</button><br />
-                        <button class="button2" id="receipt">Receipt</button>
+                        <button class="button2" id="expansion">       </button>
                         <button class="button2" id="add-coupons" onclick="Opencoupon()">Create Coupons</button><br />
                     </div>
                 </div>
@@ -327,7 +327,7 @@ require_once "../backend/dbcontroller.php";
                 if($_SERVER["REQUEST_METHOD"] == "POST")
                     {
 
-	                $connection = mysqli_connect("localhost", "root", "", "securepos");
+	                $connection = mysqli_connect("localhost", "root", "theultimate50", "securepos");
 	                if($connection){
 		                    echo "";
 	                }
@@ -344,7 +344,7 @@ require_once "../backend/dbcontroller.php";
 
 	                if(mysqli_num_rows($results)>0) {
 		                while($row = mysqli_fetch_array($results)) {
-                            echo "Price: " . $row[0]; 
+                            echo "<p id='pricecheck_message'> Price:  . $row[0] </p>"; 
                         }
                     }
                  }

@@ -282,24 +282,25 @@ a{
 }
 
 .keypad {
-    border-style: none;
-    border-color: navy;
+    border-style: solid;
+    border-color: red;
     height: 45%;
     width: 100%;
 }
 
 .checkout {
-    border-style: none;
+    border-style: solid;
     border-color: olivedrab;
     height: 9%;
     width: 100%;
+    padding: 2em:
 }
 
 #numpad {
     display: block;
     margin-right: none;
     margin-left: 5%;
-
+    border: solid:
     padding: 0;
     list-style: none;
     background-color: #1448a7;

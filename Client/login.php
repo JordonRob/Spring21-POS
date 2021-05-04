@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         SECUREPOS SYSTEM
     </div>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> 
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" autocomplete="off"> 
         <div class="form-group">
             <input class = "username" type="text" id = "username" name="username" placeholder = "ENTER ID" /> <!---Username input field--->
             <span class="help-block"><?php echo $username_error; ?></span>

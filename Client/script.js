@@ -141,3 +141,9 @@ function Closevoid() {
 
 var dt = new Date();
 document.getElementById("datetime").innerHTML = dt.toLocaleString();
+
+
+function hideMessage() {
+    document.getElementById("pricecheck_message").style.display = "none";
+};
+setTimeout(hideMessage, 2000);
