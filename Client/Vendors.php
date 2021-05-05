@@ -5,7 +5,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SecurePOS</title>
-    <link rel="stylesheet" href="Vendors.css">
+    <link rel="stylesheet" type="text/css" href="Vendors.css"/>
 <script src="script.js"></script>
 
 </head>
@@ -46,78 +46,64 @@
         echo "</table>";
     }
     else {
-        echo "";
+        echo " ";
     }
     $conn-> close();
     ?>
 </table>
 </div>
 <body>
-<!--vendors form-->
+
      <div class="vendorsform-popup" id="Vendorsform">
         <form action="Vendors.php" method="post" class="vendorsform-container">
             <h1>Vendors</h1>
             <label><b>Company Name</b></label> <input type="text" placeholder="Enter Company Name" name="company" required />
             <br>
             <label><b>EIN</b></label>
-            <br>
             <input type="text" placeholder="EIN" name="EIN" required>
             <br>
             <label><b>Street 1</b></label>
-            <br>
             <input type="text" placeholder="Street" name="Street1" required>
             <br>
             <label><b>Street 2</b></label>
-            <br>
             <input type="text" placeholder="Street" name="Street2">
             <br>
             <label><b>City</b></label>
-            <br>
             <input type="text" placeholder="City" name="City" required>
             <br>
             <label><b>State</b></label>
-            <br>
             <input type="text" placeholder="State" name="State" required>
             <br>
             <label><b>Zipcode</b></label>
-            <br>
             <input type="text" placeholder="Zipcode" name="Zip">
             <br>
             <label><b>Phone</b></label>
-            <br>
             <input type="text" placeholder="Phone" name="Phone" required>
             <br>
             <label><b>Fax</b></label>
-            <br>
             <input type="text" placeholder="Fax" name="Fax" >
             <br>
             <label><b>Contact</b></label>
-            <br>
             <input type="text" placeholder="Contact" name="Contact">
             <br>
             <label><b>Email</b></label>
-            <br>
             <input type="text" placeholder="Email" name="Email" required>
             <br>
             <label><b>Website</b></label>
-            <br>
             <input type="text" placeholder="Website" name="Website">
             <br>
-            <button type="submit" name="save" class="btn" style = margin:5px>Save</button>
-            <button type="submit" name="update" class="btn" style = margin:5px>Update</button>  
-            <button type="submit" name="remove" class="btn" style = margin:5px>Remove</button>
-            <button type="button" id="Close" class="btn_cancel" onclick="CloseVendors()" style = margin:5px>Close</button>
+            <button type="submit" name="save" class="btn">Save</button>
+<button type="submit" name="update" class="btn">Update</button>                <button type="submit" name="remove" class="btn">Remove</button>
+            <button type="button" id="Close" class="btn_cancel" onclick="CloseVendors()">Close</button>
         </form>
         </div>
+ 
         
     </div>
 
 </body>
 <div>
 <button class="openButton" id="Open" onclick="OpenVendors()">Vendorsform</button>
-<form method = "POST" action = "index.php">
-            <input type = "submit" class = "btn" id="returnbtn" value = "Return Home">   
-</form>
 </div>
 </html>
 
@@ -127,7 +113,7 @@ require_once "../backend/database.php";
     
     
     
-    
+    //for New Vendors
 if(isset($_POST['save'])){  //checks to see if the form was submitted
 //variables for each section of form
     $Company = $_POST['company'];
@@ -146,13 +132,14 @@ if(isset($_POST['save'])){  //checks to see if the form was submitted
 
 //insertion into database
    
-       $query = "REPLACE INTO vendors(company, EIN, Street1, Street2, City, State, Zip, Phone, Fax, Contact, Email, Website) VALUES('$Company','$EIN', '$Street1','$Street2', '$City','$State', '$Zip','$Phone', '$Fax','$Contact', '$Email', '$Website')";
+       $query = "INSERT INTO vendors(company, EIN, Street1, Street2, City, State, Zip, Phone, Fax, Contact, Email, Website) VALUES('$Company','$EIN', '$Street1','$Street2', '$City','$State', '$Zip','$Phone', '$Fax','$Contact', '$Email', '$Website')";
    
        
   //checks to see if any errors
     if ((mysqli_query($conn, $query))){
             echo "New record created successfully !";
-         }
+        ?><form method = "POST" action = "index.php"> <div class="center">
+        <input type = "submit" class = "button" id="btn" value = "Return Home"><?php             }
     else {
             echo "Error: " . $query . "
     " . mysqli_error($conn);
@@ -160,7 +147,6 @@ if(isset($_POST['save'])){  //checks to see if the form was submitted
          mysqli_close($conn);
     }
 
-    
     //for Updating Vendors
 if(isset($_POST['update'])){  //checks to see if the form was submitted
 //variables for each section of form
@@ -186,7 +172,8 @@ if(isset($_POST['update'])){  //checks to see if the form was submitted
   //checks to see if any errors
     if ((mysqli_query($conn, $query))){
             echo "New record created successfully !";
-         }
+        ?>  <form method = "POST" action = "index.php"> <div class="center">
+        <input type = "submit" class = "button" id="btn" value = "Return Home"><?php             }
     else {
             echo "Error: " . $query . "
     " . mysqli_error($conn);
@@ -215,7 +202,10 @@ $sql = "DELETE FROM vendors WHERE company='" . $_POST["company"] . "'";
 //checks to see if any errors
 if(mysqli_query($conn,$sql)) {
          echo "New record created successfully !";
-      } else {
+    ?> <form method = "POST" action = "index.php"> <div class="center">
+    <input type = "submit" class = "button" id="btn" value = "Return Home"><?php
+    
+} else {
          echo "Error: " . $sql . "
  " . mysqli_error($conn);
       }
