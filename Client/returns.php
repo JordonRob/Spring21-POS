@@ -20,7 +20,8 @@ if(isset($_POST['Return'])){  //checks to see if the form was submitted
   //checks to see if any errors
     if ((mysqli_query($conn, $query))){
             echo "New record created successfully !";
-         }
+        ?> <link rel="stylesheet" href="add_user.css"> <form method = "POST" action = "index.php"> <div class="center">
+        <input type = "submit" class = "button" id="returnbtn" value = "Return Home"><?php         }
     else {
             echo "Error: " . $query . "
     " . mysqli_error($conn);
