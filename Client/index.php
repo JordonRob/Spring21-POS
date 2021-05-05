@@ -296,10 +296,12 @@ require_once "../backend/dbcontroller.php";
 
                 <!------ This is the price check form popup --->
                 <?php
-                $Code = "";
+                //Back End for price check
+
+                $Code = ""; // set empty variable for code
                 if($_SERVER["REQUEST_METHOD"] == "POST")
                     {
-
+                    //check connection to database
 	                $connection = mysqli_connect("localhost", "root", "theultimate50", "securepos");
 	                if($connection){
 		                    echo "";
@@ -308,11 +310,13 @@ require_once "../backend/dbcontroller.php";
 		                die("Connection failed. Reason: ". mysqli_connect_error());
 	                }
                 
-	                
+	                //set code variable for user input
                     $Code = isset($_POST['Code']) ? $_POST['Code'] : '';
-
+                    
+                    //get price from the products table for the entered code
 	                $sql = "SELECT price FROM products_new WHERE Code ='". $Code ."'";
 
+                    //print the result
 	                $results = mysqli_query($connection, $sql);
 
 	                if(@mysqli_num_rows($results)>0) {
@@ -321,14 +325,15 @@ require_once "../backend/dbcontroller.php";
                         }
                     }
                  }
-            ?>
+            ?> 
+            <!-- Front End of price check -->
                 <div class ="pricecheckform-popup" id = "PriceCheckform">
                     <form action="" method= "POST" class= "form-container">
-                        Code: <input type = "text" name = "Code"> <br>
+                        Code: <input type = "text" name = "Code"> <br> <!-- Text box to enter the item identification code -->
                         Price: <br>
-	                    <input type = "submit" class = "btn" value = "Submit">
-                        <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button> 
-                        <input name="reset" type="reset" class="reset_button" />
+	                    <input type = "submit" class = "btn" value = "Submit"> <!-- Submit button -->
+                        <button type="button" class="btn cancel" onclick="Closepricecheck()">Close</button> <!-- Close price checker button -->
+                        <input name="reset" type="reset" class="reset_button" /> <!-- Reset/clear text field button -->
                     </form>
                 </div>
 
