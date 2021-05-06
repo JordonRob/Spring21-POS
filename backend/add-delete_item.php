@@ -29,15 +29,16 @@ if(!empty($_GET["action"])) {
 			header('Location: index.php');
 		break;
 		case "remove":
+			// Checks to see if the session isn't empty, if it is then it ignores
 			if(!empty($_SESSION["cart_item"])) {
-				foreach($_SESSION["cart_item"] as $k) {
-					if ($_GET["code"] == $k["code"]) {
-						$key = array_search($k, $_SESSION["cart_item"]);
-						unset($_SESSION["cart_item"][$key]);
+				foreach($_SESSION["cart_item"] as $k) { // We then loop through all items in the cart
+					if ($_GET["code"] == $k["code"]) { // We check the item's UPC code versus the one provided in the remote item button and if it exists continue
+						$key = array_search($k, $_SESSION["cart_item"]); // We get the key for the item found
+						unset($_SESSION["cart_item"][$key]); // We then remove the item
 					}
 				}
 			}
-			header('Location: index.php');
+			header('Location: index.php'); // set the URL back to our index
 		break;
 		case "empty":
 			unset($_SESSION["cart_item"]);
