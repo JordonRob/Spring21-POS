@@ -62,24 +62,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST" autocomplete="off">
             <div class="center">
-                <input class="username" id="firstname" name="firstname" placeholder="ENTER FIRSTNAME" />
+                <input class="username" id="firstname" name="firstname" placeholder="ENTER FIRSTNAME" /> <!-- Text box for first name input -->
                 <p class="help-block"><?php echo $firstname_error; ?></p>
             </div>
             <div class="center">
-                <input class="username" id="lastname" name="lastname" placeholder="ENTER LASTNAME" />
+                <input class="username" id="lastname" name="lastname" placeholder="ENTER LASTNAME" /> <!-- Text box for last name input -->
                 <p class="help-block"><?php echo $lastname_error; ?></p>
             </div>
             <div class="center">
-                <input autocomplete="new-password" class="password" name="password" type="password" id="password" placeholder="ENTER PASSWORD" />
+                <input autocomplete="new-password" class="password" name="password" type="password" id="password" placeholder="ENTER PASSWORD" /> <!-- Text box for password input -->
                 <p class="help-block"><?php echo $password_error; ?></p>
             </div>
-            <input type="submit" class="button" value="Add User" />
+            <input type="submit" class="button" value="Add User" /> <!-- Submit button -->
             <p class="help-block"><?php echo $result ?></p>
         </form>
 
         <form method = "POST" action = "index.php">
             <div class="center">
-                <input type = "submit" class = "button" id="returnbtn" value = "Return Home">
+                <input type = "submit" class = "button" id="returnbtn" value = "Return Home"> <!-- Return to main application button -->
             </div>
         </form>
         
