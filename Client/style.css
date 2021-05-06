@@ -261,7 +261,7 @@ a{
 }
 
 .form-container {
-    display: block;
+    display: inline-block;
     z-index: 9;
     
     background-color: white;
@@ -282,18 +282,19 @@ a{
 }
 
 .keypad {
-    border-style: solid;
+    border-style: none;
     border-color: red;
     height: 45%;
     width: 100%;
 }
 
 .checkout {
-    border-style: solid;
+    border-style: none;
     border-color: olivedrab;
     height: 9%;
     width: 100%;
-    padding: 2em:
+    margin-top: -10%;
+    
 }
 
 #numpad {
@@ -304,6 +305,7 @@ a{
     padding: 0;
     list-style: none;
     background-color: #1448a7;
+    z-index: 1;
 }
 
 #numpad li {

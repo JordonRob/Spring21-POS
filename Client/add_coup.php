@@ -1,7 +1,7 @@
 <?php
     $host = "localhost";
     $dbusername = "root";
-    $dbpassword = "";
+    $dbpassword = "theultimate50";
     $dbname = "securepos";
 
 

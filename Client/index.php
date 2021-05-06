@@ -226,9 +226,9 @@ require_once "../backend/dbcontroller.php";
                 <!--THESE ARE OVERLAYS, THAT WILL SHOW ADDITIONAL FUNCTION BUTTONS-->
                 <div id="management-overlay" onclick="off_management()">
                     <div class="functional-buttons">
-                        <button class="button2" id="void" onclick="Openvoid()">Void Transaction</button>
+                        <button class="button2" id="void" onclick="Openvoid()">       </button>
                         <a href="add_user.php"><button class="button2" id="add-user" style="font-size: 32px;">Add User</button></a>
-                        <button class="button2" id="z-report">Z-report</button>
+                        <button class="button2" id="z-report">End Day</button>
                         <a href="current_header.php"><button class="button2" id="header" style="font-size: 32px;">About</button></a>
                     </div>
                 </div>
@@ -339,7 +339,7 @@ require_once "../backend/dbcontroller.php";
 
                 <!------ This is the coupon form popup--->
                 <div class="couponform-popup" id="Couponform">
-                    <form action="/add_coup.php" method="POST" class="form-container">
+                    <form action="add_coup.php" method="POST" class="form-container">
                         <h1>Create Coupon</h1>
                         <label for="cname"><b>Product Name:</b></label> 
                         <br>

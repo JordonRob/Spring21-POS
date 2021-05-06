@@ -6,7 +6,7 @@ require_once '../backend/db_connection.php';
 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "theultimate50";
 $db = "securepos";
 
 // Create connection
@@ -106,20 +106,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input class="tagline" name="tagline" id="tagline" placeholder="Enter Tagline" /> <!-- Text box for company tagline input -->
                 <p class="help-block"><?php echo $tagline_Error; ?></p>
             </div>
+            </form>
     
         <input type="submit" class="button1" value="Edit Information" /> <!-- Edit/Add the inputted information in the database button -->
-           <p class="help-block"> <?php echo $result ?> </p>
-        </form>
+           
         
-        <a href="current_header.php"><input type = "submit" class = "button2" id="editbtn" value = "Back"> <!-- Returns back to the table of information page -->
+        <a href="current_header.php"><input type = "submit" class = "button2" id="editbtn" value = "Back"> </a><!-- Returns back to the table of information page -->
         
 
         <form method = "POST" action = "index.php">
-            <div class="center">
                 <input type = "submit" class = "button2" id="returnbtn" value = "Return Home"> <!-- Returns back to the main application page -->
-            </div>
         </form>
-        
+       
     </div>
 
 </body>
