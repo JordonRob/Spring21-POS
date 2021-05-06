@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // insert the inputted information into the database table
-    $sql = "INSERT INTO header (address, manager, phone, tagline, image) values ('$address','$manager','$phone','$tagline')";
+    $sql = "INSERT INTO header (address, manager, phone, tagline) VALUES ('$address','$manager','$phone','$tagline')";
 
     if ($conn->query($sql) == TRUE){
         echo "";
@@ -106,10 +106,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input class="tagline" name="tagline" id="tagline" placeholder="Enter Tagline" /> <!-- Text box for company tagline input -->
                 <p class="help-block"><?php echo $tagline_Error; ?></p>
             </div>
+            <input type="submit" class="button1" value="Edit Information" /> <!-- Edit/Add the inputted information in the database button -->
+            <p class="help-block"><?php echo $result ?></p>
             </form>
     
-        <input type="submit" class="button1" value="Edit Information" /> <!-- Edit/Add the inputted information in the database button -->
-           
+        
         
         <a href="current_header.php"><input type = "submit" class = "button2" id="editbtn" value = "Back"> </a><!-- Returns back to the table of information page -->
         
