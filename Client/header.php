@@ -6,7 +6,7 @@ require_once '../backend/db_connection.php';
 
 $servername = "localhost";
 $username = "root";
-$password = "theultimate50";
+$password = "";
 $db = "securepos";
 
 // Create connection

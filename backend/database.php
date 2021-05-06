@@ -3,7 +3,7 @@
 <?php
 $servername='localhost';
 $username='root';
-$password='theultimate50';
+$password='';
 $dbname = "securepos";
 $conn=mysqli_connect($servername,$username,$password,"$dbname");
 if(!$conn){

@@ -15,7 +15,7 @@
             <th> Tagline </th>
             <?php
             // check connection to database
-            $conn = mysqli_connect("localhost", "root", "theultimate50", "securepos");
+            $conn = mysqli_connect("localhost", "root", "", "securepos");
             if($conn -> connect_error){
                 die("Connection Failed: ". $conn -> connect_error);
             }

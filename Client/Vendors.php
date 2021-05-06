@@ -35,7 +35,7 @@
 </tr>
 <?php
     //Vendors table
-    $conn = mysqli_connect("localhost", "root","theultimate50","securepos");
+    $conn = mysqli_connect("localhost", "root","","securepos");
     
     $sql= "SELECT VID, company, EIN,street1,street2,city,state,zip,phone,fax,contact,email,website from vendors";
     $result = $conn-> query($sql);

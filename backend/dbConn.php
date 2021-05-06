@@ -1,6 +1,6 @@
 <?php
 
-$db = mysqli_connect("localhost","root","theultimate50","securepos");
+$db = mysqli_connect("localhost","root","","securepos");
 
 if(!$db)
 {

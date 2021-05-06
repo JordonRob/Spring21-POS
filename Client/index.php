@@ -302,7 +302,7 @@ require_once "../backend/dbcontroller.php";
                 if($_SERVER["REQUEST_METHOD"] == "POST")
                     {
                     //check connection to database
-	                $connection = mysqli_connect("localhost", "root", "theultimate50", "securepos");
+	                $connection = mysqli_connect("localhost", "root", "", "securepos");
 	                if($connection){
 		                    echo "";
 	                }
